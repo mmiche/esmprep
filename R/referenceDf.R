@@ -1,0 +1,36 @@
+#' Dataset with relevant information on participants in an ESM study.
+#'
+#' @description  The reference dataset contains the most relevant information on participants in an
+#' ESM study. The word 'relevant' refers to data that is needed to correctly assign
+#' ESM questionnaires in a raw ESM dataset to the participant who filled them out.
+#'
+#' @format A data frame with 8 rows and 10 variables
+#'
+#' @details
+#' \itemize{
+#'   \item id. The participant's unique code number.
+#'   \item imei. The IMEI number of the mobile device that was used by the participant.
+#'   \item start_date. The date of when the ESM study period started for the participant.
+#'   \item start_time. The time of when the participant was scheduled to fill out the first ESM questionnaire on his/her own.
+#'   \item st1. Time of first prompt on each day during the ESM study period.
+#'   \item st2. Time of second prompt on each day during the ESM study period.
+#'   \item st3. Time of third prompt on each day during the ESM study period.
+#'   \item st4. Time of fourth prompt on each day during the ESM study period.
+#'   \item end_date. The date of when the ESM study period ended for the participant.
+#'   \item end_time. The time of when the participant was scheduled to fill out the last ESM questionnaire on his/her own.
+#' }
+#' \strong{Note}: It is very important that the scheduled times of the daily prompts (here: st1-st4) strictly follow one another in time, i.e. prompt no.2 should be subsequent to prompt no.1 in time and prompt no.2 should be prior in time to all prompts following it (here: st3 and st4).
+#'
+#' @docType data
+# @keywords datasets
+# @name referenceDf
+#
+#' @usage referenceDf
+#' @examples
+#' # Convert the 15 digit IMEI number from scientfic notation to text.
+#' referenceDf$imei <- as.character(referenceDf$imei)
+#' # Display the whole dataset in the console
+#' referenceDf
+#
+# @source R package esmprep.
+"referenceDf"

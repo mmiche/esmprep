@@ -1,0 +1,4057 @@
+paf24
+# Formula 2.3 (Laaksonen (2010)):#
+prevExp <- CD/obsAll#
+paf23 <- (prevExp*(rr-1))/(1+prevExp*(rr-1))#
+#
+# Formula 2.4 (Laaksonen (2010)):#
+prev1 <- D/CD#
+paf24 <- prev1*af
+paf23
+paf24
+CD
+tbl
+# Formula 2.3 (Laaksonen (2010)):#
+prevExp <- CD/obsAll#
+paf23 <- (prevExp*(rr-1))/(1+prevExp*(rr-1))#
+#
+# Formula 2.4 (Laaksonen (2010)):#
+prev1 <- D/BD#
+paf24 <- prev1*af
+paf23
+paf24
+20/75
+.267*(1.79-1)/1.79
+# Two dimensional matrix#
+M <- matrix(seq(1,16), 4, 4)#
+#
+# apply min to rows#
+apply(M, 1, min)#
+#
+# apply max to columns#
+apply(M, 2, max)#
+#
+# 3 dimensional array#
+M <- array( seq(32), dim = c(4,4,2))#
+#
+# Apply sum across each M[*, , ] - i.e Sum across 2nd and 3rd dimension#
+apply(M, 1, sum)#
+# Result is one-dimensional#
+#
+# Apply sum across each M[*, *, ] - i.e Sum across 3rd dimension#
+apply(M, c(1,2), sum)#
+# Result is two-dimensional
+x <- list(a = 1, b = 1:3, c = 10:100) #
+lapply(x, FUN = length)#
+lapply(x, FUN = sum)
+sapply(1:5,function(x) rnorm(3,x))
+Map(sum, 1:5, 1:5, 1:5)
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+##
+i <- 1
+con <- file(paste0(path, "EMA functionsTest", i, ".R"), open="r", blocking=FALSE)#
+	linesRead <- readLines(con)#
+	close(con)
+cat(linesRead, sep"\n")
+cat(linesRead, sep="\n")
+cat(linesRead, file=paste0(path, "EMA functionsTestSave1_6Test.R"), sep="\n", append=TRUE)
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+##
+i <- 1
+for(i in 0:6) {#
+	con <- file(paste0(path, "EMA functionsTest", i, ".R"), open="r", blocking=FALSE)#
+	linesRead <- readLines(con)#
+	close(con)#
+	# # Test cat function:#
+	# cat(linesRead, sep="\n")#
+	if(i == 0) {#
+		cat(linesRead, file=paste0(path, "EMA functionsTestSave1_6Test.R"), sep="\n", append=FALSE)#
+	} else {#
+		cat(linesRead, file=paste0(path, "EMA functionsTestSave1_6Test.R"), sep="\n", append=TRUE)#
+	}#
+}
+install.packages("tablulizer", dependencies=TRUE)
+.libPaths
+.libPaths()
+6265+809
+6868+205
+4161+85
+4631+39
+tbl <- matrix(data=c(3295, 14, 447, 4), nrow=2, byrow=TRUE)
+tbl
+A <- tbl[1,1]; B <- tbl[1,2]; C <- tbl[2,1]; D <- tbl[2,2]#
+# AB = tbl[1,3]; CD = tbl[2,3]; AC = tbl[3,1]; BD = tbl[3,2]; obsAll = tbl[3,3]#
+AB <- A+B; CD = C+D; AC = A+C; BD = B+D; obsAll = sum(A, B, C, D)
+(basisRate <- BD/obsAll * 100)#
+(rr <- (D/CD) / (B/AB))#
+(rrAlt <- pTbl[2,2]/pTbl[1,2])
+ptbl <- prop.table(tbl)
+ptbl
+tbl <- matrix(data=c(3295, 14, 447, 4), nrow=2, byrow=TRUE)#
+pTbl <- prop.table(tbl)#
+#
+A <- tbl[1,1]; B <- tbl[1,2]; C <- tbl[2,1]; D <- tbl[2,2]#
+# AB = tbl[1,3]; CD = tbl[2,3]; AC = tbl[3,1]; BD = tbl[3,2]; obsAll = tbl[3,3]#
+AB <- A+B; CD = C+D; AC = A+C; BD = B+D; obsAll = sum(A, B, C, D)#
+#
+(basisRate <- BD/obsAll * 100)#
+(rr <- (D/CD) / (B/AB))#
+(rrAlt <- pTbl[2,2]/pTbl[1,2])
+(or <- (A/B)/(C/D))#
+# Alt: Alternative#
+(orAlt <- (A*D)/(B*C))#
+pTblOR <- prop.table(tbl[,1:2], margin=1)#
+# odds = Wahrscheinlichkeit Ereignis tritt ein vs. Gegenwahrscheinlichkeit#
+odds1 <- pTbl[1,2]/pTbl[1,1]#
+odds2 <- pTbl[2,2]/pTbl[2,1]#
+odds2/odds1
+tbl
+tbl <- matrix(data=c(3295, 14, 447, 4), nrow=2, byrow=TRUE)
+pTbl <- addmargins(prop.table(tbl, margin = 2))
+pTbl
+pTbl <- addmargins(prop.table(tbl, margin = 1))
+pTbl
+(rr <- (D/CD) / (B/AB))#
+# Alt: Alternative#
+(rrAlt <- pTbl[2,2]/pTbl[1,2])
+tbl <- matrix(data=c(3295, 14, 447, 4), nrow=2, byrow=TRUE)#
+pTbl <- addmargins(prop.table(tbl, margin = 1))#
+#
+A <- tbl[1,1]; B <- tbl[1,2]; C <- tbl[2,1]; D <- tbl[2,2]#
+# AB = tbl[1,3]; CD = tbl[2,3]; AC = tbl[3,1]; BD = tbl[3,2]; obsAll = tbl[3,3]#
+AB <- A+B; CD = C+D; AC = A+C; BD = B+D; obsAll = sum(A, B, C, D)#
+#
+(basisRate <- BD/obsAll * 100)#
+(rr <- (D/CD) / (B/AB))#
+# Alt: Alternative#
+(rrAlt <- pTbl[2,2]/pTbl[1,2])#
+#
+(or <- (A/B)/(C/D))#
+# Alt: Alternative#
+(orAlt <- (A*D)/(B*C))#
+pTblOR <- prop.table(tbl[,1:2], margin=1)#
+# odds = Wahrscheinlichkeit Ereignis tritt ein vs. Gegenwahrscheinlichkeit#
+odds1 <- pTbl[1,2]/pTbl[1,1]#
+odds2 <- pTbl[2,2]/pTbl[2,1]#
+odds2/odds1
+pTbl <- addmargins(prop.table(tbl, margin = 1), margin=2)
+pTbl
+pTbl <- round(addmargins(prop.table(tbl, margin = 1)*100, margin=2), digits = 2)
+pTbl
+pTbl <- addmargins(prop.table(tbl, margin = 1)*100, margin=2)#
+round(pTbl, digits = 2)
+.libPaths()
+library(stargazer)
+stargazer(as.data.frame.matrix(tbl), rownames=TRUE, summary=FALSE, title = "", notes="dx=mental disorder, suiatt=suicide attempt")
+stargazer(as.data.frame.matrix(pTbl), rownames=TRUE, summary=FALSE, title = "", notes="dx=mental disorder, suiatt=suicide attempt")
+c(A, B, C, D)
+(or <- (A/B)/(C/D))
+odds1 <- pTbl[1,2]/pTbl[1,1]#
+odds2 <- pTbl[2,2]/pTbl[2,1]
+odds2/odds1
+odds1
+odds2
+pTbl
+(rr <- (D/CD) / (B/AB))#
+# Alt: Alternative#
+(rrAlt <- pTbl[2,2]/pTbl[1,2])
+c(A, B, C, D)
+c(D, C+D, B, A+B)
+(rr <- (D/CD) / (B/AB))
+(rrAlt <- pTbl[2,2]/pTbl[1,2])
+.887/.423
+library(openxlsx)
+library(lubridate)#
+# library(stringr)#
+#
+# # Extract all functions from lubridate (even the private ones)#
+# lubridateFunNames0 <- ls(getNamespace("lubridate"), all.names=FALSE)#
+# lubridateFunNames <- lubridateFunNames0[c(4, 15:19, 21, 35, 78, 80, 81, 87, 90, 101, 107:109, 113, 114, 135, 146, 147, 164, 165, 192:195, 199, 207, 242, 271, 285, 286, 294, 295)]#
+#
+# Only exported functions#
+lubridateFunNames0 <- getNamespaceExports("lubridate")#
+#
+idxOut <- grep("._", lubridateFunNames0, fixed=TRUE)#
+#
+lubridateFunNames0.1 <- lubridateFunNames0[-idxOut]
+lubridateFunNames0.1
+cbind(lubridateFunNames0.1)
+lubridateFunNames0.1 == "wday"
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathSingleScripts <- paste0(path, "singleScripts/")#
+namesOfScripts0 <- list.files(path=pathSingleScripts, pattern = "\\.R$")#
+#
+pathProjectScripts <- "/Users/mmiche/Desktop/EMA RomanticCouples/esprep/R/"#
+namesOfScripts1 <- list.files(path=pathProjectScripts, pattern = "\\.R$")#
+dfNames <- data.frame(names0=c(namesOfScripts0[1:34], NA, namesOfScripts0[35:51]),#
+					  names1=namesOfScripts1,#
+					  check=c(namesOfScripts0[1:34], NA, namesOfScripts0[35:51])==#
+					  namesOfScripts1)#
+#
+exportedFun <- namesOfScripts0[c(4:7, 9, 10, 13, 14, 17:21, 23, 25, 27, 29, 31, 33, 35, 36, 40:45, 47:49, 51)]
+dfNames <- data.frame(names0=namesOfScripts0,#
+					  names1=namesOfScripts1,#
+					  check=namesOfScripts0 == namesOfScripts1)
+exportedFun <- namesOfScripts0[c(4:7, 9, 10, 13, 14, 17:21, 23, 25, 27, 29, 31, 33, 35, 36, 40:45, 47:49, 51)]
+exportedFun
+is.integer0 <- function(x)#
+{#
+  is.integer(x) && length(x) == 0L#
+}
+searchWords2 <- function(word, path, r_scripts, ignoreCase) {#
+#
+	madeList <- list()#
+	for(i in 1 : length(r_scripts)) {#
+		script_i <- readLines(paste0(path, r_scripts[i]), warn = FALSE)#
+		vecTemp <- c()#
+		for(j in 1 : length(script_i)) {#
+#
+			if(!is.integer0(grep(word, script_i[j], ignore.case = ignoreCase)) ) {#
+				vecTemp <- c(vecTemp, j)#
+			}#
+		}#
+		madeList[[r_scripts[i]]][[word]] <- vecTemp#
+	}#
+	madeList#
+}
+test <- searchWords2("wday", pathSingleScripts, rscripts_select, FALSE)
+# ------------------------------------------------------------------------------#
+# Display overall available r-scripts:#
+# ------------------------------------#
+(rScripts_dir <- list.files(path = pathSingleScripts, pattern = "\\.R$"))#
+#
+# Select from the overall available r-scripts:#
+# -------------------------------------------#
+rscripts_select <- rScripts_dir
+test <- searchWords2("wday", pathSingleScripts, rscripts_select, FALSE)
+test
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathSingleScripts <- paste0(path, "singleScripts/")#
+namesOfScripts0 <- list.files(path=pathSingleScripts, pattern = "\\.R$")#
+#
+pathProjectScripts <- "/Users/mmiche/Desktop/EMA RomanticCouples/esprep/R/"#
+namesOfScripts1 <- list.files(path=pathProjectScripts, pattern = "\\.R$")#
+dfNames <- data.frame(names0=namesOfScripts0,#
+					  names1=namesOfScripts1,#
+					  check=namesOfScripts0 == namesOfScripts1)
+dfNames
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathSingleScripts <- paste0(path, "singleScripts/")#
+namesOfScripts0 <- list.files(path=pathSingleScripts, pattern = "\\.R$")#
+#
+pathProjectScripts <- "/Users/mmiche/Desktop/EMA RomanticCouples/esmprep/R/"#
+namesOfScripts1 <- list.files(path=pathProjectScripts, pattern = "\\.R$")#
+dfNames <- data.frame(names0=namesOfScripts0,#
+					  names1=namesOfScripts1,#
+					  check=namesOfScripts0 == namesOfScripts1)
+exportedFun <- namesOfScripts0[c(4:7, 9, 10, 13, 14, 17:21, 23, 25, 27, 29, 31, 33, 35, 36, 40:45, 47:49, 51)]
+export <- rep(0, times = 51)#
+export[exportedFun] <- 1#
+dfNames$export <- export
+dfNames
+dfNames <- data.frame(names0=namesOfScripts0,#
+					  names1=namesOfScripts1,#
+					  check=namesOfScripts0 == namesOfScripts1)#
+#
+exportedFun <- namesOfScripts0[c(4:7, 9, 10, 13, 14, 17:21, 23, 25, 27, 29, 31, 33, 35, 36, 40:45, 47:49, 51)]#
+# use variable 'exportedFun' in function 'genExport' in script 'relevantLibraries' in directory 'esprep'#
+export <- rep(0, times = 51)#
+export[exportedFun] <- 1#
+dfNames$export <- export
+export
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathSingleScripts <- paste0(path, "singleScripts/")#
+namesOfScripts0 <- list.files(path=pathSingleScripts, pattern = "\\.R$")#
+#
+pathProjectScripts <- "/Users/mmiche/Desktop/EMA RomanticCouples/esmprep/R/"#
+namesOfScripts1 <- list.files(path=pathProjectScripts, pattern = "\\.R$")#
+dfNames <- data.frame(names0=namesOfScripts0,#
+					  names1=namesOfScripts1,#
+					  check=namesOfScripts0 == namesOfScripts1)#
+#
+idxExport <- c(4:7, 9, 10, 13, 14, 17:21, 23, 25, 27, 29, 31, 33, 35, 36, 40:45, 47:49, 51)#
+exportedFun <- namesOfScripts0[idxExport]#
+# use variable 'exportedFun' in function 'genExport' in script 'relevantLibraries' in directory 'esprep'#
+export <- rep(0, times = 51)#
+export[idxExport] <- 1#
+dfNames$export <- export
+dfNames
+dfNames[,c(4,1)]
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+library(esmprep)
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relInfo <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+(relInfoTest <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+setES(4, imeiNumbers, surveyNames, relInfoTest)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# ES_MAX#
+# IMEI_NUMBERS#
+# SVYNAMES#
+#
+# SVY_NAME#
+# ES_IMEI#
+# ES_START_DATE#
+# ES_START_TIME#
+# ES_END_DATE#
+# ES_END_TIME#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES
+testRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)
+setREF(4,testRef)
+(referenceDf <- read.csv(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+is.data.frame(referenceDf)
+referenceDfNew <- genDateTime(referenceDf, "REF")
+names(referenceDfNew)
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# ------------------------------------------------------------------------------------#
+# CG = control group -----------------------------------------------------------------#
+# ------------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)
+# ------------------------------------------------------------------------------------#
+# TG = test group --------------------------------------------------------------------#
+# ------------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)
+dfListNew <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(dfListNew)
+keyTest <- genKey(dfListNew)
+names(keyTest)
+keyTestNew <- genDateTime(keyTest, "ES")
+testRemoveInvalid <- rmInvalidDf(keyTestNew)
+printRmInvalid(testRemoveInvalid)
+tblRemovedDf <- addmargins(as.table(sapply(testRemoveInvalid[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(dfListNew, FUN = nrow)))#
+#
+data.frame(versions=c(names(dfListNew), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))
+plausibItems <- esItems(dfList=testRemoveInvalid[["dfValid"]])
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+plausibTest <- esPlausible(dfList=testRemoveInvalid[["dfValid"]], itemVecList=plausibItems)
+plausibTest[["plausibNames"]]
+plausibTest[["plausibClass"]]
+plausibTest[["plausibRowNa"]]
+plausibTest[["plausibMinMax"]]
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibTest[["plausibClass"]]$classCheck==FALSE#
+plausibTest[["plausibClass"]][inconsistent,]#
+plausibTest[["plausibRowNa"]][inconsistent,]#
+plausibTest[["plausibMinMax"]][inconsistent,]
+# Change variable names of V1 in dataset 1 to V1_3#
+names(testRemoveInvalid[["dfValid"]][[1]])#
+colnames(testRemoveInvalid[["dfValid"]][[1]])[2] <- "V1_3"#
+names(testRemoveInvalid[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(testRemoveInvalid[["dfValid"]][[4]])#
+colnames(testRemoveInvalid[["dfValid"]][[4]])[2] <- "V1_3"#
+names(testRemoveInvalid[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(testRemoveInvalid[["dfValid"]][[2]])#
+colnames(testRemoveInvalid[["dfValid"]][[2]])[16] <- "V4_6"#
+names(testRemoveInvalid[["dfValid"]][[2]])#
+plausibItems <- esItems(dfList=testRemoveInvalid[["dfValid"]])#
+plausibTest <- esPlausible(dfList=testRemoveInvalid[["dfValid"]], itemVecList=plausibItems)
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibTest[["plausibClass"]]$classCheck==FALSE#
+plausibTest[["plausibClass"]][inconsistent,]#
+plausibTest[["plausibRowNa"]][inconsistent,]#
+plausibTest[["plausibMinMax"]][inconsistent,]
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+testComplete <- esComplete(testRemoveInvalid[["dfValid"]], lastItemList)
+# Check:#
+length(testComplete)#
+names(testComplete)#
+for(i in 1:length(testComplete)) {#
+	print(names(testComplete[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}
+testComplete[[1]][,c("survey_name", "end_date", "V_10", "V_10_1", "INCOMPLETE_1", "KEY")]
+testComplete[[1]][,c("survey_name", "end_date", "V_6", "V_6_1", "INCOMPLETE_1", "KEY")]
+testComplete[[1]][,c("survey_name", "end_date", "V6", "V6_1", "INCOMPLETE_1", "KEY")]
+testComplete[[2]][,c("survey_name", "end_date", "V7", "INCOMPLETE_1", "KEY")]
+testCsv0 <- esMerge(testComplete)
+testCsv0[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(testCsv0[,RELEVANTVN_ES[["ES_IMEI"]]])#
+dim(testCsv0)#
+# str(testCsv0)#
+names(testCsv0)#
+testCsv0$KEY <- as.character(testCsv0$KEY)
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(testCsv0))#
+idxIrrelevantCols0 <- match(names(testCsv0)[-idxRelevantCols], names(testCsv0))#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(testCsv0)[idxVarSort])
+testCsv1 <- testCsv0[,idxVarSort]#
+# testCsv1 $ IMEI <- format(testCsv1 $ IMEI, digits = 16)#
+names(testCsv1)
+v1Char <- testCsv1$V1
+testCsv1$V1 <- as.numeric(testCsv1$V1)
+textColsIdx0 <- findChars(testCsv1)
+length(textColsIdx0)
+textColsIdx <- textColsIdx0[2:6]
+str(testCsv1[,textColsIdx])
+# Check umlaute:#
+testCsv1[1:20,textColsIdx]
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)
+convertCharsDf
+textColumns <- names(testCsv1)[textColsIdx]
+textColumns
+testCsv11 <- convertChars(testCsv1, textColumns, convertCharsDf)
+# Check umlaute:#
+testCsv11[1:20,textColsIdx]#
+str(testCsv11[,textColsIdx])
+test <- esAssign(esRaw = testCsv11, refDf = referenceDfNew, DSD = "2007-10-28")
+names(test)#
+#
+test$ESopt[1:31,]
+testmEdt <- missingEndDateTime(esDf)
+esDf <- test$ES#
+names(esDf)
+testmEdt <- missingEndDateTime(esDf)
+table(testmEdt$NOENDDATE)#
+#
+# # # Normal case: If end_date is missing, so is end_time.#
+notItems <- as.character(unlist(RELEVANTVN_ES))#
+testmEdt[testmEdt$NOENDDATE==1,notItems]
+# How many questionnaire versions are among the unfinished questionnaires?#
+unique(testmEdt[testmEdt$NOENDDATE==1, notItems[1]])#
+# How many phones with unfinished questionnaires on them?#
+unique(testmEdt[testmEdt$NOENDDATE==1, notItems[2]])#
+# How many different persons had at least one unfinished questionnaire?#
+unique(as.character(testmEdt[testmEdt$NOENDDATE==1, "ID"]))#
+#
+names(testmEdt)
+testIdent <- esIdentical(testmEdt)
+names(testIdent)#
+testIdent[testIdent$IDENT==1,c("KEY", notItems[-1], "ES_MULT")]
+testShift <- suggestShift(testIdent)
+printSuggestedShift(testShift)
+testMakeShift <- makeShift(testShift, referenceDfNew, list(1064), list(3))
+printSuggestedShift(testMakeShift)
+expIdxList <- list(#
+					list("morningTestGroup", 1, 1),#
+					list("dayTestGroup", c(2,3), 2),#
+					list("eveningTestGroup", 4, 3),#
+					list("morningControlGroup", 1, 1),#
+					list("dayControlGroup", c(2,3), 2),#
+					list("eveningControlGroup", 4, 3))#
+#
+# 23#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+testExpectedStart <- expectedStartTimeIndex(testMakeShift, expIdxList)
+listOfIntolerance <- list(c(2,1), c(3,1), c(3,2))#
+testIntolerable <- intolerable(testExpectedStart, listOfIntolerance)
+names(testIntolerable)
+testIntolerable[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "TIMEOFDAY")]
+testRandomRemove <- randomMultSelection(testIntolerable[["cleanedDf"]])
+names(testRandomRemove)
+names(testRandomRemove[["esRandSelIn"]])
+testRandomRemove[["esRandSelOut"]][,c("ID", "KEY", "PROMPT", "ST", "ES_MULT", "ES_MULT2")]
+testLag <- computeTimeLag(testRandomRemove[["esRandSelIn"]])
+names(testLag)
+testLag[1:50,c("ID", "ES_START_DATETIME", "TIME_LAG", "ST", "LAG_PA")]
+testDur <- computeDuration(testLag)
+names(testDur)
+testTbesu <- computeTimeBetween(esDf = testDur, refDf = referenceDfNew)
+names(testTbesu)#
+testTbesu[1:40,c("ID", "ES_START_DATETIME", "ES_END_DATETIME", "ST", "PROMPT", "TBESU", "ES_MULT")]
+testFinal <- esFinal(testTbesu)
+names(testFinal)#
+dim(testFinal)
+testFinal[1:100,c("ID", "KEY", "survey_name", "CV_ES", "CV_ESDAY", "ES_START_DATETIME", "ES_END_DATETIME", "ST", "PROMPT", "PROMPTFALSE", "TBESU", "ES_MULT")]
+# Transfer zu LaTeX:#
+# ------------------#
+library(stargazer)#
+# Set main path#
+# -------------#
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+#
+# -------------------------------------------------------------------------#
+# char <- "character"#
+# int <- "integer"#
+#
+(referenceDf <- read.table(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+print(referenceDf[,c(1,5:ncol(referenceDf))], row.names=FALSE)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDf[1:2,c(1,5:ncol(referenceDf))], summary=FALSE, rownames=FALSE)#
+# is.data.frame(referenceDf)#
+# -------------------------------------------------------------------------#
+# -------------------------------------------------------------------------#
+# # All 6 csv data files have been merged into one csv file.#
+# # -------------------------------------------------------#
+#
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# # -------------------------------------------------------------------------------#
+# # CG = control group -----------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# dim(csv1)#
+# names(csv1)#
+# str(csv1)#
+# csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# # -------------------------------------------------------------------------------#
+# # -------------------------------------------------------------------------------#
+#
+# # -------------------------------------------------------------------------------#
+# # TG = test group -------------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# CG = control group -----------------------------------#
+# -------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------#
+#
+# -------------------------------------------------------------------------------#
+# TG = test group -------------------------------------#
+# -------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# dfList <- list(csv1=csv1, csv2=csv2, csv3=csv3, csv4=csv4, csv5=csv5, csv6=csv6)#
+# names(dfList)#
+library(esmprep)#
+#
+# # source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))#
+# # library(lubridate)#
+#
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+relRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)#
+names(relRef)#
+class(relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setREF(4,relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTVN_REF#
+# --------------------------------------------------------------------------------#
+dateTimeFormats()#
+dateTimeFormats2()#
+# 3#
+#
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relEs <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+(relEs <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))#
+names(relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # Test the function with missing or false entries:#
+# (relEs <-relevantESVN("survey_name", "IMEI", "", "start_time", "end_date", "end_time", NULL, NULL))#
+#
+# (relEs <-relevantESVN("survey_name", "IMEI", startDateTime=NA, endDateTime="dine"))#
+#
+# relEs <- relEs[-7]#
+#
+# setES(4, imeiNumbers, surveyNames, relEs)#
+#
+# 4#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setES(4, imeiNumbers, surveyNames, relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES#
+# --------------------------------------------------------------------------------#
+# 5#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esLs <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(esLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+all(names(csv1) == names(esLs[["morningControlGroup"]]))#
+#
+# class(esLs)#
+# class(esLs[[1]])#
+# length(esLs)#
+# --------------------------------------------------------------------------------#
+# 6#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# key vector to identify each raw line of data.#
+keyLs <- genKey(esLs)#
+names(keyLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # checkKey is NOT exported#
+# checkKey(keyLs)#
+#
+names(keyLs[[1]])#
+#
+addmargins(as.table(sapply(keyLs, FUN = nrow)))#
+#
+# keyLs[[2]][,"IMEI"] <- as.character(keyLs[[2]][,"IMEI"])#
+# goLatex <- keyLs[[2]][1:2,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(goLatex, summary=FALSE, rownames=FALSE)#
+# 7a.1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+referenceDfNew <- genDateTime(referenceDf, "REF")#
+names(referenceDfNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# refCopy <- referenceDfNew#
+# names(refCopy)#
+# refCopy1 <- refCopy[,-c(6,7,12,13)]#
+#
+# # 7#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# # ... opposite to 'genDateTime' is 'splitDateTime'.#
+# referenceDfTest <- splitDateTime(refCopy1, "REF")#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+#
+names(RELEVANTVN_REF)#
+#
+# 7a.2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+keyLsNew <- genDateTime(keyLs, "ES")#
+names(keyLsNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# names(keyLsNew[[1]])#
+# nrow(keyLsNew[[1]])#
+#
+# idxNA_dateTime <- is.na(keyLsNew[[1]][,"ES_END_DATETIME"])#
+##
+# keyLsNew[[1]][idxNA_dateTime,c("survey_name", "ES_START_DATETIME", "ES_END_DATETIME")]#
+##
+# addmargins(as.table(sapply(keyLsNew, FUN = nrow)))#
+##
+# RELEVANTVN_ES#
+##
+# keyLsNew[[2]][,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # --------------------------------#
+# # # Test function splitDateTime#
+# # # ----------------------------#
+# testDateTimeES <- splitDateTime(rmInvLs[["dfValid"]], "ES")#
+# names(testDateTimeES)#
+#
+# # Check whether original date and time is all equal to the generated date and time#
+# all(c(#
+# all(testDateTimeES$start_date == testDateTimeES$ES_START_DATE),#
+# all(testDateTimeES$start_time == testDateTimeES$ES_START_TIME),#
+# all(testDateTimeES$end_date == testDateTimeES$ES_END_DATE),#
+# all(testDateTimeES$end_time == testDateTimeES$ES_END_TIME)))#
+#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# # BEWARE: Don't apply the function when unnecessary, i.e. if in the original raw#
+# #		  dataset date and time are separate columns (each for start and end) then#
+# #		  don't apply the function splitDateTime after the function genDateTime#
+# #		  has been applied. Reason: The already existing variable names of the#
+# #		  separate date and time columns are replaced by the generated variable#
+# #		  names which are most likely different from the original names.#
+# names(RELEVANTVN_ES)#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 8#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+rmInvLs <- rmInvalidDf(keyLsNew)#
+names(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# str(rmInvLs)	# list of 4#
+length(rmInvLs[["dfValid"]])#
+addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+names(rmInvLs[["dfValid"]])#
+#
+length(rmInvLs[["listInvalid"]])#
+rmInvLs[["listInvalid"]][2]#
+#
+length(rmInvLs[["rmInvalidDfFinished"]])#
+rmInvLs[["rmInvalidDfFinished"]]#
+#
+length(rmInvLs[["noLinesRemovedAtAll"]])#
+rmInvLs[["noLinesRemovedAtAll"]]#
+#
+# 9#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printRmInvalid(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+tblRemovedDf <- addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+data.frame(versions=c(names(esLs), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))#
+# Plausibility check here ... then check completeness.#
+#
+# Pre-merged inspection independent of complete vs incomplete questionnaires, i.e.#
+# this inspection should be done with the number of raw datasets, not with the#
+# result of the function 'isCompleteLs', which might return a number of datasets#
+# that is larger than the number of raw datasets.#
+#
+# notItems <- as.character(unlist(RELEVANTVN_ES))#
+#
+# 10#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+names(plausibItems)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 11#
+# dfList <- rmInvLs[["dfValid"]]; itemVecList <- plausibItems#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+names(plausibLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+inconsistent <- which(plausibLs[["plausibClass"]]$classCheck==FALSE)#
+#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+display1 <- c(1,20,29)#
+plausibLs[["plausibNames"]][display1,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibNames"]][display1,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibClass"]])#
+display2 <- c(1, 2, 15)#
+plausibLs[["plausibClass"]][display2,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][display2,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibRowNa"]])#
+#
+display3Row <- c(1,2,8)#
+display3Col <- c(1:3,10:13)#
+plausibLs[["plausibRowNa"]][display3Row, display3Col]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][display3Row, display3Col], digits=1, summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=10))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+display4 <- c(1, 13, 15)#
+plausibLs[["plausibMinMax"]][display4,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][display4,], summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=13))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+plausibLs[["plausibRowNa"]][inconsistent,]#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# Present a possibility to display which list index corresponds to#
+# which dataset.#
+# names(rmInvLs[["dfValid"]])#
+#
+# On the other hand: if you use the list of datasets that has been given#
+# to the function 'plausibES' you can easily read off the correct order!#
+# Change variable names of V1 in dataset 1 to V1_3#
+names(rmInvLs[["dfValid"]][[1]])#
+colnames(rmInvLs[["dfValid"]][[1]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(rmInvLs[["dfValid"]][[4]])#
+colnames(rmInvLs[["dfValid"]][[4]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(rmInvLs[["dfValid"]][[2]])#
+colnames(rmInvLs[["dfValid"]][[2]])[16] <- "V4_6"#
+names(rmInvLs[["dfValid"]][[2]])#
+#
+# Change variable names of V4_3 in dataset 5 to V4_7#
+# Turned out only by inspection of plausibMinMax'!#
+names(rmInvLs[["dfValid"]][[5]])#
+colnames(rmInvLs[["dfValid"]][[5]])[16] <- "V4_7"#
+names(rmInvLs[["dfValid"]][[5]])#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibLs[["plausibClass"]]$classCheck==FALSE#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+plausibLs[["plausibRowNa"]][inconsistent, display3Col]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][inconsistent, display3Col], summary=FALSE, rownames=FALSE, digits=1, notes="bla")#
+#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+# # # ------------------------------------------------------------------#
+# # # C o n s i s t e n t#
+# # # -------------------#
+# # # Display all consistent character items#
+# # # --------------------------------------#
+# # charConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE & apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) all(x[!is.na(x)]=="cha"))#
+# # plausibLs[["plausibClass"]][charConsistent,]#
+#
+# # # Display all consistent integer items#
+# # # --------------------------------------#
+# # intConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE&apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) any(x=="int"))#
+# # na.omit(plausibLs[["plausibClass"]][intConsistent,])#
+# # # ------------------------------------------------------------------#
+# # Merge plausib sub-dataframes 2 (only 1st and last column) and 3:#
+# # ----------------------------------------------------------------#
+# mergePlausib23 <- merge(plausibLs[["plausibRowNa"]], plausibLs[["plausibClass"]][,c("itemNamesAll", "classCheck")], by="itemNamesAll", sort=FALSE)#
+# Number of columns overall (BEWARE: In the plausib data frames the descriptive#
+# variable names are left out, e.g. IMEI, start_date, etc.)#
+length(unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names))))#
+#
+# What are the unique names?#
+unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names)))#
+# --------------------------------------------------------------------------------#
+# # SVYNAMES[1]	"morningTestGroup"		"V_10", "V_10_1"#
+# names(dfList[[4]])#
+# # SVYNAMES[2]	"dayTestGroup"					"V_11"#
+# names(dfList[[5]])#
+# # SVYNAMES[3]	"eveningTestGroup"		"V_13", "V_13_1"#
+# names(dfList[[6]])#
+# # SVYNAMES[4]	"morningControlGroup"	"V_10", "V_10_1"#
+# names(dfList[[1]])#
+# # SVYNAMES[5]	"dayControlGroup"				"V_11"#
+# names(dfList[[2]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_5"#
+# names(dfList[[3]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_4"#
+# names(dfList[[3]])#
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)#
+names(isCompleteLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Check:#
+length(isCompleteLs)#
+names(isCompleteLs)#
+for(i in 1:length(isCompleteLs)) {#
+	print(names(isCompleteLs[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}#
+#
+table(isCompleteLs[[1]]["INCOMPLETE_1"])#
+table(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+summary(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+table(isCompleteLs[[3]]["INCOMPLETE_1"])#
+table(isCompleteLs[[4]]["INCOMPLETE_1"])#
+table(isCompleteLs[[5]]["INCOMPLETE_1"])#
+table(isCompleteLs[[6]]["INCOMPLETE_1"])#
+table(isCompleteLs[[7]]["INCOMPLETE_2"])#
+#
+# # No questionnaire registered by esComplete for version 1#
+# isCompleteLs[[1]][,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+#
+incom2 <- isCompleteLs[[2]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+incom3 <- isCompleteLs[[3]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[3]][incom3,c("survey_name", "end_date", "end_time", "V9", "V9_1", "INCOMPLETE_1", "KEY")]#
+incom4 <- isCompleteLs[[4]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[4]][incom4,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+incom5 <- isCompleteLs[[5]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[5]][incom5,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+incom6 <- isCompleteLs[[6]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[6]][incom6,c("survey_name", "end_date", "end_time", "V8_1", "V8_3", "INCOMPLETE_1", "KEY")]#
+incom7 <- isCompleteLs[[7]]["INCOMPLETE_2"] == 1#
+isCompleteLs[[7]][incom7,c("survey_name", "end_date", "end_time", "V8_1", "V8_2", "INCOMPLETE_2", "KEY")]#
+#
+# --------------------------------------------------------------------------------#
+# # Check whether all is NA#
+# csv1[,c("V_4_1", "V_4_4")]#
+# csv6[,c("V_4_5")]#
+#
+# dfList <- list(csv1, csv2, csv3, csv4, csv5, csv6)#
+# --------------------------------------------------------------------------------#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esMerged <- esMerge(isCompleteLs)#
+names(esMerged)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+str(esMerged)#
+#
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])#
+#
+esMerged[,"IMEI"] <- as.character(esMerged[,"IMEI"])#
+#
+esMerged[,"V1"] <- as.numeric(esMerged[,"V1"])#
+#
+dim(esMerged)#
+# str(esMerged)#
+names(esMerged)#
+#
+# # esMerged$KEY <- as.character(esMerged$KEY)#
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(esMerged))#
+idxIrrelevantCols0 <- match(names(esMerged)[-idxRelevantCols], names(esMerged))#
+# idxIrrelevantCols1 <- order(names(esMerged)[idxIrrelevantCols0[-1]])#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(esMerged)[idxVarSort])#
+#
+esMerged1 <- esMerged[,idxVarSort]#
+# esMerged1 $ IMEI <- format(esMerged1 $ IMEI, digits = 16)#
+names(esMerged1)#
+#
+# v1Char <- esMerged1$V1#
+# esMerged1$V1 <- as.numeric(esMerged1$V1)#
+# data.frame(v1Char, v1Num=esMerged1$V1)#
+#
+esMerged1 <- esMerged#
+#
+# ------------------------------------------------------------------------------#
+# 14#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx <- findChars(esMerged1)#
+names(findTextIdx)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+length(findTextIdx)#
+#
+# 14a (important: select the relevant columns containing text, where single#
+#				  characters shall be converted)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx1 <- findTextIdx[c(1,2,9,10,11)]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esMerged1)[findTextIdx1]#
+#
+str(esMerged1[,findTextIdx1])#
+#
+# Check umlaute:#
+esMerged1[1:20,findTextIdx1]#
+#
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(convertCharsDf, summary=FALSE, rownames=FALSE, notes="bla")#
+#
+textColumns <- names(esMerged1)[findTextIdx1]#
+#
+# 15#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# If argument ignoreCase is not actively set to TRUE it is set#
+# to FALSE by default, i.e. case is not ignored.#
+esMerged2 <- convertChars(esMerged1, textColumns, convertCharsDf)#
+names(esMerged2)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# Check umlaute:#
+esMerged2[1:20,findTextIdx1]#
+str(esMerged2[,findTextIdx1])#
+#
+# ------------------------------------------------------------------------------#
+#
+# requireNamespace("lubridate", quietly=TRUE)#
+# library(lubridate)#
+#
+# 16#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esAssigned <- esAssign(esDf = esMerged2, refDf = referenceDfNew, dsd = "2007-10-28")#
+names(esAssigned)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+esAssigned$ESopt[1:31,]#
+#
+esDf <- esAssigned$ES#
+# names(esDf)
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+table(noEndDf$NOENDDATE)
+# # # Normal case: If end_date is missing, so is end_time.#
+notItems <- as.character(unlist(RELEVANTVN_ES))#
+noEndDf[noEndDf$NOENDDATE==1,c("ID", notItems)]
+identDf <- esIdentical(noEndDf)
+names(identDf)
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT")]#
+#
+# BEWARE: No more work necessary in terms of identification, i.e. the identical#
+# ------  questionnaires are a special case of a multiple questionnaire per#
+#		  scheduled time. As such (as being multiple) they are removed later on.#
+#
+identKey <- identDf[identDf$IDENT==1,"KEY"]#
+idxIdent1 <- seq(1,length(identKey), by=2)#
+idxIdent2 <- seq(2,length(identKey), by=2)#
+identKeyDf <- data.frame(ident1=identKey[idxIdent1], ident2=identKey[idxIdent2])
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT")]
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "IDENT")]
+rm(list=ls(all=TRUE))#
+# ...#
+#
+# Transfer zu LaTeX:#
+# ------------------#
+library(stargazer)#
+# Set main path#
+# -------------#
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+#
+# -------------------------------------------------------------------------#
+# char <- "character"#
+# int <- "integer"#
+#
+(referenceDf <- read.table(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+print(referenceDf[,c(1,5:ncol(referenceDf))], row.names=FALSE)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDf[1:2,c(1,5:ncol(referenceDf))], summary=FALSE, rownames=FALSE)#
+# is.data.frame(referenceDf)#
+# -------------------------------------------------------------------------#
+# -------------------------------------------------------------------------#
+# # All 6 csv data files have been merged into one csv file.#
+# # -------------------------------------------------------#
+#
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# # -------------------------------------------------------------------------------#
+# # CG = control group -----------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# dim(csv1)#
+# names(csv1)#
+# str(csv1)#
+# csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# # -------------------------------------------------------------------------------#
+# # -------------------------------------------------------------------------------#
+#
+# # -------------------------------------------------------------------------------#
+# # TG = test group -------------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# CG = control group -----------------------------------#
+# -------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------#
+#
+# -------------------------------------------------------------------------------#
+# TG = test group -------------------------------------#
+# -------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# dfList <- list(csv1=csv1, csv2=csv2, csv3=csv3, csv4=csv4, csv5=csv5, csv6=csv6)#
+# names(dfList)#
+library(esmprep)#
+#
+# # source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))#
+# # library(lubridate)#
+#
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+relRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)#
+names(relRef)#
+class(relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setREF(4,relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTVN_REF#
+# --------------------------------------------------------------------------------#
+dateTimeFormats()#
+dateTimeFormats2()#
+# 3#
+#
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relEs <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+(relEs <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))#
+names(relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # Test the function with missing or false entries:#
+# (relEs <-relevantESVN("survey_name", "IMEI", "", "start_time", "end_date", "end_time", NULL, NULL))#
+#
+# (relEs <-relevantESVN("survey_name", "IMEI", startDateTime=NA, endDateTime="dine"))#
+#
+# relEs <- relEs[-7]#
+#
+# setES(4, imeiNumbers, surveyNames, relEs)#
+#
+# 4#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setES(4, imeiNumbers, surveyNames, relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES#
+# --------------------------------------------------------------------------------#
+# 5#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esLs <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(esLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+all(names(csv1) == names(esLs[["morningControlGroup"]]))#
+#
+# class(esLs)#
+# class(esLs[[1]])#
+# length(esLs)#
+# --------------------------------------------------------------------------------#
+# 6#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# key vector to identify each raw line of data.#
+keyLs <- genKey(esLs)#
+names(keyLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # checkKey is NOT exported#
+# checkKey(keyLs)#
+#
+names(keyLs[[1]])#
+#
+addmargins(as.table(sapply(keyLs, FUN = nrow)))#
+#
+# keyLs[[2]][,"IMEI"] <- as.character(keyLs[[2]][,"IMEI"])#
+# goLatex <- keyLs[[2]][1:2,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(goLatex, summary=FALSE, rownames=FALSE)#
+# 7a.1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+referenceDfNew <- genDateTime(referenceDf, "REF")#
+names(referenceDfNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# refCopy <- referenceDfNew#
+# names(refCopy)#
+# refCopy1 <- refCopy[,-c(6,7,12,13)]#
+#
+# # 7#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# # ... opposite to 'genDateTime' is 'splitDateTime'.#
+# referenceDfTest <- splitDateTime(refCopy1, "REF")#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+#
+names(RELEVANTVN_REF)#
+#
+# 7a.2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+keyLsNew <- genDateTime(keyLs, "ES")#
+names(keyLsNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# names(keyLsNew[[1]])#
+# nrow(keyLsNew[[1]])#
+#
+# idxNA_dateTime <- is.na(keyLsNew[[1]][,"ES_END_DATETIME"])#
+##
+# keyLsNew[[1]][idxNA_dateTime,c("survey_name", "ES_START_DATETIME", "ES_END_DATETIME")]#
+##
+# addmargins(as.table(sapply(keyLsNew, FUN = nrow)))#
+##
+# RELEVANTVN_ES#
+##
+# keyLsNew[[2]][,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # --------------------------------#
+# # # Test function splitDateTime#
+# # # ----------------------------#
+# testDateTimeES <- splitDateTime(rmInvLs[["dfValid"]], "ES")#
+# names(testDateTimeES)#
+#
+# # Check whether original date and time is all equal to the generated date and time#
+# all(c(#
+# all(testDateTimeES$start_date == testDateTimeES$ES_START_DATE),#
+# all(testDateTimeES$start_time == testDateTimeES$ES_START_TIME),#
+# all(testDateTimeES$end_date == testDateTimeES$ES_END_DATE),#
+# all(testDateTimeES$end_time == testDateTimeES$ES_END_TIME)))#
+#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# # BEWARE: Don't apply the function when unnecessary, i.e. if in the original raw#
+# #		  dataset date and time are separate columns (each for start and end) then#
+# #		  don't apply the function splitDateTime after the function genDateTime#
+# #		  has been applied. Reason: The already existing variable names of the#
+# #		  separate date and time columns are replaced by the generated variable#
+# #		  names which are most likely different from the original names.#
+# names(RELEVANTVN_ES)#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 8#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+rmInvLs <- rmInvalidDf(keyLsNew)#
+names(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# str(rmInvLs)	# list of 4#
+length(rmInvLs[["dfValid"]])#
+addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+names(rmInvLs[["dfValid"]])#
+#
+length(rmInvLs[["listInvalid"]])#
+rmInvLs[["listInvalid"]][2]#
+#
+length(rmInvLs[["rmInvalidDfFinished"]])#
+rmInvLs[["rmInvalidDfFinished"]]#
+#
+length(rmInvLs[["noLinesRemovedAtAll"]])#
+rmInvLs[["noLinesRemovedAtAll"]]#
+#
+# 9#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printRmInvalid(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+tblRemovedDf <- addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+data.frame(versions=c(names(esLs), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))#
+# Plausibility check here ... then check completeness.#
+#
+# Pre-merged inspection independent of complete vs incomplete questionnaires, i.e.#
+# this inspection should be done with the number of raw datasets, not with the#
+# result of the function 'isCompleteLs', which might return a number of datasets#
+# that is larger than the number of raw datasets.#
+#
+# notItems <- as.character(unlist(RELEVANTVN_ES))#
+#
+# 10#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+names(plausibItems)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 11#
+# dfList <- rmInvLs[["dfValid"]]; itemVecList <- plausibItems#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+names(plausibLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+inconsistent <- which(plausibLs[["plausibClass"]]$classCheck==FALSE)#
+#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+display1 <- c(1,20,29)#
+plausibLs[["plausibNames"]][display1,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibNames"]][display1,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibClass"]])#
+display2 <- c(1, 2, 15)#
+plausibLs[["plausibClass"]][display2,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][display2,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibRowNa"]])#
+#
+display3Row <- c(1,2,8)#
+display3Col <- c(1:3,10:13)#
+plausibLs[["plausibRowNa"]][display3Row, display3Col]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][display3Row, display3Col], digits=1, summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=10))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+display4 <- c(1, 13, 15)#
+plausibLs[["plausibMinMax"]][display4,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][display4,], summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=13))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+plausibLs[["plausibRowNa"]][inconsistent,]#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# Present a possibility to display which list index corresponds to#
+# which dataset.#
+# names(rmInvLs[["dfValid"]])#
+#
+# On the other hand: if you use the list of datasets that has been given#
+# to the function 'plausibES' you can easily read off the correct order!#
+# Change variable names of V1 in dataset 1 to V1_3#
+names(rmInvLs[["dfValid"]][[1]])#
+colnames(rmInvLs[["dfValid"]][[1]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(rmInvLs[["dfValid"]][[4]])#
+colnames(rmInvLs[["dfValid"]][[4]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(rmInvLs[["dfValid"]][[2]])#
+colnames(rmInvLs[["dfValid"]][[2]])[16] <- "V4_6"#
+names(rmInvLs[["dfValid"]][[2]])#
+#
+# Change variable names of V4_3 in dataset 5 to V4_7#
+# Turned out only by inspection of plausibMinMax'!#
+names(rmInvLs[["dfValid"]][[5]])#
+colnames(rmInvLs[["dfValid"]][[5]])[16] <- "V4_7"#
+names(rmInvLs[["dfValid"]][[5]])#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibLs[["plausibClass"]]$classCheck==FALSE#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+plausibLs[["plausibRowNa"]][inconsistent, display3Col]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][inconsistent, display3Col], summary=FALSE, rownames=FALSE, digits=1, notes="bla")#
+#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+# # # ------------------------------------------------------------------#
+# # # C o n s i s t e n t#
+# # # -------------------#
+# # # Display all consistent character items#
+# # # --------------------------------------#
+# # charConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE & apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) all(x[!is.na(x)]=="cha"))#
+# # plausibLs[["plausibClass"]][charConsistent,]#
+#
+# # # Display all consistent integer items#
+# # # --------------------------------------#
+# # intConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE&apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) any(x=="int"))#
+# # na.omit(plausibLs[["plausibClass"]][intConsistent,])#
+# # # ------------------------------------------------------------------#
+# # Merge plausib sub-dataframes 2 (only 1st and last column) and 3:#
+# # ----------------------------------------------------------------#
+# mergePlausib23 <- merge(plausibLs[["plausibRowNa"]], plausibLs[["plausibClass"]][,c("itemNamesAll", "classCheck")], by="itemNamesAll", sort=FALSE)#
+# Number of columns overall (BEWARE: In the plausib data frames the descriptive#
+# variable names are left out, e.g. IMEI, start_date, etc.)#
+length(unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names))))#
+#
+# What are the unique names?#
+unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names)))#
+# --------------------------------------------------------------------------------#
+# # SVYNAMES[1]	"morningTestGroup"		"V_10", "V_10_1"#
+# names(dfList[[4]])#
+# # SVYNAMES[2]	"dayTestGroup"					"V_11"#
+# names(dfList[[5]])#
+# # SVYNAMES[3]	"eveningTestGroup"		"V_13", "V_13_1"#
+# names(dfList[[6]])#
+# # SVYNAMES[4]	"morningControlGroup"	"V_10", "V_10_1"#
+# names(dfList[[1]])#
+# # SVYNAMES[5]	"dayControlGroup"				"V_11"#
+# names(dfList[[2]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_5"#
+# names(dfList[[3]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_4"#
+# names(dfList[[3]])#
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)#
+names(isCompleteLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Check:#
+length(isCompleteLs)#
+names(isCompleteLs)#
+for(i in 1:length(isCompleteLs)) {#
+	print(names(isCompleteLs[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}#
+#
+table(isCompleteLs[[1]]["INCOMPLETE_1"])#
+table(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+summary(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+table(isCompleteLs[[3]]["INCOMPLETE_1"])#
+table(isCompleteLs[[4]]["INCOMPLETE_1"])#
+table(isCompleteLs[[5]]["INCOMPLETE_1"])#
+table(isCompleteLs[[6]]["INCOMPLETE_1"])#
+table(isCompleteLs[[7]]["INCOMPLETE_2"])#
+#
+# # No questionnaire registered by esComplete for version 1#
+# isCompleteLs[[1]][,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+#
+incom2 <- isCompleteLs[[2]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+incom3 <- isCompleteLs[[3]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[3]][incom3,c("survey_name", "end_date", "end_time", "V9", "V9_1", "INCOMPLETE_1", "KEY")]#
+incom4 <- isCompleteLs[[4]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[4]][incom4,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+incom5 <- isCompleteLs[[5]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[5]][incom5,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+incom6 <- isCompleteLs[[6]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[6]][incom6,c("survey_name", "end_date", "end_time", "V8_1", "V8_3", "INCOMPLETE_1", "KEY")]#
+incom7 <- isCompleteLs[[7]]["INCOMPLETE_2"] == 1#
+isCompleteLs[[7]][incom7,c("survey_name", "end_date", "end_time", "V8_1", "V8_2", "INCOMPLETE_2", "KEY")]#
+#
+# --------------------------------------------------------------------------------#
+# # Check whether all is NA#
+# csv1[,c("V_4_1", "V_4_4")]#
+# csv6[,c("V_4_5")]#
+#
+# dfList <- list(csv1, csv2, csv3, csv4, csv5, csv6)#
+# --------------------------------------------------------------------------------#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esMerged <- esMerge(isCompleteLs)#
+names(esMerged)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+str(esMerged)#
+#
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])#
+#
+esMerged[,"IMEI"] <- as.character(esMerged[,"IMEI"])#
+#
+esMerged[,"V1"] <- as.numeric(esMerged[,"V1"])#
+#
+dim(esMerged)#
+# str(esMerged)#
+names(esMerged)#
+#
+# # esMerged$KEY <- as.character(esMerged$KEY)#
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(esMerged))#
+idxIrrelevantCols0 <- match(names(esMerged)[-idxRelevantCols], names(esMerged))#
+# idxIrrelevantCols1 <- order(names(esMerged)[idxIrrelevantCols0[-1]])#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(esMerged)[idxVarSort])#
+#
+esMerged1 <- esMerged[,idxVarSort]#
+# esMerged1 $ IMEI <- format(esMerged1 $ IMEI, digits = 16)#
+names(esMerged1)#
+#
+# v1Char <- esMerged1$V1#
+# esMerged1$V1 <- as.numeric(esMerged1$V1)#
+# data.frame(v1Char, v1Num=esMerged1$V1)#
+#
+esMerged1 <- esMerged#
+#
+# ------------------------------------------------------------------------------#
+# 14#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx <- findChars(esMerged1)#
+names(findTextIdx)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+length(findTextIdx)#
+#
+# 14a (important: select the relevant columns containing text, where single#
+#				  characters shall be converted)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx1 <- findTextIdx[c(1,2,9,10,11)]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esMerged1)[findTextIdx1]#
+#
+str(esMerged1[,findTextIdx1])#
+#
+# Check umlaute:#
+esMerged1[1:20,findTextIdx1]#
+#
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(convertCharsDf, summary=FALSE, rownames=FALSE, notes="bla")#
+#
+textColumns <- names(esMerged1)[findTextIdx1]#
+#
+# 15#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# If argument ignoreCase is not actively set to TRUE it is set#
+# to FALSE by default, i.e. case is not ignored.#
+esMerged2 <- convertChars(esMerged1, textColumns, convertCharsDf)#
+names(esMerged2)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# Check umlaute:#
+esMerged2[1:20,findTextIdx1]#
+str(esMerged2[,findTextIdx1])#
+#
+# ------------------------------------------------------------------------------#
+#
+# requireNamespace("lubridate", quietly=TRUE)#
+# library(lubridate)
+names(esMerged2)
+# 16#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esAssigned <- esAssign(esDf = esMerged2, refDf = referenceDfNew, dsd = "2007-10-28")#
+names(esAssigned)
+names(esAssigned$ES)
+esAssigned$ES[1:50, c("ID", "CV_ES", "CV_ESDAY", "CV_ESWEEKDAY", "PROMPT", "PROMPTEND", "ES_MULT", "ST", "REIM", "DST", "QWST")]
+esAssigned$ES[1:50, c("ID", "CV_ES", "CV_ESDAY", "CV_ESWEEKDAY", "ES_START_DATETIME", "PROMPT", "PROMPTEND", "ES_MULT", "ST", "REIM", "DST", "QWST")]
+names(esAssigned$ESopt)
+esAssigned$ESopt[1:50,]
+names(esAssigned)
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)
+esDf <- esAssigned$ES#
+# names(esDf)#
+#
+# ------------------------------------------------------------------------------#
+#
+# Function 'missingEndDateTime' returns a data frame with new colums 'noEndDate' and 'noEndTime'#
+#
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)
+# 18#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf <- esIdentical(noEndDf)#
+names(identDf)
+sugShiftDf <- suggestShift(identDf)#
+names(sugShiftDf)
+printSuggestedShift(sugShiftDf)
+stargazer(printSuggestedShift(madeShiftDf), summary=FALSE, rownames=FALSE, notes="bla")
+printSuggestedShift(sugShiftDf)
+printSuggestedShift(madeShiftDf, row.names=FALSE)
+referenceDfNew$id
+idxP002_013 <- match(c("P002", "P013"), referenceDfNew$id))
+idxP002_013 <- match(c("P002", "P013"), referenceDfNew$id)
+idxP002_013
+referenceDfNew[idxP002_013,]
+referenceDfNew[idxP002_013,c(1,8:11)]
+stargazer(referenceDfNew[idxP002_013,c(1,8:11)], summary=FALSE, rownames=FALSE, notes="bla")
+sugShiftDf <- suggestShift(identDf)
+library(openxlsx)#
+#
+pathEMAPackage <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+# ------------------------------------------------------------------------------#
+# Function description#
+#
+wbDesc <- read.xlsx(paste0(pathEMAPackage, "functionsRelated.xlsx"), sheet = "description", startRow = 1, colNames = TRUE, detectDates = FALSE)#
+#
+names(wbDesc)#
+dim(wbDesc)#
+# ------------------------------------------------------------------------------#
+#
+# ------------------------------------------------------------------------------#
+# Function parameters#
+#
+wbParams <- read.xlsx(paste0(pathEMAPackage, "functionsRelated.xlsx"), sheet = "params", startRow = 1, colNames = TRUE, detectDates = FALSE)#
+#
+names(wbParams)#
+dim(wbParams)#
+# wbParams[,1:2]#
+# ------------------------------------------------------------------------------#
+#
+# ------------------------------------------------------------------------------#
+# Function details#
+#
+wbDetails <- read.xlsx(paste0(pathEMAPackage, "functionsRelated.xlsx"), sheet = "details", startRow = 1, colNames = TRUE, detectDates = FALSE)#
+#
+names(wbDetails)#
+dim(wbDetails)#
+# ------------------------------------------------------------------------------#
+#
+# ------------------------------------------------------------------------------#
+# Function return values#
+#
+wbReturnValues <- read.xlsx(paste0(pathEMAPackage, "functionsRelated.xlsx"), sheet = "returnValues", startRow = 1, colNames = TRUE, detectDates = FALSE)#
+#
+names(wbReturnValues)#
+dim(wbReturnValues)#
+# ------------------------------------------------------------------------------#
+#
+# ------------------------------------------------------------------------------#
+# Function import from lubridate#
+#
+wbImportFrom <- read.xlsx(paste0(pathEMAPackage, "functionsRelated.xlsx"), sheet = "importFrom", startRow = 1, colNames = TRUE, detectDates = FALSE)#
+#
+names(wbImportFrom)#
+dim(wbImportFrom)#
+# ------------------------------------------------------------------------------#
+#
+functionNames <- c(#
+# 1-5#
+"checkKey", "checkKey2", "compareDates", "computeDuration", "computeTimeBetween",#
+# 6-10#
+"computeTimeLag", "convertChars", "cumsumReset", "dateTimeFormats", "dateTimeFormats2",#
+# 7-15#
+"dayCounter", "daylightSaving", "esAssign", "esComplete", "esCompleteNumOrChar",#
+# 16-20#
+"esCompleteSingleVersion", "esFinal", "esIdentical", "esItems", "esList",#
+# 21-25#
+"esMerge", "esOptimum", "esPlausible", "esVersions", "expectedStartTimeIndex",#
+# 26-30#
+"expectedStartTimeIndexSingleVersion", "findChars", "findMin", "genDateTime", "genDateTimeSingle",#
+# 31-35#
+"genKey", "getmode", "intolerable", "is.integer0", "makeShift",#
+# 36-40#
+"missingEndDateTime", "orderByIdAndTime", "orderByTimeAndPhone", "overallCounter", "printRmInvalid",#
+# 41-45#
+"printSuggestedShift", "randomMultSelection", "relevantESVN", "relevantREFVN", "rmInvalidDf",#
+# 46-50#
+"rmInvalidLines", "setES", "setREF", "splitDateTime", "splitDateTimeSingle",#
+# 51#
+"suggestShift")#
+length(functionNames)#
+#
+allFuns <- c(#
+"01", "02", "03", "04", "05", "06", "07", "08", "09", "10",#
+"11", "12", "13", "14", "15", "16", "17", "18", "19", "20",#
+"21", "22", "23", "24", "25", "26", "27", "28", "29", "30",#
+"31", "32", "33", "34", "35", "36", "37", "38", "39", "40",#
+"41", "42", "43", "44", "45", "46", "47", "48", "49", "50",#
+"51")#
+#
+export <- c(#
+# 1-5#
+"", "", "", "computeDuration", "computeTimeBetween",#
+# 6-10#
+"computeTimeLag", "convertChars", "", "dateTimeFormats", "dateTimeFormats2",#
+# 7-15#
+"", "", "esAssign", "esComplete", "",#
+# 16-20#
+"", "esFinal", "esIdentical", "esItems", "esList",#
+# 21-25#
+"esMerge", "", "esPlausible", "", "expectedStartTimeIndex",#
+# 26-30#
+"", "findChars", "", "genDateTime", "",#
+# 31-35#
+"genKey", "", "intolerable", "", "makeShift",#
+# 36-40#
+"missingEndDateTime", "", "", "", "printRmInvalid",#
+# 41-45#
+"printSuggestedShift", "randomMultSelection", "relevantESVN", "relevantREFVN", "rmInvalidDf",#
+# 46-50#
+"", "setES", "setREF", "splitDateTime", "",#
+# 51#
+"suggestShift")#
+#
+funsOrder <- c(#
+"", "", "", "27", "28", "26", "16", "", "xx", "xx",#
+"", "", "17", "13", "", "", "29", "19", "11", "6",#
+"14", "", "12", "", "23", "", "15", "", "8a5a", "",#
+"7", "", "24", "", "22", "18", "", "", "", "10",#
+"21", "25", "1", "3", "9", "", "2", "4", "8b5b", "",#
+"20")#
+# data.frame(functionNames, allFuns, export, funsOrder)#
+#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathScriptsREAD <- paste0(path, "R_esmprepREAD/")#
+scriptNamesREAD <- list.files(path= pathScriptsREAD, pattern = "\\.R$")#
+#
+pathScriptsWRITE <- paste0(path, "R_esmprepWRITE/")#
+#
+numberOfScripts <- 1:51#
+#
+# i <- 44#
+for(i in numberOfScripts) {#
+	# TRUE if the function gets exported#
+	exportTRUE <- gsub("\\.R$", "", scriptNamesREAD[i]) == export[i]#
+	# target = R script containing documentation and the function.#
+	target <- paste0(pathScriptsWRITE, scriptNamesREAD[i])#
+	# Header#
+	# ------#
+	if(exportTRUE) {#
+		header <- paste0("#' ", functionNames[i])#
+		cat(header, file= target, sep="\n", append=FALSE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	# Description#
+	# -----------#
+	descrip <- wbDesc$description[i]#
+	if(exportTRUE) {#
+		cat(descrip, file=target, sep="\n", append=TRUE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	} else {#
+		descrip <- paste0("# ", functionNames[i])#
+		cat(descrip, file=target, sep="\n", append=FALSE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	# Parameters#
+	# ----------#
+	if(exportTRUE) {#
+		idxParams <- grep(allFuns[i], wbParams$fun)#
+		# # params <- idxParams[2]#
+		for(params in idxParams) {#
+			cat(wbParams$param[params], file=target, sep="\n", append=TRUE)#
+        	cat("#", file= target, sep="\n", append=TRUE)#
+		}#
+	}#
+	# Details#
+	# -------#
+	if(exportTRUE & wbDetails$use[i] == 1) {#
+		cat(wbDetails$details[i], file=target, sep="\n", append=TRUE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	# Return values#
+	# -------------#
+	if(exportTRUE & wbReturnValues$use[i] == 1) {#
+		cat(wbReturnValues$return.values[i], file=target, sep="\n", append=TRUE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	# Import from#
+	# -----------#
+	if(wbImportFrom$use[i]==1) {#
+		cat(wbImportFrom$import.from[i], file=target, sep="\n", append=TRUE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	# Export#
+	# ------#
+	if(exportTRUE) {#
+		cat("#' @export", file= target, sep="\n", append=TRUE)#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	} else {#
+		cat("#", file= target, sep="\n", append=TRUE)#
+	}#
+	con <- file(paste0(pathScriptsREAD, scriptNamesREAD[i]), open="r", blocking=FALSE)#
+	linesRead <- readLines(con)#
+	close(con)#
+	cat(linesRead, file=target, sep="\n", append=TRUE)#
+}
+rm(list=ls(all=TRUE))#
+# ...#
+#
+# Transfer zu LaTeX:#
+# ------------------#
+library(stargazer)#
+# Set main path#
+# -------------#
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+#
+# -------------------------------------------------------------------------#
+# char <- "character"#
+# int <- "integer"#
+#
+(referenceDf <- read.table(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+print(referenceDf[,c(1,5:ncol(referenceDf))], row.names=FALSE)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDf[1:2,c(1,5:ncol(referenceDf))], summary=FALSE, rownames=FALSE)#
+# is.data.frame(referenceDf)#
+# -------------------------------------------------------------------------#
+# -------------------------------------------------------------------------#
+# # All 6 csv data files have been merged into one csv file.#
+# # -------------------------------------------------------#
+#
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# # -------------------------------------------------------------------------------#
+# # CG = control group -----------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# dim(csv1)#
+# names(csv1)#
+# str(csv1)#
+# csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# # -------------------------------------------------------------------------------#
+# # -------------------------------------------------------------------------------#
+#
+# # -------------------------------------------------------------------------------#
+# # TG = test group -------------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# CG = control group -----------------------------------#
+# -------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------#
+#
+# -------------------------------------------------------------------------------#
+# TG = test group -------------------------------------#
+# -------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# dfList <- list(csv1=csv1, csv2=csv2, csv3=csv3, csv4=csv4, csv5=csv5, csv6=csv6)#
+# names(dfList)#
+library(esmprep)#
+#
+# # source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))#
+# # library(lubridate)#
+#
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+relRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)#
+names(relRef)#
+class(relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setREF(4,relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTVN_REF#
+# --------------------------------------------------------------------------------#
+dateTimeFormats()#
+dateTimeFormats2()#
+# 3#
+#
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relEs <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+(relEs <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))#
+names(relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # Test the function with missing or false entries:#
+# (relEs <-relevantESVN("survey_name", "IMEI", "", "start_time", "end_date", "end_time", NULL, NULL))#
+#
+# (relEs <-relevantESVN("survey_name", "IMEI", startDateTime=NA, endDateTime="dine"))#
+#
+# relEs <- relEs[-7]#
+#
+# setES(4, imeiNumbers, surveyNames, relEs)#
+#
+# 4#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setES(4, imeiNumbers, surveyNames, relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES#
+# --------------------------------------------------------------------------------#
+# 5#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esLs <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(esLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+all(names(csv1) == names(esLs[["morningControlGroup"]]))#
+#
+# class(esLs)#
+# class(esLs[[1]])#
+# length(esLs)#
+# --------------------------------------------------------------------------------#
+# 6#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# key vector to identify each raw line of data.#
+keyLs <- genKey(esLs)#
+names(keyLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # checkKey is NOT exported#
+# checkKey(keyLs)#
+#
+names(keyLs[[1]])#
+#
+addmargins(as.table(sapply(keyLs, FUN = nrow)))#
+#
+# keyLs[[2]][,"IMEI"] <- as.character(keyLs[[2]][,"IMEI"])#
+# goLatex <- keyLs[[2]][1:2,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(goLatex, summary=FALSE, rownames=FALSE)#
+# 7a.1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+referenceDfNew <- genDateTime(referenceDf, "REF")#
+names(referenceDfNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# refCopy <- referenceDfNew#
+# names(refCopy)#
+# refCopy1 <- refCopy[,-c(6,7,12,13)]#
+#
+# # 7#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# # ... opposite to 'genDateTime' is 'splitDateTime'.#
+# referenceDfTest <- splitDateTime(refCopy1, "REF")#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+#
+names(RELEVANTVN_REF)#
+#
+# 7a.2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+keyLsNew <- genDateTime(keyLs, "ES")#
+names(keyLsNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# names(keyLsNew[[1]])#
+# nrow(keyLsNew[[1]])#
+#
+# idxNA_dateTime <- is.na(keyLsNew[[1]][,"ES_END_DATETIME"])#
+##
+# keyLsNew[[1]][idxNA_dateTime,c("survey_name", "ES_START_DATETIME", "ES_END_DATETIME")]#
+##
+# addmargins(as.table(sapply(keyLsNew, FUN = nrow)))#
+##
+# RELEVANTVN_ES#
+##
+# keyLsNew[[2]][,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # --------------------------------#
+# # # Test function splitDateTime#
+# # # ----------------------------#
+# testDateTimeES <- splitDateTime(rmInvLs[["dfValid"]], "ES")#
+# names(testDateTimeES)#
+#
+# # Check whether original date and time is all equal to the generated date and time#
+# all(c(#
+# all(testDateTimeES$start_date == testDateTimeES$ES_START_DATE),#
+# all(testDateTimeES$start_time == testDateTimeES$ES_START_TIME),#
+# all(testDateTimeES$end_date == testDateTimeES$ES_END_DATE),#
+# all(testDateTimeES$end_time == testDateTimeES$ES_END_TIME)))#
+#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# # BEWARE: Don't apply the function when unnecessary, i.e. if in the original raw#
+# #		  dataset date and time are separate columns (each for start and end) then#
+# #		  don't apply the function splitDateTime after the function genDateTime#
+# #		  has been applied. Reason: The already existing variable names of the#
+# #		  separate date and time columns are replaced by the generated variable#
+# #		  names which are most likely different from the original names.#
+# names(RELEVANTVN_ES)#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 8#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+rmInvLs <- rmInvalidDf(keyLsNew)#
+names(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# str(rmInvLs)	# list of 4#
+length(rmInvLs[["dfValid"]])#
+addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+names(rmInvLs[["dfValid"]])#
+#
+length(rmInvLs[["listInvalid"]])#
+rmInvLs[["listInvalid"]][2]#
+#
+length(rmInvLs[["rmInvalidDfFinished"]])#
+rmInvLs[["rmInvalidDfFinished"]]#
+#
+length(rmInvLs[["noLinesRemovedAtAll"]])#
+rmInvLs[["noLinesRemovedAtAll"]]#
+#
+# 9#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printRmInvalid(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+tblRemovedDf <- addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+data.frame(versions=c(names(esLs), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))#
+# Plausibility check here ... then check completeness.#
+#
+# Pre-merged inspection independent of complete vs incomplete questionnaires, i.e.#
+# this inspection should be done with the number of raw datasets, not with the#
+# result of the function 'isCompleteLs', which might return a number of datasets#
+# that is larger than the number of raw datasets.#
+#
+# notItems <- as.character(unlist(RELEVANTVN_ES))#
+#
+# 10#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+names(plausibItems)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 11#
+# dfList <- rmInvLs[["dfValid"]]; itemVecList <- plausibItems#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+names(plausibLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+inconsistent <- which(plausibLs[["plausibClass"]]$classCheck==FALSE)#
+#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+display1 <- c(1,20,29)#
+plausibLs[["plausibNames"]][display1,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibNames"]][display1,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibClass"]])#
+display2 <- c(1, 2, 15)#
+plausibLs[["plausibClass"]][display2,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][display2,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibRowNa"]])#
+#
+display3Row <- c(1,2,8)#
+display3Col <- c(1:3,10:13)#
+plausibLs[["plausibRowNa"]][display3Row, display3Col]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][display3Row, display3Col], digits=1, summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=10))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+display4 <- c(1, 13, 15)#
+plausibLs[["plausibMinMax"]][display4,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][display4,], summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=13))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+plausibLs[["plausibRowNa"]][inconsistent,]#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# Present a possibility to display which list index corresponds to#
+# which dataset.#
+# names(rmInvLs[["dfValid"]])#
+#
+# On the other hand: if you use the list of datasets that has been given#
+# to the function 'plausibES' you can easily read off the correct order!#
+# Change variable names of V1 in dataset 1 to V1_3#
+names(rmInvLs[["dfValid"]][[1]])#
+colnames(rmInvLs[["dfValid"]][[1]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(rmInvLs[["dfValid"]][[4]])#
+colnames(rmInvLs[["dfValid"]][[4]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(rmInvLs[["dfValid"]][[2]])#
+colnames(rmInvLs[["dfValid"]][[2]])[16] <- "V4_6"#
+names(rmInvLs[["dfValid"]][[2]])#
+#
+# Change variable names of V4_3 in dataset 5 to V4_7#
+# Turned out only by inspection of plausibMinMax'!#
+names(rmInvLs[["dfValid"]][[5]])#
+colnames(rmInvLs[["dfValid"]][[5]])[16] <- "V4_7"#
+names(rmInvLs[["dfValid"]][[5]])#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibLs[["plausibClass"]]$classCheck==FALSE#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+plausibLs[["plausibRowNa"]][inconsistent, display3Col]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][inconsistent, display3Col], summary=FALSE, rownames=FALSE, digits=1, notes="bla")#
+#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+# # # ------------------------------------------------------------------#
+# # # C o n s i s t e n t#
+# # # -------------------#
+# # # Display all consistent character items#
+# # # --------------------------------------#
+# # charConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE & apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) all(x[!is.na(x)]=="cha"))#
+# # plausibLs[["plausibClass"]][charConsistent,]#
+#
+# # # Display all consistent integer items#
+# # # --------------------------------------#
+# # intConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE&apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) any(x=="int"))#
+# # na.omit(plausibLs[["plausibClass"]][intConsistent,])#
+# # # ------------------------------------------------------------------#
+# # Merge plausib sub-dataframes 2 (only 1st and last column) and 3:#
+# # ----------------------------------------------------------------#
+# mergePlausib23 <- merge(plausibLs[["plausibRowNa"]], plausibLs[["plausibClass"]][,c("itemNamesAll", "classCheck")], by="itemNamesAll", sort=FALSE)#
+# Number of columns overall (BEWARE: In the plausib data frames the descriptive#
+# variable names are left out, e.g. IMEI, start_date, etc.)#
+length(unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names))))#
+#
+# What are the unique names?#
+unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names)))#
+# --------------------------------------------------------------------------------#
+# # SVYNAMES[1]	"morningTestGroup"		"V_10", "V_10_1"#
+# names(dfList[[4]])#
+# # SVYNAMES[2]	"dayTestGroup"					"V_11"#
+# names(dfList[[5]])#
+# # SVYNAMES[3]	"eveningTestGroup"		"V_13", "V_13_1"#
+# names(dfList[[6]])#
+# # SVYNAMES[4]	"morningControlGroup"	"V_10", "V_10_1"#
+# names(dfList[[1]])#
+# # SVYNAMES[5]	"dayControlGroup"				"V_11"#
+# names(dfList[[2]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_5"#
+# names(dfList[[3]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_4"#
+# names(dfList[[3]])#
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)#
+names(isCompleteLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Check:#
+length(isCompleteLs)#
+names(isCompleteLs)#
+for(i in 1:length(isCompleteLs)) {#
+	print(names(isCompleteLs[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}#
+#
+table(isCompleteLs[[1]]["INCOMPLETE_1"])#
+table(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+summary(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+table(isCompleteLs[[3]]["INCOMPLETE_1"])#
+table(isCompleteLs[[4]]["INCOMPLETE_1"])#
+table(isCompleteLs[[5]]["INCOMPLETE_1"])#
+table(isCompleteLs[[6]]["INCOMPLETE_1"])#
+table(isCompleteLs[[7]]["INCOMPLETE_2"])#
+#
+# # No questionnaire registered by esComplete for version 1#
+# isCompleteLs[[1]][,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+#
+incom2 <- isCompleteLs[[2]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+incom3 <- isCompleteLs[[3]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[3]][incom3,c("survey_name", "end_date", "end_time", "V9", "V9_1", "INCOMPLETE_1", "KEY")]#
+incom4 <- isCompleteLs[[4]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[4]][incom4,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+incom5 <- isCompleteLs[[5]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[5]][incom5,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+incom6 <- isCompleteLs[[6]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[6]][incom6,c("survey_name", "end_date", "end_time", "V8_1", "V8_3", "INCOMPLETE_1", "KEY")]#
+incom7 <- isCompleteLs[[7]]["INCOMPLETE_2"] == 1#
+isCompleteLs[[7]][incom7,c("survey_name", "end_date", "end_time", "V8_1", "V8_2", "INCOMPLETE_2", "KEY")]#
+#
+# --------------------------------------------------------------------------------#
+# # Check whether all is NA#
+# csv1[,c("V_4_1", "V_4_4")]#
+# csv6[,c("V_4_5")]#
+#
+# dfList <- list(csv1, csv2, csv3, csv4, csv5, csv6)#
+# --------------------------------------------------------------------------------#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esMerged <- esMerge(isCompleteLs)#
+names(esMerged)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+str(esMerged)#
+#
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])#
+#
+esMerged[,"IMEI"] <- as.character(esMerged[,"IMEI"])#
+#
+esMerged[,"V1"] <- as.numeric(esMerged[,"V1"])#
+#
+dim(esMerged)#
+# str(esMerged)#
+names(esMerged)#
+#
+# # esMerged$KEY <- as.character(esMerged$KEY)#
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(esMerged))#
+idxIrrelevantCols0 <- match(names(esMerged)[-idxRelevantCols], names(esMerged))#
+# idxIrrelevantCols1 <- order(names(esMerged)[idxIrrelevantCols0[-1]])#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(esMerged)[idxVarSort])#
+#
+esMerged1 <- esMerged[,idxVarSort]#
+# esMerged1 $ IMEI <- format(esMerged1 $ IMEI, digits = 16)#
+names(esMerged1)#
+#
+# v1Char <- esMerged1$V1#
+# esMerged1$V1 <- as.numeric(esMerged1$V1)#
+# data.frame(v1Char, v1Num=esMerged1$V1)#
+#
+esMerged1 <- esMerged#
+#
+# ------------------------------------------------------------------------------#
+# 14#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx <- findChars(esMerged1)#
+names(findTextIdx)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+length(findTextIdx)#
+#
+# 14a (important: select the relevant columns containing text, where single#
+#				  characters shall be converted)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx1 <- findTextIdx[c(1,2,9,10,11)]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esMerged1)[findTextIdx1]#
+#
+str(esMerged1[,findTextIdx1])#
+#
+# Check umlaute:#
+esMerged1[1:20,findTextIdx1]#
+#
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(convertCharsDf, summary=FALSE, rownames=FALSE, notes="bla")#
+#
+textColumns <- names(esMerged1)[findTextIdx1]#
+#
+# 15#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# If argument ignoreCase is not actively set to TRUE it is set#
+# to FALSE by default, i.e. case is not ignored.#
+esMerged2 <- convertChars(esMerged1, textColumns, convertCharsDf)#
+names(esMerged2)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# Check umlaute:#
+esMerged2[1:20,findTextIdx1]#
+str(esMerged2[,findTextIdx1])#
+#
+# ------------------------------------------------------------------------------#
+#
+# requireNamespace("lubridate", quietly=TRUE)#
+# library(lubridate)#
+#
+# 16#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esAssigned <- esAssign(esDf = esMerged2, refDf = referenceDfNew, dsd = "2007-10-28")#
+names(esAssigned)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esAssigned$ES)#
+#
+esAssigned$ES[1:50, c("ID", "CV_ES", "CV_ESDAY", "CV_ESWEEKDAY", "ES_START_DATETIME", "PROMPT", "PROMPTEND", "ES_MULT", "ST", "REIM", "DST", "QWST")]#
+#
+names(esAssigned$ESopt)#
+#
+esAssigned$ESopt[1:50,]#
+#
+esAssigned$ESopt[1:31,]#
+#
+esDf <- esAssigned$ES#
+# names(esDf)#
+#
+# ------------------------------------------------------------------------------#
+#
+# Function 'missingEndDateTime' returns a data frame with new colums 'noEndDate' and 'noEndTime'#
+#
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+table(noEndDf$NOENDDATE)#
+#
+# # # Normal case: If end_date is missing, so is end_time.#
+notItems <- as.character(unlist(RELEVANTVN_ES))#
+noEndDf[noEndDf$NOENDDATE==1,c("ID", notItems)]#
+# How many questionnaire versions are among the unfinished questionnaires?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[1]])#
+# How many phones with unfinished questionnaires on them?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[2]])#
+# How many different persons had at least one unfinished questionnaire?#
+unique(as.character(noEndDf[noEndDf$NOENDDATE==1, "ID"]))#
+#
+names(noEndDf)#
+#
+# # cbind(as.character(unique(esAssigned$ES[noEndDf$noEndDate==1,"ID"])))#
+# # # How many persons are included in the entire study?#
+# # length(unique(esAssigned$ES[,"ID"]))#
+# # # # Check function 'esVersions'#
+# # # # ----------------------------#
+# # # testVersions <- esVersions(noEndDf)#
+#
+# # # names(testVersions)#
+#
+# 18#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf <- esIdentical(noEndDf)#
+names(identDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "IDENT")]#
+#
+# BEWARE: No more work necessary in terms of identification, i.e. the identical#
+# ------  questionnaires are a special case of a multiple questionnaire per#
+#		  scheduled time. As such (as being multiple) they are removed later on.#
+#
+identKey <- identDf[identDf$IDENT==1,"KEY"]#
+idxIdent1 <- seq(1,length(identKey), by=2)#
+idxIdent2 <- seq(2,length(identKey), by=2)#
+identKeyDf <- data.frame(ident1=identKey[idxIdent1], ident2=identKey[idxIdent2])#
+# SHIFTING BUSINESS#
+# -----------------#
+# # Candidate for shifting from stIdx = 4 to stIdx = 3! Reason: 3 otherwise doesn't exist#
+# # and 4 exists as expected:#
+#               ID CV_ES start_date start_time CV_ESDAY PROMPT PROMPTEND#
+# 62  TG-001-02-03         17 2015-08-02   21:01:16         5        4      4#
+# 451 TG-001-02-03         19 2015-08-03   13:07:46         6        2      2#
+# 64  TG-001-02-03         21 2015-08-03   19:17:31         6        4      4	-> PROMPT = 3#
+# 65  TG-001-02-03         21 2015-08-03   21:05:21         6        4      4
+noEndDf[1:70,c("ID", "KEY", notItems[c(2,7)], "ST")]
+# 19#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+sugShiftDf <- suggestShift(identDf)#
+names(sugShiftDf)
+makeSingleSource <- function(path, numberOfFuns, scriptNames, writeToScriptR) {#
+	for(single in 1:numberOfFuns) {#
+#
+	    con <- file(paste0(path, scriptNames[single]), open="r", blocking=FALSE)#
+	    linesRead <- readLines(con)#
+	    close(con)#
+	    if(single == 1) {#
+	    		cat("# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=FALSE)#
+	    		cat(single, file=paste0(path, writeToScriptR), append=TRUE)#
+	    		cat("\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    } else {#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat(single, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    }#
+	}#
+}#
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathScriptsREAD <- paste0(path, "R_esmprepREAD/")#
+namesOfScripts0 <- list.files(path= pathScriptsREAD, pattern = "\\.R$")#
+containAllScript <- "zz51Functions.R"#
+#
+makeSingleSource(pathScriptsREAD, 51, namesOfScripts0, containAllScript)
+rm(list=ls(all=TRUE))#
+# ...#
+#
+# Transfer zu LaTeX:#
+# ------------------#
+library(stargazer)#
+# Set main path#
+# -------------#
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+#
+# -------------------------------------------------------------------------#
+# char <- "character"#
+# int <- "integer"#
+#
+(referenceDf <- read.table(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+print(referenceDf[,c(1,5:ncol(referenceDf))], row.names=FALSE)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDf[1:2,c(1,5:ncol(referenceDf))], summary=FALSE, rownames=FALSE)#
+# is.data.frame(referenceDf)#
+# -------------------------------------------------------------------------#
+# -------------------------------------------------------------------------#
+# # All 6 csv data files have been merged into one csv file.#
+# # -------------------------------------------------------#
+#
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# # -------------------------------------------------------------------------------#
+# # CG = control group -----------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# dim(csv1)#
+# names(csv1)#
+# str(csv1)#
+# csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# # -------------------------------------------------------------------------------#
+# # -------------------------------------------------------------------------------#
+#
+# # -------------------------------------------------------------------------------#
+# # TG = test group -------------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# CG = control group -----------------------------------#
+# -------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------#
+#
+# -------------------------------------------------------------------------------#
+# TG = test group -------------------------------------#
+# -------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# dfList <- list(csv1=csv1, csv2=csv2, csv3=csv3, csv4=csv4, csv5=csv5, csv6=csv6)#
+# names(dfList)
+source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))
+library(lubridate)
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+relRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)#
+names(relRef)#
+class(relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setREF(4,relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTVN_REF#
+# --------------------------------------------------------------------------------#
+dateTimeFormats()#
+dateTimeFormats2()#
+# 3#
+#
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relEs <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+(relEs <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))#
+names(relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # Test the function with missing or false entries:#
+# (relEs <-relevantESVN("survey_name", "IMEI", "", "start_time", "end_date", "end_time", NULL, NULL))#
+#
+# (relEs <-relevantESVN("survey_name", "IMEI", startDateTime=NA, endDateTime="dine"))#
+#
+# relEs <- relEs[-7]#
+#
+# setES(4, imeiNumbers, surveyNames, relEs)#
+#
+# 4#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setES(4, imeiNumbers, surveyNames, relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES#
+# --------------------------------------------------------------------------------#
+# 5#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esLs <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(esLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+all(names(csv1) == names(esLs[["morningControlGroup"]]))#
+#
+# class(esLs)#
+# class(esLs[[1]])#
+# length(esLs)#
+# --------------------------------------------------------------------------------#
+# 6#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# key vector to identify each raw line of data.#
+keyLs <- genKey(esLs)#
+names(keyLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # checkKey is NOT exported#
+# checkKey(keyLs)#
+#
+names(keyLs[[1]])#
+#
+addmargins(as.table(sapply(keyLs, FUN = nrow)))#
+#
+# keyLs[[2]][,"IMEI"] <- as.character(keyLs[[2]][,"IMEI"])#
+# goLatex <- keyLs[[2]][1:2,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(goLatex, summary=FALSE, rownames=FALSE)#
+# 7a.1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+referenceDfNew <- genDateTime(referenceDf, "REF")#
+names(referenceDfNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# refCopy <- referenceDfNew#
+# names(refCopy)#
+# refCopy1 <- refCopy[,-c(6,7,12,13)]#
+#
+# # 7#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# # ... opposite to 'genDateTime' is 'splitDateTime'.#
+# referenceDfTest <- splitDateTime(refCopy1, "REF")#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+#
+names(RELEVANTVN_REF)#
+#
+# 7a.2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+keyLsNew <- genDateTime(keyLs, "ES")#
+names(keyLsNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# names(keyLsNew[[1]])#
+# nrow(keyLsNew[[1]])#
+#
+# idxNA_dateTime <- is.na(keyLsNew[[1]][,"ES_END_DATETIME"])#
+##
+# keyLsNew[[1]][idxNA_dateTime,c("survey_name", "ES_START_DATETIME", "ES_END_DATETIME")]#
+##
+# addmargins(as.table(sapply(keyLsNew, FUN = nrow)))#
+##
+# RELEVANTVN_ES#
+##
+# keyLsNew[[2]][,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # --------------------------------#
+# # # Test function splitDateTime#
+# # # ----------------------------#
+# testDateTimeES <- splitDateTime(rmInvLs[["dfValid"]], "ES")#
+# names(testDateTimeES)#
+#
+# # Check whether original date and time is all equal to the generated date and time#
+# all(c(#
+# all(testDateTimeES$start_date == testDateTimeES$ES_START_DATE),#
+# all(testDateTimeES$start_time == testDateTimeES$ES_START_TIME),#
+# all(testDateTimeES$end_date == testDateTimeES$ES_END_DATE),#
+# all(testDateTimeES$end_time == testDateTimeES$ES_END_TIME)))#
+#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# # BEWARE: Don't apply the function when unnecessary, i.e. if in the original raw#
+# #		  dataset date and time are separate columns (each for start and end) then#
+# #		  don't apply the function splitDateTime after the function genDateTime#
+# #		  has been applied. Reason: The already existing variable names of the#
+# #		  separate date and time columns are replaced by the generated variable#
+# #		  names which are most likely different from the original names.#
+# names(RELEVANTVN_ES)#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 8#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+rmInvLs <- rmInvalidDf(keyLsNew)#
+names(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# str(rmInvLs)	# list of 4#
+length(rmInvLs[["dfValid"]])#
+addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+names(rmInvLs[["dfValid"]])#
+#
+length(rmInvLs[["listInvalid"]])#
+rmInvLs[["listInvalid"]][2]#
+#
+length(rmInvLs[["rmInvalidDfFinished"]])#
+rmInvLs[["rmInvalidDfFinished"]]#
+#
+length(rmInvLs[["noLinesRemovedAtAll"]])#
+rmInvLs[["noLinesRemovedAtAll"]]#
+#
+# 9#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printRmInvalid(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+tblRemovedDf <- addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+data.frame(versions=c(names(esLs), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))#
+# Plausibility check here ... then check completeness.#
+#
+# Pre-merged inspection independent of complete vs incomplete questionnaires, i.e.#
+# this inspection should be done with the number of raw datasets, not with the#
+# result of the function 'isCompleteLs', which might return a number of datasets#
+# that is larger than the number of raw datasets.#
+#
+# notItems <- as.character(unlist(RELEVANTVN_ES))#
+#
+# 10#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+names(plausibItems)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 11#
+# dfList <- rmInvLs[["dfValid"]]; itemVecList <- plausibItems#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+names(plausibLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+inconsistent <- which(plausibLs[["plausibClass"]]$classCheck==FALSE)#
+#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+display1 <- c(1,20,29)#
+plausibLs[["plausibNames"]][display1,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibNames"]][display1,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibClass"]])#
+display2 <- c(1, 2, 15)#
+plausibLs[["plausibClass"]][display2,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][display2,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibRowNa"]])#
+#
+display3Row <- c(1,2,8)#
+display3Col <- c(1:3,10:13)#
+plausibLs[["plausibRowNa"]][display3Row, display3Col]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][display3Row, display3Col], digits=1, summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=10))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+display4 <- c(1, 13, 15)#
+plausibLs[["plausibMinMax"]][display4,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][display4,], summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=13))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+plausibLs[["plausibRowNa"]][inconsistent,]#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# Present a possibility to display which list index corresponds to#
+# which dataset.#
+# names(rmInvLs[["dfValid"]])#
+#
+# On the other hand: if you use the list of datasets that has been given#
+# to the function 'plausibES' you can easily read off the correct order!#
+# Change variable names of V1 in dataset 1 to V1_3#
+names(rmInvLs[["dfValid"]][[1]])#
+colnames(rmInvLs[["dfValid"]][[1]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(rmInvLs[["dfValid"]][[4]])#
+colnames(rmInvLs[["dfValid"]][[4]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(rmInvLs[["dfValid"]][[2]])#
+colnames(rmInvLs[["dfValid"]][[2]])[16] <- "V4_6"#
+names(rmInvLs[["dfValid"]][[2]])#
+#
+# Change variable names of V4_3 in dataset 5 to V4_7#
+# Turned out only by inspection of plausibMinMax'!#
+names(rmInvLs[["dfValid"]][[5]])#
+colnames(rmInvLs[["dfValid"]][[5]])[16] <- "V4_7"#
+names(rmInvLs[["dfValid"]][[5]])#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibLs[["plausibClass"]]$classCheck==FALSE#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+plausibLs[["plausibRowNa"]][inconsistent, display3Col]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][inconsistent, display3Col], summary=FALSE, rownames=FALSE, digits=1, notes="bla")#
+#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+# # # ------------------------------------------------------------------#
+# # # C o n s i s t e n t#
+# # # -------------------#
+# # # Display all consistent character items#
+# # # --------------------------------------#
+# # charConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE & apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) all(x[!is.na(x)]=="cha"))#
+# # plausibLs[["plausibClass"]][charConsistent,]#
+#
+# # # Display all consistent integer items#
+# # # --------------------------------------#
+# # intConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE&apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) any(x=="int"))#
+# # na.omit(plausibLs[["plausibClass"]][intConsistent,])#
+# # # ------------------------------------------------------------------#
+# # Merge plausib sub-dataframes 2 (only 1st and last column) and 3:#
+# # ----------------------------------------------------------------#
+# mergePlausib23 <- merge(plausibLs[["plausibRowNa"]], plausibLs[["plausibClass"]][,c("itemNamesAll", "classCheck")], by="itemNamesAll", sort=FALSE)#
+# Number of columns overall (BEWARE: In the plausib data frames the descriptive#
+# variable names are left out, e.g. IMEI, start_date, etc.)#
+length(unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names))))#
+#
+# What are the unique names?#
+unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names)))#
+# --------------------------------------------------------------------------------#
+# # SVYNAMES[1]	"morningTestGroup"		"V_10", "V_10_1"#
+# names(dfList[[4]])#
+# # SVYNAMES[2]	"dayTestGroup"					"V_11"#
+# names(dfList[[5]])#
+# # SVYNAMES[3]	"eveningTestGroup"		"V_13", "V_13_1"#
+# names(dfList[[6]])#
+# # SVYNAMES[4]	"morningControlGroup"	"V_10", "V_10_1"#
+# names(dfList[[1]])#
+# # SVYNAMES[5]	"dayControlGroup"				"V_11"#
+# names(dfList[[2]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_5"#
+# names(dfList[[3]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_4"#
+# names(dfList[[3]])#
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)#
+names(isCompleteLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Check:#
+length(isCompleteLs)#
+names(isCompleteLs)#
+for(i in 1:length(isCompleteLs)) {#
+	print(names(isCompleteLs[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}#
+#
+table(isCompleteLs[[1]]["INCOMPLETE_1"])#
+table(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+summary(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+table(isCompleteLs[[3]]["INCOMPLETE_1"])#
+table(isCompleteLs[[4]]["INCOMPLETE_1"])#
+table(isCompleteLs[[5]]["INCOMPLETE_1"])#
+table(isCompleteLs[[6]]["INCOMPLETE_1"])#
+table(isCompleteLs[[7]]["INCOMPLETE_2"])#
+#
+# # No questionnaire registered by esComplete for version 1#
+# isCompleteLs[[1]][,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+#
+incom2 <- isCompleteLs[[2]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+incom3 <- isCompleteLs[[3]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[3]][incom3,c("survey_name", "end_date", "end_time", "V9", "V9_1", "INCOMPLETE_1", "KEY")]#
+incom4 <- isCompleteLs[[4]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[4]][incom4,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+incom5 <- isCompleteLs[[5]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[5]][incom5,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+incom6 <- isCompleteLs[[6]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[6]][incom6,c("survey_name", "end_date", "end_time", "V8_1", "V8_3", "INCOMPLETE_1", "KEY")]#
+incom7 <- isCompleteLs[[7]]["INCOMPLETE_2"] == 1#
+isCompleteLs[[7]][incom7,c("survey_name", "end_date", "end_time", "V8_1", "V8_2", "INCOMPLETE_2", "KEY")]#
+#
+# --------------------------------------------------------------------------------#
+# # Check whether all is NA#
+# csv1[,c("V_4_1", "V_4_4")]#
+# csv6[,c("V_4_5")]#
+#
+# dfList <- list(csv1, csv2, csv3, csv4, csv5, csv6)#
+# --------------------------------------------------------------------------------#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esMerged <- esMerge(isCompleteLs)#
+names(esMerged)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+str(esMerged)#
+#
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])#
+#
+esMerged[,"IMEI"] <- as.character(esMerged[,"IMEI"])#
+#
+esMerged[,"V1"] <- as.numeric(esMerged[,"V1"])#
+#
+dim(esMerged)#
+# str(esMerged)#
+names(esMerged)#
+#
+# # esMerged$KEY <- as.character(esMerged$KEY)#
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(esMerged))#
+idxIrrelevantCols0 <- match(names(esMerged)[-idxRelevantCols], names(esMerged))#
+# idxIrrelevantCols1 <- order(names(esMerged)[idxIrrelevantCols0[-1]])#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(esMerged)[idxVarSort])#
+#
+esMerged1 <- esMerged[,idxVarSort]#
+# esMerged1 $ IMEI <- format(esMerged1 $ IMEI, digits = 16)#
+names(esMerged1)#
+#
+# v1Char <- esMerged1$V1#
+# esMerged1$V1 <- as.numeric(esMerged1$V1)#
+# data.frame(v1Char, v1Num=esMerged1$V1)#
+#
+esMerged1 <- esMerged#
+#
+# ------------------------------------------------------------------------------#
+# 14#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx <- findChars(esMerged1)#
+names(findTextIdx)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+length(findTextIdx)#
+#
+# 14a (important: select the relevant columns containing text, where single#
+#				  characters shall be converted)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx1 <- findTextIdx[c(1,2,9,10,11)]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esMerged1)[findTextIdx1]#
+#
+str(esMerged1[,findTextIdx1])#
+#
+# Check umlaute:#
+esMerged1[1:20,findTextIdx1]#
+#
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(convertCharsDf, summary=FALSE, rownames=FALSE, notes="bla")#
+#
+textColumns <- names(esMerged1)[findTextIdx1]#
+#
+# 15#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# If argument ignoreCase is not actively set to TRUE it is set#
+# to FALSE by default, i.e. case is not ignored.#
+esMerged2 <- convertChars(esMerged1, textColumns, convertCharsDf)#
+names(esMerged2)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# Check umlaute:#
+esMerged2[1:20,findTextIdx1]#
+str(esMerged2[,findTextIdx1])#
+#
+# ------------------------------------------------------------------------------#
+#
+# requireNamespace("lubridate", quietly=TRUE)#
+# library(lubridate)#
+#
+# 16#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esAssigned <- esAssign(esDf = esMerged2, refDf = referenceDfNew, dsd = "2007-10-28")#
+names(esAssigned)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esAssigned$ES)#
+#
+esAssigned$ES[1:50, c("ID", "CV_ES", "CV_ESDAY", "CV_ESWEEKDAY", "ES_START_DATETIME", "PROMPT", "PROMPTEND", "ES_MULT", "ST", "REIM", "DST", "QWST")]#
+#
+names(esAssigned$ESopt)#
+#
+esAssigned$ESopt[1:50,]#
+#
+esAssigned$ESopt[1:31,]#
+#
+esDf <- esAssigned$ES#
+# names(esDf)#
+#
+# ------------------------------------------------------------------------------#
+#
+# Function 'missingEndDateTime' returns a data frame with new colums 'noEndDate' and 'noEndTime'#
+#
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+table(noEndDf$NOENDDATE)#
+#
+# # # Normal case: If end_date is missing, so is end_time.#
+notItems <- as.character(unlist(RELEVANTVN_ES))#
+noEndDf[noEndDf$NOENDDATE==1,c("ID", notItems)]#
+# How many questionnaire versions are among the unfinished questionnaires?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[1]])#
+# How many phones with unfinished questionnaires on them?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[2]])#
+# How many different persons had at least one unfinished questionnaire?#
+unique(as.character(noEndDf[noEndDf$NOENDDATE==1, "ID"]))#
+#
+names(noEndDf)#
+#
+# # cbind(as.character(unique(esAssigned$ES[noEndDf$noEndDate==1,"ID"])))#
+# # # How many persons are included in the entire study?#
+# # length(unique(esAssigned$ES[,"ID"]))#
+# # # # Check function 'esVersions'#
+# # # # ----------------------------#
+# # # testVersions <- esVersions(noEndDf)#
+#
+# # # names(testVersions)#
+#
+# 18#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf <- esIdentical(noEndDf)#
+names(identDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "IDENT")]#
+#
+# BEWARE: No more work necessary in terms of identification, i.e. the identical#
+# ------  questionnaires are a special case of a multiple questionnaire per#
+#		  scheduled time. As such (as being multiple) they are removed later on.#
+#
+identKey <- identDf[identDf$IDENT==1,"KEY"]#
+idxIdent1 <- seq(1,length(identKey), by=2)#
+idxIdent2 <- seq(2,length(identKey), by=2)#
+identKeyDf <- data.frame(ident1=identKey[idxIdent1], ident2=identKey[idxIdent2])#
+# SHIFTING BUSINESS#
+# -----------------#
+# # Candidate for shifting from stIdx = 4 to stIdx = 3! Reason: 3 otherwise doesn't exist#
+# # and 4 exists as expected:#
+#               ID CV_ES start_date start_time CV_ESDAY PROMPT PROMPTEND#
+# 62  TG-001-02-03         17 2015-08-02   21:01:16         5        4      4#
+# 451 TG-001-02-03         19 2015-08-03   13:07:46         6        2      2#
+# 64  TG-001-02-03         21 2015-08-03   19:17:31         6        4      4	-> PROMPT = 3#
+# 65  TG-001-02-03         21 2015-08-03   21:05:21         6        4      4#
+noEndDf[1:70,c("ID", "KEY", notItems[c(2,7)], "ST")]
+sugShiftDf <- suggestShift(identDf)
+names(sugShiftDf)
+sugShiftDf[1:70,c("ID", "KEY", notItems[2], "ST", "SHIFT", "SHIFTKEY")]#
+#
+idxP002_013 <- match(c("P002", "P013"), referenceDfNew$id)#
+referenceDfNew[idxP002_013,c(1,8:11)]
+stargazer(referenceDfNew[idxP002_013,c(1,8:11)], summary=FALSE, rownames=FALSE, notes="bla")
+printSuggestedShift(sugShiftDf)
+printSuggestedShift(madeShiftDf)
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+madeShiftDf <- makeShift(sugShiftDf, referenceDfNew, list(1064), list(3))#
+names(madeShiftDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printSuggestedShift(madeShiftDf)
+expIdxList <- list(#
+					list("morningTestGroup", 1, 1),#
+					list("dayTestGroup", c(2,3), 2),#
+					list("eveningTestGroup", 4, 3),#
+					list("morningControlGroup", 1, 1),#
+					list("dayControlGroup", c(2,3), 2),#
+					list("eveningControlGroup", 4, 3))#
+#
+# 22#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+expectedDf <- expectedStartTimeIndex(madeShiftDf, expIdxList)#
+names(expectedDf)
+makeSingleSource <- function(path, numberOfFuns, scriptNames, writeToScriptR) {#
+	for(single in 1:numberOfFuns) {#
+#
+	    con <- file(paste0(path, scriptNames[single]), open="r", blocking=FALSE)#
+	    linesRead <- readLines(con)#
+	    close(con)#
+	    if(single == 1) {#
+	    		cat("# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=FALSE)#
+	    		cat(single, file=paste0(path, writeToScriptR), append=TRUE)#
+	    		cat("\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    } else {#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat(single, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    }#
+	}#
+}#
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathScriptsREAD <- paste0(path, "R_esmprepREAD/")#
+namesOfScripts0 <- list.files(path= pathScriptsREAD, pattern = "\\.R$")#
+containAllScript <- "zz51Functions.R"#
+#
+makeSingleSource(pathScriptsREAD, 51, namesOfScripts0, containAllScript)
+rm(list=ls(all=TRUE))#
+# ...#
+#
+# Transfer zu LaTeX:#
+# ------------------#
+library(stargazer)#
+# Set main path#
+# -------------#
+pathRomantic <- "~/Desktop/EMA RomanticCouples/emaPackage/"#
+#
+# -------------------------------------------------------------------------#
+# char <- "character"#
+# int <- "integer"#
+#
+(referenceDf <- read.table(file=paste0(pathRomantic, "referenceDf.csv"), header = TRUE, sep = "\t", stringsAsFactors=FALSE))#
+referenceDf$imei <- as.character(referenceDf$imei)#
+names(referenceDf)#
+#
+print(referenceDf[,c(1,5:ncol(referenceDf))], row.names=FALSE)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDf[1:2,c(1,5:ncol(referenceDf))], summary=FALSE, rownames=FALSE)#
+# is.data.frame(referenceDf)#
+# -------------------------------------------------------------------------#
+# -------------------------------------------------------------------------#
+# # All 6 csv data files have been merged into one csv file.#
+# # -------------------------------------------------------#
+#
+svyNamesCsv <- c("morningControlGroup.csv", "dayControlGroup.csv", "eveningControlGroup.csv", "morningTestGroup.csv", "dayTestGroup.csv", "eveningTestGroup.csv")#
+#
+# # -------------------------------------------------------------------------------#
+# # CG = control group -----------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# dim(csv1)#
+# names(csv1)#
+# str(csv1)#
+# csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# # -------------------------------------------------------------------------------#
+# # -------------------------------------------------------------------------------#
+#
+# # -------------------------------------------------------------------------------#
+# # TG = test group -------------------------------------#
+# # -------------------------------------------------------------------------------#
+# csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "latin1", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# CG = control group -----------------------------------#
+# -------------------------------------------------------------------------------#
+csv1 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[1]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+dim(csv1)#
+names(csv1)#
+str(csv1)#
+csv2 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[2]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv3 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[3]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# -------------------------------------------------------------------------------#
+# -------------------------------------------------------------------------------#
+#
+# -------------------------------------------------------------------------------#
+# TG = test group -------------------------------------#
+# -------------------------------------------------------------------------------#
+csv4 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[4]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv5 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[5]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+csv6 <- read.csv(file=paste0(pathRomantic, svyNamesCsv[6]), header = TRUE, sep = "\t", fileEncoding = "utf-8", stringsAsFactors = FALSE)#
+# dfList <- list(csv1=csv1, csv2=csv2, csv3=csv3, csv4=csv4, csv5=csv5, csv6=csv6)#
+# names(dfList)
+source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))#
+library(lubridate)
+# 1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+relRef <- relevantREFVN("id", "imei", "st", "start_date", "start_time", "end_date", "end_time", NULL, NULL)#
+names(relRef)#
+class(relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setREF(4,relRef)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTVN_REF#
+# --------------------------------------------------------------------------------#
+dateTimeFormats()#
+dateTimeFormats2()#
+# 3#
+#
+imeiNumbers <- c(#
+"526745224593822", "526745224599058", "526745224592943", "526745224594993",#
+"526745224597792", "526745224592100", "526745224591992", "526745224596026",#
+"526745224594050", "526745224593770", "526745224597171", "526745224596649")#
+#
+surveyNames <- c(#
+# Test group#
+"morningTestGroup", "dayTestGroup", "eveningTestGroup",#
+# Control group#
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")#
+#
+# relEs <- c("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time")#
+#
+# # relInfoBad <- list(NA, "start_date", "start_time", "end_date", "end_time")#
+#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+(relEs <- relevantESVN("survey_name", "IMEI", "start_date", "start_time", "end_date", "end_time"))#
+names(relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # Test the function with missing or false entries:#
+# (relEs <-relevantESVN("survey_name", "IMEI", "", "start_time", "end_date", "end_time", NULL, NULL))#
+#
+# (relEs <-relevantESVN("survey_name", "IMEI", startDateTime=NA, endDateTime="dine"))#
+#
+# relEs <- relEs[-7]#
+#
+# setES(4, imeiNumbers, surveyNames, relEs)#
+#
+# 4#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+setES(4, imeiNumbers, surveyNames, relEs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+RELEVANTINFO_ES#
+RELEVANTVN_ES#
+# --------------------------------------------------------------------------------#
+# 5#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esLs <- esList(list(csv1, csv2, csv3, csv4, csv5, csv6))#
+names(esLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+all(names(csv1) == names(esLs[["morningControlGroup"]]))#
+#
+# class(esLs)#
+# class(esLs[[1]])#
+# length(esLs)#
+# --------------------------------------------------------------------------------#
+# 6#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# key vector to identify each raw line of data.#
+keyLs <- genKey(esLs)#
+names(keyLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# # checkKey is NOT exported#
+# checkKey(keyLs)#
+#
+names(keyLs[[1]])#
+#
+addmargins(as.table(sapply(keyLs, FUN = nrow)))#
+#
+# keyLs[[2]][,"IMEI"] <- as.character(keyLs[[2]][,"IMEI"])#
+# goLatex <- keyLs[[2]][1:2,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(goLatex, summary=FALSE, rownames=FALSE)#
+# 7a.1#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+referenceDfNew <- genDateTime(referenceDf, "REF")#
+names(referenceDfNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# refCopy <- referenceDfNew#
+# names(refCopy)#
+# refCopy1 <- refCopy[,-c(6,7,12,13)]#
+#
+# # 7#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+# # ... opposite to 'genDateTime' is 'splitDateTime'.#
+# referenceDfTest <- splitDateTime(refCopy1, "REF")#
+# # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-#
+#
+names(RELEVANTVN_REF)#
+#
+# 7a.2#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+keyLsNew <- genDateTime(keyLs, "ES")#
+names(keyLsNew)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# names(keyLsNew[[1]])#
+# nrow(keyLsNew[[1]])#
+#
+# idxNA_dateTime <- is.na(keyLsNew[[1]][,"ES_END_DATETIME"])#
+##
+# keyLsNew[[1]][idxNA_dateTime,c("survey_name", "ES_START_DATETIME", "ES_END_DATETIME")]#
+##
+# addmargins(as.table(sapply(keyLsNew, FUN = nrow)))#
+##
+# RELEVANTVN_ES#
+##
+# keyLsNew[[2]][,c("KEY", as.character(unlist(RELEVANTVN_ES)))]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # --------------------------------#
+# # # Test function splitDateTime#
+# # # ----------------------------#
+# testDateTimeES <- splitDateTime(rmInvLs[["dfValid"]], "ES")#
+# names(testDateTimeES)#
+#
+# # Check whether original date and time is all equal to the generated date and time#
+# all(c(#
+# all(testDateTimeES$start_date == testDateTimeES$ES_START_DATE),#
+# all(testDateTimeES$start_time == testDateTimeES$ES_START_TIME),#
+# all(testDateTimeES$end_date == testDateTimeES$ES_END_DATE),#
+# all(testDateTimeES$end_time == testDateTimeES$ES_END_TIME)))#
+#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# # BEWARE: Don't apply the function when unnecessary, i.e. if in the original raw#
+# #		  dataset date and time are separate columns (each for start and end) then#
+# #		  don't apply the function splitDateTime after the function genDateTime#
+# #		  has been applied. Reason: The already existing variable names of the#
+# #		  separate date and time columns are replaced by the generated variable#
+# #		  names which are most likely different from the original names.#
+# names(RELEVANTVN_ES)#
+# # !-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!-!#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 8#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+rmInvLs <- rmInvalidDf(keyLsNew)#
+names(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# str(rmInvLs)	# list of 4#
+length(rmInvLs[["dfValid"]])#
+addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+names(rmInvLs[["dfValid"]])#
+#
+length(rmInvLs[["listInvalid"]])#
+rmInvLs[["listInvalid"]][2]#
+#
+length(rmInvLs[["rmInvalidDfFinished"]])#
+rmInvLs[["rmInvalidDfFinished"]]#
+#
+length(rmInvLs[["noLinesRemovedAtAll"]])#
+rmInvLs[["noLinesRemovedAtAll"]]#
+#
+# 9#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printRmInvalid(rmInvLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+tblRemovedDf <- addmargins(as.table(sapply(rmInvLs[["dfValid"]], FUN = nrow)))#
+#
+# Check dfList  w i t h  e r r o r s:#
+# ----------------------------------#
+tblNotRemovedDf <- addmargins(as.table(sapply(esLs, FUN = nrow)))#
+#
+data.frame(versions=c(names(esLs), "Sum"), notRemovedDf=as.numeric(tblNotRemovedDf), removedDf=as.numeric(tblRemovedDf), removedLines=as.numeric(tblNotRemovedDf)-as.numeric(tblRemovedDf))#
+# Plausibility check here ... then check completeness.#
+#
+# Pre-merged inspection independent of complete vs incomplete questionnaires, i.e.#
+# this inspection should be done with the number of raw datasets, not with the#
+# result of the function 'isCompleteLs', which might return a number of datasets#
+# that is larger than the number of raw datasets.#
+#
+# notItems <- as.character(unlist(RELEVANTVN_ES))#
+#
+# 10#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+names(plausibItems)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# 11#
+# dfList <- rmInvLs[["dfValid"]]; itemVecList <- plausibItems#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+names(plausibLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+inconsistent <- which(plausibLs[["plausibClass"]]$classCheck==FALSE)#
+#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+display1 <- c(1,20,29)#
+plausibLs[["plausibNames"]][display1,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibNames"]][display1,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibClass"]])#
+display2 <- c(1, 2, 15)#
+plausibLs[["plausibClass"]][display2,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][display2,], summary=FALSE, rownames=FALSE, notes="bla")#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# names(plausibLs[["plausibRowNa"]])#
+#
+display3Row <- c(1,2,8)#
+display3Col <- c(1:3,10:13)#
+plausibLs[["plausibRowNa"]][display3Row, display3Col]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][display3Row, display3Col], digits=1, summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=10))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+display4 <- c(1, 13, 15)#
+plausibLs[["plausibMinMax"]][display4,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][display4,], summary=FALSE, rownames=FALSE)#
+#
+# cat(rep("\\\ vdots &", times=13))#
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+plausibLs[["plausibRowNa"]][inconsistent,]#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# Present a possibility to display which list index corresponds to#
+# which dataset.#
+# names(rmInvLs[["dfValid"]])#
+#
+# On the other hand: if you use the list of datasets that has been given#
+# to the function 'plausibES' you can easily read off the correct order!#
+# Change variable names of V1 in dataset 1 to V1_3#
+names(rmInvLs[["dfValid"]][[1]])#
+colnames(rmInvLs[["dfValid"]][[1]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[1]])#
+#
+# Change variable names of V1 in dataset 4 to V1_3 (same content as V1 in dataset 1)#
+names(rmInvLs[["dfValid"]][[4]])#
+colnames(rmInvLs[["dfValid"]][[4]])[2] <- "V1_3"#
+names(rmInvLs[["dfValid"]][[4]])#
+#
+# Change variable names of V4_3 in dataset 2 to V4_6#
+names(rmInvLs[["dfValid"]][[2]])#
+colnames(rmInvLs[["dfValid"]][[2]])[16] <- "V4_6"#
+names(rmInvLs[["dfValid"]][[2]])#
+#
+# Change variable names of V4_3 in dataset 5 to V4_7#
+# Turned out only by inspection of plausibMinMax'!#
+names(rmInvLs[["dfValid"]][[5]])#
+colnames(rmInvLs[["dfValid"]][[5]])[16] <- "V4_7"#
+names(rmInvLs[["dfValid"]][[5]])#
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]])#
+plausibLs <- esPlausible(dfList=rmInvLs[["dfValid"]], itemVecList=plausibItems)#
+#
+# Display all inconsistent classes#
+# --------------------------------------#
+inconsistent <- plausibLs[["plausibClass"]]$classCheck==FALSE#
+#
+plausibLs[["plausibClass"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibClass"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+plausibLs[["plausibRowNa"]][inconsistent, display3Col]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibRowNa"]][inconsistent, display3Col], summary=FALSE, rownames=FALSE, digits=1, notes="bla")#
+#
+plausibLs[["plausibMinMax"]][inconsistent,]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(plausibLs[["plausibMinMax"]][inconsistent,], summary=FALSE, rownames=FALSE, notes="bla")#
+# # # ------------------------------------------------------------------#
+# # # C o n s i s t e n t#
+# # # -------------------#
+# # # Display all consistent character items#
+# # # --------------------------------------#
+# # charConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE & apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) all(x[!is.na(x)]=="cha"))#
+# # plausibLs[["plausibClass"]][charConsistent,]#
+#
+# # # Display all consistent integer items#
+# # # --------------------------------------#
+# # intConsistent <- plausibLs[["plausibClass"]]$classCheck==TRUE&apply(plausibLs[["plausibClass"]][,2:7], MARGIN = 1, function(x) any(x=="int"))#
+# # na.omit(plausibLs[["plausibClass"]][intConsistent,])#
+# # # ------------------------------------------------------------------#
+# # Merge plausib sub-dataframes 2 (only 1st and last column) and 3:#
+# # ----------------------------------------------------------------#
+# mergePlausib23 <- merge(plausibLs[["plausibRowNa"]], plausibLs[["plausibClass"]][,c("itemNamesAll", "classCheck")], by="itemNamesAll", sort=FALSE)#
+# Number of columns overall (BEWARE: In the plausib data frames the descriptive#
+# variable names are left out, e.g. IMEI, start_date, etc.)#
+length(unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names))))#
+#
+# What are the unique names?#
+unique(unlist(sapply(rmInvLs[["dfValid"]], FUN = names)))#
+# --------------------------------------------------------------------------------#
+# # SVYNAMES[1]	"morningTestGroup"		"V_10", "V_10_1"#
+# names(dfList[[4]])#
+# # SVYNAMES[2]	"dayTestGroup"					"V_11"#
+# names(dfList[[5]])#
+# # SVYNAMES[3]	"eveningTestGroup"		"V_13", "V_13_1"#
+# names(dfList[[6]])#
+# # SVYNAMES[4]	"morningControlGroup"	"V_10", "V_10_1"#
+# names(dfList[[1]])#
+# # SVYNAMES[5]	"dayControlGroup"				"V_11"#
+# names(dfList[[2]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_5"#
+# names(dfList[[3]])#
+# # SVYNAMES[6]	"eveningControlGroup"	"V_12_3", "V_12_4"#
+# names(dfList[[3]])#
+lastItemList <- list(#
+					list("morningTestGroup", "V6", "V6_1", 0),#
+					list("dayTestGroup", NA, "V7", NA),#
+					list("eveningTestGroup", "V9", "V9_1", 1),#
+					list("morningControlGroup", "V6", "V6_1", 0),#
+					list("dayControlGroup", NA, "V7", NA),#
+					list("eveningControlGroup", "V8_1", "V8_3", 1:5),#
+					list("eveningControlGroup", "V8_1", "V8_2", 0))#
+#
+# 12#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)#
+names(isCompleteLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Check:#
+length(isCompleteLs)#
+names(isCompleteLs)#
+for(i in 1:length(isCompleteLs)) {#
+	print(names(isCompleteLs[[i]]))#
+	cat("---------------------------------------------------------------------------\n\n")#
+}#
+#
+table(isCompleteLs[[1]]["INCOMPLETE_1"])#
+table(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+summary(isCompleteLs[["dayTestGroup_1"]]["INCOMPLETE_1"])#
+table(isCompleteLs[[3]]["INCOMPLETE_1"])#
+table(isCompleteLs[[4]]["INCOMPLETE_1"])#
+table(isCompleteLs[[5]]["INCOMPLETE_1"])#
+table(isCompleteLs[[6]]["INCOMPLETE_1"])#
+table(isCompleteLs[[7]]["INCOMPLETE_2"])#
+#
+# # No questionnaire registered by esComplete for version 1#
+# isCompleteLs[[1]][,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+#
+incom2 <- isCompleteLs[[2]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(isCompleteLs[[2]][incom2,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+incom3 <- isCompleteLs[[3]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[3]][incom3,c("survey_name", "end_date", "end_time", "V9", "V9_1", "INCOMPLETE_1", "KEY")]#
+incom4 <- isCompleteLs[[4]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[4]][incom4,c("survey_name", "end_date", "end_time", "V6", "V6_1", "INCOMPLETE_1", "KEY")]#
+incom5 <- isCompleteLs[[5]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[5]][incom5,c("survey_name", "end_date", "end_time", "V7", "INCOMPLETE_1", "KEY")]#
+incom6 <- isCompleteLs[[6]]["INCOMPLETE_1"] == 1#
+isCompleteLs[[6]][incom6,c("survey_name", "end_date", "end_time", "V8_1", "V8_3", "INCOMPLETE_1", "KEY")]#
+incom7 <- isCompleteLs[[7]]["INCOMPLETE_2"] == 1#
+isCompleteLs[[7]][incom7,c("survey_name", "end_date", "end_time", "V8_1", "V8_2", "INCOMPLETE_2", "KEY")]#
+#
+# --------------------------------------------------------------------------------#
+# # Check whether all is NA#
+# csv1[,c("V_4_1", "V_4_4")]#
+# csv6[,c("V_4_5")]#
+#
+# dfList <- list(csv1, csv2, csv3, csv4, csv5, csv6)#
+# --------------------------------------------------------------------------------#
+#
+# 13#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esMerged <- esMerge(isCompleteLs)#
+names(esMerged)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+str(esMerged)#
+#
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])#
+#
+esMerged[,"IMEI"] <- as.character(esMerged[,"IMEI"])#
+#
+esMerged[,"V1"] <- as.numeric(esMerged[,"V1"])#
+#
+dim(esMerged)#
+# str(esMerged)#
+names(esMerged)#
+#
+# # esMerged$KEY <- as.character(esMerged$KEY)#
+# Sort by items and descriptive variables#
+# ---------------------------------------#
+idxRelevantCols <- match(c(RELEVANTVN_ES, "INCOMPLETE_1", "INCOMPLETE_2"), names(esMerged))#
+idxIrrelevantCols0 <- match(names(esMerged)[-idxRelevantCols], names(esMerged))#
+# idxIrrelevantCols1 <- order(names(esMerged)[idxIrrelevantCols0[-1]])#
+idxVarSort <- c(idxIrrelevantCols0, idxRelevantCols)#
+cbind(names(esMerged)[idxVarSort])#
+#
+esMerged1 <- esMerged[,idxVarSort]#
+# esMerged1 $ IMEI <- format(esMerged1 $ IMEI, digits = 16)#
+names(esMerged1)#
+#
+# v1Char <- esMerged1$V1#
+# esMerged1$V1 <- as.numeric(esMerged1$V1)#
+# data.frame(v1Char, v1Num=esMerged1$V1)#
+#
+esMerged1 <- esMerged#
+#
+# ------------------------------------------------------------------------------#
+# 14#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx <- findChars(esMerged1)#
+names(findTextIdx)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+length(findTextIdx)#
+#
+# 14a (important: select the relevant columns containing text, where single#
+#				  characters shall be converted)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+findTextIdx1 <- findTextIdx[c(1,2,9,10,11)]#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esMerged1)[findTextIdx1]#
+#
+str(esMerged1[,findTextIdx1])#
+#
+# Check umlaute:#
+esMerged1[1:20,findTextIdx1]#
+#
+# Convert Umlaute to unified use (e.g. ä as ae)#
+umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")#
+umlauteOffLow <- c("ae", "oe", "ue", "ss", "e", "e", "a")#
+# # # umlauteOnUp <- toupper(umlauteOnLow[!umlauteOnLow=="ß"])#
+umlauteOffUp <- c("Ae", "Oe", "Ue", "E", "E", "A")#
+#
+umlauteOn <- c(umlauteOnLow, toupper(umlauteOnLow[!umlauteOnLow=="ß"]))#
+umlauteOff <- c(umlauteOffLow, umlauteOffUp)#
+#
+convertCharsDf <- data.frame(umlauteOn, umlauteOff)#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(convertCharsDf, summary=FALSE, rownames=FALSE, notes="bla")#
+#
+textColumns <- names(esMerged1)[findTextIdx1]#
+#
+# 15#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# If argument ignoreCase is not actively set to TRUE it is set#
+# to FALSE by default, i.e. case is not ignored.#
+esMerged2 <- convertChars(esMerged1, textColumns, convertCharsDf)#
+names(esMerged2)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+# Check umlaute:#
+esMerged2[1:20,findTextIdx1]#
+str(esMerged2[,findTextIdx1])#
+#
+# ------------------------------------------------------------------------------#
+#
+# requireNamespace("lubridate", quietly=TRUE)#
+# library(lubridate)#
+#
+# 16#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+esAssigned <- esAssign(esDf = esMerged2, refDf = referenceDfNew, dsd = "2007-10-28")#
+names(esAssigned)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+names(esAssigned$ES)#
+#
+esAssigned$ES[1:50, c("ID", "CV_ES", "CV_ESDAY", "CV_ESWEEKDAY", "ES_START_DATETIME", "PROMPT", "PROMPTEND", "ES_MULT", "ST", "REIM", "DST", "QWST")]#
+#
+names(esAssigned$ESopt)#
+#
+esAssigned$ESopt[1:50,]#
+#
+esAssigned$ESopt[1:31,]#
+#
+esDf <- esAssigned$ES#
+# names(esDf)#
+#
+# ------------------------------------------------------------------------------#
+#
+# Function 'missingEndDateTime' returns a data frame with new colums 'noEndDate' and 'noEndTime'#
+#
+# 17#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+noEndDf <- missingEndDateTime(esDf)#
+names(noEndDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+table(noEndDf$NOENDDATE)#
+#
+# # # Normal case: If end_date is missing, so is end_time.#
+notItems <- as.character(unlist(RELEVANTVN_ES))#
+noEndDf[noEndDf$NOENDDATE==1,c("ID", notItems)]#
+# How many questionnaire versions are among the unfinished questionnaires?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[1]])#
+# How many phones with unfinished questionnaires on them?#
+unique(noEndDf[noEndDf$NOENDDATE==1, notItems[2]])#
+# How many different persons had at least one unfinished questionnaire?#
+unique(as.character(noEndDf[noEndDf$NOENDDATE==1, "ID"]))#
+#
+names(noEndDf)#
+#
+# # cbind(as.character(unique(esAssigned$ES[noEndDf$noEndDate==1,"ID"])))#
+# # # How many persons are included in the entire study?#
+# # length(unique(esAssigned$ES[,"ID"]))#
+# # # # Check function 'esVersions'#
+# # # # ----------------------------#
+# # # testVersions <- esVersions(noEndDf)#
+#
+# # # names(testVersions)#
+#
+# 18#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf <- esIdentical(noEndDf)#
+names(identDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "IDENT")]#
+#
+# BEWARE: No more work necessary in terms of identification, i.e. the identical#
+# ------  questionnaires are a special case of a multiple questionnaire per#
+#		  scheduled time. As such (as being multiple) they are removed later on.#
+#
+identKey <- identDf[identDf$IDENT==1,"KEY"]#
+idxIdent1 <- seq(1,length(identKey), by=2)#
+idxIdent2 <- seq(2,length(identKey), by=2)#
+identKeyDf <- data.frame(ident1=identKey[idxIdent1], ident2=identKey[idxIdent2])#
+# SHIFTING BUSINESS#
+# -----------------#
+# # Candidate for shifting from stIdx = 4 to stIdx = 3! Reason: 3 otherwise doesn't exist#
+# # and 4 exists as expected:#
+#               ID CV_ES start_date start_time CV_ESDAY PROMPT PROMPTEND#
+# 62  TG-001-02-03         17 2015-08-02   21:01:16         5        4      4#
+# 451 TG-001-02-03         19 2015-08-03   13:07:46         6        2      2#
+# 64  TG-001-02-03         21 2015-08-03   19:17:31         6        4      4	-> PROMPT = 3#
+# 65  TG-001-02-03         21 2015-08-03   21:05:21         6        4      4#
+noEndDf[1:70,c("ID", "KEY", notItems[c(2,7)], "ST")]#
+#
+# 19#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+sugShiftDf <- suggestShift(identDf)#
+names(sugShiftDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+#
+sugShiftDf[1:70,c("ID", "KEY", notItems[2], "ST", "SHIFT", "SHIFTKEY")]#
+#
+idxP002_013 <- match(c("P002", "P013"), referenceDfNew$id)#
+referenceDfNew[idxP002_013,c(1,8:11)]#
+#
+# # Transfer zu LaTeX:#
+# # ------------------#
+# stargazer(referenceDfNew[idxP002_013,c(1,8:11)], summary=FALSE, rownames=FALSE, notes="bla")#
+#
+# 20#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printSuggestedShift(sugShiftDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# 21#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+madeShiftDf <- makeShift(sugShiftDf, referenceDfNew, list(1064), list(3))#
+names(madeShiftDf)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+printSuggestedShift(madeShiftDf)#, row.names=FALSE)
+expIdxList <- list(#
+					list("morningTestGroup", 1, 1),#
+					list("dayTestGroup", c(2,3), 2),#
+					list("eveningTestGroup", 4, 3),#
+					list("morningControlGroup", 1, 1),#
+					list("dayControlGroup", c(2,3), 2),#
+					list("eveningControlGroup", 4, 3))#
+#
+# 22#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+expectedDf <- expectedStartTimeIndex(madeShiftDf, expIdxList)#
+names(expectedDf)
+expectedDf[1:10,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+stargazer(expectedDf[1:10,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")], summary=FALSE, rownames=FALSE, notes="bla")
+expectedDf[20:40,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+expectedDf[80:100,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+expectedDf[180:200,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+expectedDf[192:194,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# Transfer zu LaTeX:#
+# ------------------#
+stargazer(expectedDf[192:194,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")], summary=FALSE, rownames=FALSE, notes="bla")
+makeSingleSource <- function(path, numberOfFuns, scriptNames, writeToScriptR) {#
+	for(single in 1:numberOfFuns) {#
+#
+	    con <- file(paste0(path, scriptNames[single]), open="r", blocking=FALSE)#
+	    linesRead <- readLines(con)#
+	    close(con)#
+	    if(single == 1) {#
+	    		cat("# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=FALSE)#
+	    		cat(single, file=paste0(path, writeToScriptR), append=TRUE)#
+	    		cat("\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    } else {#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat(single, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    		cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat(linesRead, file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	        cat("#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n#o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o\n\n\n", file=paste0(path, writeToScriptR), sep="\n", append=TRUE)#
+	    }#
+	}#
+}#
+# ------------------------------------------------------------------------------#
+# Set main path#
+# -------------#
+path <- "/Users/mmiche/Desktop/EMA RomanticCouples/emaPackage/"#
+pathScriptsREAD <- paste0(path, "R_esmprepREAD/")#
+namesOfScripts0 <- list.files(path= pathScriptsREAD, pattern = "\\.R$")#
+containAllScript <- "zz51Functions.R"#
+#
+makeSingleSource(pathScriptsREAD, 51, namesOfScripts0, containAllScript)
+source(paste0(pathRomantic, "R_esmprepREAD/zz51Functions.R"))
+# 23#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# unacceptable: 2,1 (Day at morning); 3,1 (Evening at morning); 3,2 (Evening at day)#
+listOfIntolerance <- list(c(2,1), c(3,1), c(3,2))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# 23#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# unacceptable: 2,1 (Day at morning); 3,1 (Evening at morning); 3,2 (Evening at day)#
+listOfIntolerance <- list(c(2,1), c(3,1), c(3,2), c(1,2))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# 23#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# unacceptable: 2,1 (Day at morning); 3,1 (Evening at morning); 3,2 (Evening at day)#
+listOfIntolerance <- list(c(2,1), c(3,1), c(3,2), c(1,2), c(1,3))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# unacceptable: 2,1 (Day at morning); 3,1 (Evening at morning); 3,2 (Evening at day)#
+listOfIntolerance <- list(c(4,1), c(3,1), c(3,2))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)
+listOfIntolerance <- list(c(2,4), c(3,1), c(3,2))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)
+names(intolLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# Compare vignette#
+listOfIntolerance <- list(c(1,2), c(1,3), c(1,4), c(3,1), c(3,2), c(3,3), c(2,1))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# Compare vignette#
+listOfIntolerance <- list(c(1,2), c(1,3), c(1,4), c(3,1), c(3,2), c(3,3), c(2,1), c(2,4))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+# 23#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# # # unacceptable: 2,1 (Day at morning); 3,1 (Evening at morning); 3,2 (Evening at day)#
+# # listOfIntolerance <- list(c(2,1), c(3,1), c(3,2))#
+#
+# Compare vignette#
+listOfIntolerance <- list(c(1,2), c(1,3), c(1,4), c(3,1), c(3,2), c(3,3), c(2,1))#
+intolLs <- intolerable(expectedDf, listOfIntolerance)#
+names(intolLs)#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+intolLs[["intoleranceDf"]][,c("ID", "KEY", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+intolLs[["intoleranceDf"]][,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")]
+stargazer(intolLs[["intoleranceDf"]][,c("ID", notItems[c(1,7)], "PROMPT", "PROMPTFALSE", "EXPCATEGORY")], summary=FALSE, rownames=FALSE, notes="bla")
