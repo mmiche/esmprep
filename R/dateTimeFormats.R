@@ -11,7 +11,7 @@
 #' @export
 #
 dateTimeFormats <- function() {
-    dateTimeFormat <- c("ymd_hms", "mdy_hms", "dmy_hms", "ymd_hm", "mdy_hm", "dmy_hm")
+    dateTimeFormat <- c("ymd_HMS", "mdy_HMS", "dmy_HMS", "ymd_HM", "mdy_HM", "dmy_HM")
     examplaryInput <- c("2017-02-06 07:11:23", "02-06-17 07:11:23", "06-02-17 07:11:23",
                         "17-02-06 07:11", "02-06-2017 07:11", "06-02-2017 07:11")
     output <- c(rep("2017-06-02 07:11:23 UTC", 3), rep("2017-06-02 07:11:00 UTC", 3))

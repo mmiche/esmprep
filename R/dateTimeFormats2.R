@@ -11,6 +11,6 @@
 #' @export
 #
 dateTimeFormats2 <- function() {
-    dateTimeFormat <- c("ymd_hms", "mdy_hms", "dmy_hms", "ymd_hm", "mdy_hm", "dmy_hm")
+    dateTimeFormat <- c("ymd_HMS", "mdy_HMS", "dmy_HMS", "ymd_HM", "mdy_HM", "dmy_HM")
     return(dateTimeFormat)
 }
