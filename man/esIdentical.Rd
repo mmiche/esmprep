@@ -18,7 +18,7 @@ esIdentical(esDf, RELEVANTVN_ES = NULL)
 esIdentical checks whether there are fully identical lines of data in the ESM dataset.
 }
 \details{
-At least 2 ESM questionnaires must be 100% identical in order to be registered as duplicates.
+At least 2 ESM questionnaires must be 100 percent identical in order to be registered as duplicates.
 }
 \examples{
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
