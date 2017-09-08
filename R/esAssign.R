@@ -217,7 +217,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
     # --------
     ID <- Lines <- c()
     CV_ES <- CV_ESDAY <- CV_ESWEEKDAY <- c()
-    ES_MULT <- PROMPT <- PROMPTEND <- ST <- LAG_MINS <- TFRAME <- DST <- QWST <- c()
+    ES_MULT <- PROMPT <- PROMPTEND <- ST <- STDATE <- LAG_MINS <- TFRAME <- DST <- QWST <- c()
 
     esOptDf_colNames <- c(RELEVANTVN_REF[["REF_ID"]], "CV_ES", RELEVANTVN_REF[["REF_START_DATE"]], RELEVANTVN_REF[["REF_START_TIME"]], "PROMPT")
     esOptDf <- setNames(data.frame(matrix(ncol=5, nrow=0)), esOptDf_colNames)
@@ -225,7 +225,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
 	avrgCompletionRate <- c()
 	
 	# =/*=/=*=/=*=/*=/=/*=/=*=/=*=/*=/=/*=/=*=/=*=/*=/=/*=/=*=/=*=/*=/
-	
+
     for(i in selectedPerson_s ) {
 
         #
@@ -386,7 +386,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             			unit <- unit + 1
             		}
             }
-			
+
             esOptDf_temp <- esOptimum(
                 person_i, refDf, RELEVANTVN_REF[["REF_ID"]],
                 RELEVANTVN_REF[["REF_START_DATE"]], RELEVANTVN_REF[["REF_START_TIME"]],
@@ -440,7 +440,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             rownames(efficiency_temp) <- "%"
             # ---------------------------------------------------------------------------
 
-            cat("Event sampling time period - completion rates\n")
+            cat("Event sampling period - completion rates per prompt\n")
             print(efficiency_temp)
             cat("------------------------------------------------\n\n")
             # # ---------------------------------------------------------------------
@@ -453,8 +453,8 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             Lines <- c(Lines, LinesValid)
 
             CV_ES <- c(CV_ES, cvOverall_temp)
-			
-			if(midnightPrompt) {
+
+            if(midnightPrompt) {
 				CV_ESDAY <- c(CV_ESDAY, cv_esunit)
 			} else {
 				CV_ESDAY <- c(CV_ESDAY, day_temp $ esDay)
@@ -469,6 +469,10 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             PROMPTEND <- c(PROMPTEND, stEnd1_temp)
 
             ST <- c(ST, stVec_temp)
+            
+            if(midnightPrompt == TRUE) {
+            	STDATE <- c(STDATE, time_temp $ midnightDate)
+            }
             
             # startLag with positive and negative values, depending on whether
             # actual start was prior to or after the scheduled time.
@@ -521,9 +525,12 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
     if(prompted == TRUE) {
 
         # ---------------------------------------------------------------------
-        # Add e_number as first column:
-        # ----------------------------
-        esDfOut <- data.frame(ID, CV_ES, CV_ESDAY, CV_ESWEEKDAY, esDfOrd [Lines,], PROMPT, PROMPTEND, ES_MULT, ST, LAG_MINS, TFRAME, DST, QWST)
+        
+        if(midnightPrompt == TRUE) {
+        	esDfOut <- data.frame(ID, CV_ES, CV_ESDAY, CV_ESWEEKDAY, esDfOrd [Lines,], PROMPT, PROMPTEND, ES_MULT, ST, STDATE, LAG_MINS, TFRAME, DST, QWST)
+        } else {
+        	esDfOut <- data.frame(ID, CV_ES, CV_ESDAY, CV_ESWEEKDAY, esDfOrd [Lines,], PROMPT, PROMPTEND, ES_MULT, ST, LAG_MINS, TFRAME, DST, QWST)
+        }
 		
 		# Function cumsumReset generates variable ES_MULT2
 		esDfOut1 <- cumsumReset(esDfOut, "ES_MULT")
