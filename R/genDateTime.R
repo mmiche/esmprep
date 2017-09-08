@@ -113,18 +113,10 @@ genDateTime <- function(refOrEsDf=NULL, refOrEs = NULL, RELEVANTINFO_ES = NULL, 
         list(refOrEsDf = df_dateTime, extendedVNList=dateTimeEndDf[["extendedVariableNameList"]])
 
     } else {
-
-        # If event sampling is only one data frame, go on also checking whether it
-        # is of tpye data.frame
-        if(length(RELEVANTINFO_ES[["SVYNAMES"]]) == 1) {
-            if(!is.data.frame(refOrEsDf)) {
-                stop("The argument 'refOrEsDf' must be of type data.frame.")
-            }
-        } else {
-            if(!is.list(refOrEsDf) & all(sapply(refOrEsDf, is.data.frame))) {
-                stop("The argument 'refOrEsDf' must be of type list, each element of the list must be of type data.frame.")
-            }
-        }
+    	
+    		if(!is.list(refOrEsDf) & all(sapply(refOrEsDf, is.data.frame))) {
+			stop("The argument 'refOrEsDf' must be of type list, each element of the list must be of type data.frame.")
+		}
         # ERROR handling end ---------------------------------------------
 
         esList <- list()
@@ -143,6 +135,5 @@ genDateTime <- function(refOrEsDf=NULL, refOrEs = NULL, RELEVANTINFO_ES = NULL, 
         }
         # esList
         list(refOrEsDf = esList, extendedVNList=dateTimeEndDf[["extendedVariableNameList"]])
-    }
-    
+    }    
 }
