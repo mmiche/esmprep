@@ -3,7 +3,14 @@
 #
 overallCounter <- function(idxAssigned, dateVec, RELEVANTINFO_ES = NULL) {
 	
-    diffAssigned <- c(0, diff(idxAssigned))
+    if(length(idxAssigned)==1) {
+		diffAssigned <- 0
+		cvOverall <- 1
+		return(cvOverall)
+		break
+	} else {
+		diffAssigned <- c(0, diff(idxAssigned))
+	}
     dateVecBool <- duplicated(dateVec)
 
     # First questionnaire of person i always starts at 1.
