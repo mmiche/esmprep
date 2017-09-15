@@ -193,7 +193,7 @@ esComplete <- function(dfList, lastItemList) {
             dfListCompleteQuestionnaires[[outListName]] <- esVersion_k
             counter <- counter + 1
         } else {
-            outListName <- paste0(as.character(svyNamesFromLastItemList[counter]), "_", svyNameOccurrence[counter])
+            outListName <- as.character(svyNamesFromLastItemList[counter])
             dfListCompleteQuestionnaires[[outListName]] <- esVersion_k
             counter <- counter + 1
         }

@@ -14,7 +14,7 @@
 #
 #' @param END_DATETIME a character string. If \code{ENDDATE} and \code{ENDTIME} are not in two separate columns but are combined as a date-time object in a single column pass that column's name and ignore the arguments \code{ENDDATE} and \code{ENDTIME}.
 #
-#' @param svyName a vector of character string(s). The column name in (each of) the ESM dataset(s) that specifies the particular survey version.
+#' @param svyName a vector of character string(s). The column name in (each of) the ESM dataset(s) that specifies the particular survey version.\cr This is the only optional argument, i.e. if there exists no such column in the raw ESM dataset(s), keep the default value of NULL for this argument. If this default value is kept, the function \code{\link{esList}} will generate such a column and will fill it with 'ESMVERSION_ESMPREP' in each line of raw ESM data at the current state of the dataset(s).\cr \strong{NOTE}: It is not recommended to let \code{\link{esList}} generate this column, though. For reasons of clarity it is recommended that the user generates such a column for each raw ESM dataset(s) beforehand. The column name of (all) the raw ESM dataset(s) must be identical, however, the content of the new columns must uniquely specify their respective ESM dataset, e.g. "morningControlGroup" for the morning ESM version of the control group.
 #
 #' @param IMEI a character string. Column name that specifies the variable in the respective dataset holding the the IMEI number.
 #
@@ -71,8 +71,8 @@ relevantESVN <- function(svyName=NULL, IMEI=NULL, STARTDATE=NULL, STARTTIME=NULL
     
     # Argument 1 can be present. Warning if it is missing.
     if (isNull[1]) {
-    	listCheck[["svyName"]] <- "NO_ESM_COLUMN_PRESENT_SPECIFYING_SURVEY_NAME"
-        warning("Argument 'svyName' has not been passed (only optional argument): ok.")
+    		listCheck[["svyName"]] <- "ES_SVY_NAME"
+        message("Argument 'svyName' is the only optional argument. It has not been passed by the user. OK, go on.")
     }
     
     # Argument 2 must be present. Error if it is missing.

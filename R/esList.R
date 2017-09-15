@@ -53,10 +53,24 @@ esList <- function(dfList, RELEVANTVN_ES=NULL) {
     			   RELEVANTVN_ES=RELEVANTVN_ES,
     			   RELEVANTVN_REF=NULL)
     
+    # 1. If [there is exactly one survey version and] there is no column holding the
+    # survey name (meaning that the list element ES_SVY_NAME of the list RELEVANTVN_ES
+    # contains "NO_ESM_COLUMN_PRESENT_SPECIFYING_SURVEY_NAME"), change that long string
+    # to a much shorter string and use as column name.
+    if(RELEVANTVN_ES[["ES_SVY_NAME"]] == "ES_SVY_NAME") {
+    		# 2. Generate new column with a survey name.
+    		for(svyName_i in 1:length(dfList)) {
+    			if(length(dfList) == 1) {
+    				dfList[[svyName_i]][,RELEVANTVN_ES[["ES_SVY_NAME"]]] <- "ESMVERSION_ESMPREP"
+    			} else {
+    				dfList[[svyName_i]][,RELEVANTVN_ES[["ES_SVY_NAME"]]] <- paste0("ESMVERSION", svyName_i, "_ESMPREP")
+    			}
+    		}
+    }
+    
     # Empty variable that collects the names of the list elements of
     # esList's return value.
     seqVersionNames <- c()
-    # i <- 1
     for(i in 1:length(dfList)) {
         
         # surveyNameDontExist contains all unique character strings that
