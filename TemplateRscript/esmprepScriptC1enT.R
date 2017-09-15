@@ -32,6 +32,9 @@
 # --------------------------------------------------------------------
 library(esmprep)
 #
+# Tipp: Check out the PDF on writing and reading data in R
+# ----	Link: https://cran.r-project.org/doc/manuals/r-release/R-data.pdf
+#
 # # Help page of the package
 # help(package=esmprep)
 #
@@ -51,8 +54,31 @@ library(esmprep)
 # process you'll the time it took for this script to run through.
 esmprepStart <- Sys.time()
 #
-# Reference dataset
+# adaptToYOURproject -> Reference dataset
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
+
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Take a look at the exemplary reference dataset and then generate a reference
+# dataset for YOUR ESM project, which must contain the same information!
+# Important, even if it seems trivial and obvious: The scheduled times of the
+# daily prompts must strictly follow one another in time, e.g. prompt no.2
+# must be subsequent to prompt no.1 in time and prompt no.2 must be prior in
+# time to all prompts following it, in short 8 o'clock is prior to 9 o'clock,
+# stick to that fact also in the reference dataset.
+
+# Once you have generated YOUR reference dataset, read it into R, e.g. with
+# the read.table or read.csv (built-in) function, if it's a csv file, or with
+# the (built-in) function readRDS(), if it's a RDS file. You can also read
+# excel files, SPSS files or many other types of files with R, e.g. with the
+# package 'openxlsx' or with the package 'foreign'.
+
+# Here: Read YOUR reference dataset (assign it like here, to the variable name
+# referenceDf! It will make life easier!), e.g.
+# referenceDf <- read.table(file="referenceDf.csv", header = TRUE, sep = ",", stringsAsFactors=FALSE)
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+#
 # Convert the 15 digit IMEI number from scientfic notation to text.
 referenceDf$imei <- as.character(referenceDf$imei)
 # Display the whole dataset in the console
@@ -60,23 +86,38 @@ referenceDf
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 1 relevantREFVN
+# adaptToYOURproject -> 1 relevantREFVN
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
+#
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# For each of the relevant columns in YOUR reference dataset, pass the column
+# names inside the empty quotes.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+#
 # Run (function 1 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
 # With date and time as separate arguments
-relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
-STARTDATE="start_date", STARTTIME="start_time",
-ENDDATE="end_date", ENDTIME="end_time")
+relRef <- relevantREFVN(ID="", IMEI="", ST="",
+STARTDATE="", STARTTIME="",
+ENDDATE="", ENDTIME="")
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
-# 2 setREF
+# adaptToYOURproject -> 2 setREF
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
+#
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# As first argument of function 'setREF' pass the number of daily prompts.
+# Replace the placeholder xPROMPTSx by that number.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+#
 # Run (function 2 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
-# 4 is the number of daily prompts.
 # relRef is the result of function 'relevantREFVN'
-RELEVANTVN_REF <- setREF(4, relRef)
+RELEVANTVN_REF <- setREF(xPROMPTSx, relRef)
 #
 # Relevant variables names of reference dataset.
 RELEVANTVN_REF
@@ -88,30 +129,58 @@ dateTimeFormats()
 dateTimeFormats2()
 #
 #
-# 3 relevantESVN
+# Read the raw ESM dataset into R, e.g.:
+# -------------------------------------
+# rawESM <- read.csv(file=nameOfRawESMdata.csv, header = TRUE, sep = ";", fileEncoding = "latin1", stringsAsFactors = FALSE)
+#
+#
+# adaptToYOURproject -> 3 relevantESVN
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
+#
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# For each of the relevant columns in YOUR ESM dataset, pass the column
+# names inside the empty quotes.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+#
 # Run (function 3 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
 # With date and time as separate arguments
-relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
-STARTDATE="start_date", STARTTIME="start_time",
-ENDDATE="end_date", ENDTIME="end_time")
+relEs <- relevantESVN(svyName="", IMEI="",
+STARTDATE="", STARTTIME="",
+ENDDATE="", ENDTIME="")
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
-# 4 setES
+#
+# adaptToYOURproject -> 4 setES
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 4 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
 # imeiNumbers is the vector containing all IMEI numbers used in
 # the ESM study; use the respective entries in the referenceDf.
-imeiNumbers <- referenceDf$imei
+imeiNumbers <- referenceDf[,RELEVANTVN_REF[["REF_IMEI"]]]
+#
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# If there is a column in the ESM dataset that specifies the name of the survey
+# version, pass that name inside the empty quotes in variable 'surveyNames'. If
+# there is no such column in the ESM dataset, either generate it and then pass
+# the name to the variable 'surveyNames' or pass NULL to 'surveyNames'. Note:
+# Passing NULL is only possible if the ESM project consists of exactly one ESM
+# version!
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # surveyNames is the vector containing all ESM version names.
-surveyNames <- c(
-# Control group
-   "dayControlGroup")
-# 4 is the number of daily prompts
+surveyNames <- c("")
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# As first argument of function 'setES' pass the number of daily prompts.
+# Replace the placeholder xPROMPTSx by that number.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # relEs is the result of function 'relevantESVN'
-RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
+RELEVANT_ES <- setES(xPROMPTSx, imeiNumbers, surveyNames, relEs)
 #
 # Extract relevant ESM general information
 RELEVANTINFO_ES <- RELEVANT_ES[["RELEVANTINFO_ES"]]
@@ -121,12 +190,18 @@ RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 5 esList
+# adaptToYOURproject -> 5 esList
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# As first argument of function 'esList' pass the raw ESM dataset inside of a
+# list!
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # Run (function 5 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
 # Use day dataset (control group) of the 6 exemplary raw ESM (sub-)datasets.
-esLs <- esList(list(dayControl), RELEVANTVN_ES)
+esLs <- esList(list(rawESM), RELEVANTVN_ES)
 #
 # Initial set of column names (across all raw ESM datasets)
 colNames5 <- unique(unlist(sapply(esLs, FUN = names)))
@@ -209,7 +284,7 @@ rmInvLs[["noLinesRemovedAtAll"]]
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 9 printRmInvalid
+# adaptToYOURproject -> 9 printRmInvalid
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 9 of 28; see esmprep functions' hierarchy)
 # --------------------------------------------------------
@@ -220,17 +295,29 @@ key_rmLs <- printRmInvalid(rmInvLs, smr="both", RELEVANTVN_ES)
 # that have been removed.
 key_rmLs
 #
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Only in the case that at least one questionnaire contained a warning message
+# of some sort and got therefore removed, execute to following code.
+# The 'following code' stands between the lines that look like that: # c1c1c1
+# Note:
+# Before doing that, enter the column name of the very first column of YOUR raw
+# ESM dataset by replacing THIS_IS_THE_FIRST_COLUMN_NAME in the quotes below.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # Since there have been a warning message in the dataset, the first
-# ESM item (name: V1) was automatically converted to class character,
-# although it is numeric. So we'll re-convert V1's class.
-# Check V1 prior to conversion
-str(rmInvLs[["dfValid"]][[1]][1:2])
-# Convert V1 from character to numeric
-rmInvLs[["dfValid"]][[1]][,"V1"] <- as.numeric(rmInvLs[["dfValid"]][[1]][,"V1"])
-#
-#
-# Check V1 after conversion
-str(rmInvLs[["dfValid"]][[1]][1:2])
+# ESM item was automatically converted to class character,
+# although it is numeric. So we'll re-convert the class.
+# # If you want to execute the following code, first uncomment it (remove the
+# # '#' at the beginning of each line, remove exactly one, not two!)
+# # c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1
+# # Check V1 prior to conversion
+# str(rmInvLs[["dfValid"]][[1]][1:2])
+# # Convert V1 from character to numeric
+# rmInvLs[["dfValid"]][[1]][,"THIS_IS_THE_FIRST_COLUMN_NAME"] <- as.numeric(rmInvLs[["dfValid"]][[1]][,"THIS_IS_THE_FIRST_COLUMN_NAME"])
+# # Check V1 after conversion
+# str(rmInvLs[["dfValid"]][[1]][1:2])
+# # c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1c1
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 # Plausibility check
@@ -254,17 +341,27 @@ plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 12 esComplete
+# adaptToYOURproject -> 12 esComplete
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 12 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
 # Generate second argument of function 'esComplete'. It's strongly recommended
 # to read the explantion of this 2nd argument in the esmprep vignette, function
 # 'esComplete'.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Pass the name of the column that specifies the survey version -> replace
+# INSERT_VERSION_NAME.
+# Pass the name of the column that specifies the last variable that is
+# expected to contain a value -> replace INSERT_VARIABLE_NAME.
+# If there is a condition, upon which only one of two possible variables are the
+# last variable to contain a value, check the documention and adapt accordingly.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 lastItemList <- list(
-# In survey version "dayTestGroup" variable "V7" is the last item expected to contain data;
-# unlike above, no conditions; NA as 2nd and 3rd element of the inner list are mandatory.
-list("dayControlGroup", NA, NA, "V7"))
+# In survey version "INSERT_VERSION_NAME" variable "INSERT_VARIABLE_NAME" is the
+# last item expected to contain data.
+list("INSERT_VERSION_NAME", NA, NA, "INSERT_VARIABLE_NAME"))
 #
 # Apply function 'esComplete'. rmInvLs[["dfValid"]] is one of the results of function
 # rmInvalid.
@@ -272,8 +369,8 @@ isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)
 #
 # Overview (table)
 # -----------------
-# Within raw ESM dataset 'dayControlGroup_1' there are 9 incomplete questionnaires
-table(isCompleteLs[["dayControlGroup"]]["INCOMPLETE"])
+# Within raw ESM dataset 'dayControlGroup' there are 9 incomplete questionnaires
+table(isCompleteLs[["INSERT_VERSION_NAME"]]["INCOMPLETE"])
 #
 # Column names after applying function 'esComplete'.
 colNames12 <- unique(unlist(sapply(isCompleteLs, FUN = names)))
@@ -294,27 +391,45 @@ colNames12[!(colNames12 %in% colNames7)]
 #		 -----------------------------------
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
-# 14 findChars
+# adaptToYOURproject -> 14 findChars
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 14 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Pass the name of the column that specifies the survey version -> replace
+# INSERT_VERSION_NAME.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # isCompleteLs is the result of function 'esComplete'. Pass argument as data.frame.
-findTextIdx <- findChars(isCompleteLs[["dayControlGroup"]])
+findTextIdx <- findChars(isCompleteLs[["INSERT_VERSION_NAME"]])
 # Display structure of function output
 str(findTextIdx)
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 15 convertChars
+# adaptToYOURproject -> 15 convertChars
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 15 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# In 'findTextIdx[c(index1, index2, ..., indexN)]' replace 'index1' etc. by
+# the index that specify columns containing text, which might contain letters
+# to be conversed.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # From result of function 'findChars' select the indices of the items
 # in the ESM dataset that contain text answers of the participants.
-findTextIdx1 <- findTextIdx[c(1,2)]
+findTextIdx1 <- findTextIdx[c(index1, index2, ..., indexN)]
 # Use findTextIdx1 to generate the 3rd argument of function 'convertChars'.
 textColumns <- names(findTextIdx1)
 #
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Replace the letters you want to be conversed.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # Generate data.frame specifying the conversion of single characters.
 # Convert Umlaute to unified use (e.g. ä as ae)
 umlauteOnLow <- c("ä", "ö", "ü", "ß", "é", "è", "à")
@@ -325,18 +440,23 @@ umlauteOff <- c(umlauteOffLow, umlauteOffUp)
 #
 (convertCharsDf <- data.frame(umlauteOn, umlauteOff))
 #
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Replace INSERT_VERSION_NAME by the ESM version name.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # Check prior to conversion:
-isCompleteLs[["dayControlGroup"]][1:20,findTextIdx1]
+isCompleteLs[["INSERT_VERSION_NAME"]][1:20,findTextIdx1]
 #
 # Apply function. esMerged is the result of function 'esMerge'.
-esConverted <- convertChars(isCompleteLs[["dayControlGroup"]], textColumns, convertCharsDf)
+esConverted <- convertChars(isCompleteLs[["INSERT_VERSION_NAME"]], textColumns, convertCharsDf)
 #
 # Check after conversion:
 esConverted[1:20,findTextIdx1]
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 16 esAssign
+# adaptToYOURproject -> 16 esAssign
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 16 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
@@ -350,6 +470,11 @@ esConverted[1:20,findTextIdx1]
 # in the reference dataset. esMerged1 is the result of function 'convertChars',
 # referenceDfNew is the result of function 'genDateTime' or of function
 # 'splitDateTime'.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Adapt arguments promptTimeFrame and dstDates to YOUR project.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 esAssigned <- esAssign(esDf = esConverted, refDf = referenceDfNew, RELEVANTINFO_ES,
 RELEVANTVN_ES, RELEVANTVN_REF, promptTimeframe=30, dstDates = "2007-10-28")
 #
@@ -428,16 +553,21 @@ identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "ES_MULT2", "ID
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 19 suggestShift
+# adaptToYOURproject -> 19 suggestShift
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 19 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Adapt argument timeLagMinutes to YOUR project.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 # identDf is the result of function 'esIdentical'.
 # 100 represents the number of minutes that at least must have passed
 # between the scheduled start of an ESM questionnaire at its actual start
 # in order for the questionnaire to be eligible for shifting (see function
 # makeShift).
-sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
+sugShift <- suggestShift(identDf, timeLagMinutes=100, RELEVANTINFO_ES, RELEVANTVN_ES)
 # Display output element 'suggestShiftDf':
 sugShift$suggestShiftDf
 # Display output element 'printShiftDf':
@@ -460,7 +590,7 @@ printSuggestedShift(sugShift, RELEVANTVN_ES)
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
-# 21 makeShift
+# adaptToYOURproject -> 21 makeShift
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 21 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
@@ -468,6 +598,15 @@ printSuggestedShift(sugShift, RELEVANTVN_ES)
 # of function 'genDateTime' or of function 'splitDateTime'.
 # keyPromptDf is generated by using part of the output of function suggestShift,
 # i.e. by selecting the columns NEW_PROMPT and SHIFTKEY from suggestShiftDf.
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+# Instructions:
+# ------------
+# Select from 'sugShift$suggestShiftDf[,c("NEW_PROMPT", "SHIFTKEY")]' according
+# to the criteria you have set in YOUR project.
+# For example: If sugShift$suggestShiftDf[,c("NEW_PROMPT", "SHIFTKEY")] showed
+# 10 lines, of which you don't want line no. 3 and 7 to be chosen, deselect them:
+# keyPromptDf <- sugShift$suggestShiftDf[-c(3,7),c("NEW_PROMPT", "SHIFTKEY")]
+# *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 keyPromptDf <- sugShift$suggestShiftDf[,c("NEW_PROMPT", "SHIFTKEY")]
 madeShift <- makeShift(sugShift, referenceDfNew, keyPromptDf, RELEVANTINFO_ES, RELEVANTVN_REF)
 #

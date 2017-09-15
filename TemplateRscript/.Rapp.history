@@ -1,0 +1,85 @@
+library(esmprep)
+# ------------------------------------------------------------------------------#
+# E X E M P L A R Y   E S M   D A T A   P R E P A R A T I O N    S  T  A  R  T#
+##
+# If you mark all of the code and then execute it, at the end of the computing#
+# process you'll the time it took for this script to run through.#
+esmprepStart <- Sys.time()#
+##
+# Reference dataset#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Convert the 15 digit IMEI number from scientfic notation to text.#
+referenceDf$imei <- as.character(referenceDf$imei)#
+# Display the whole dataset in the console#
+referenceDf#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+##
+##
+# 1 relevantREFVN#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Run (function 1 of 28; see esmprep functions' hierarchy)#
+# --------------------------------------------------------#
+# With date and time as separate arguments#
+relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",#
+STARTDATE="start_date", STARTTIME="start_time",#
+ENDDATE="end_date", ENDTIME="end_time")#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+##
+# 2 setREF#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Run (function 2 of 28; see esmprep functions' hierarchy)#
+# --------------------------------------------------------#
+# 4 is the number of daily prompts.#
+# relRef is the result of function 'relevantREFVN'#
+RELEVANTVN_REF <- setREF(4, relRef)#
+##
+# Relevant variables names of reference dataset.#
+RELEVANTVN_REF#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+##
+# Run this function at any time.#
+dateTimeFormats()#
+# Run this function at any time.#
+dateTimeFormats2()
+names(dayControl)
+dayControl <- dayControl[,!names(dayControl)=="survey_name"]
+names(dayControl)
+# 3 relevantESVN#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Run (function 3 of 28; see esmprep functions' hierarchy)#
+# --------------------------------------------------------#
+# With date and time as separate arguments#
+relEs <- relevantESVN(svyName=NULL, IMEI="IMEI",#
+STARTDATE="start_date", STARTTIME="start_time",#
+ENDDATE="end_date", ENDTIME="end_time")
+relEs
+##
+# 4 setES#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Run (function 4 of 28; see esmprep functions' hierarchy)#
+# --------------------------------------------------------#
+# imeiNumbers is the vector containing all IMEI numbers used in#
+# the ESM study; use the respective entries in the referenceDf.#
+imeiNumbers <- referenceDf$imei#
+# surveyNames is the vector containing all ESM version names.#
+surveyNames <- c(#
+# Control group#
+   "dayControlGroup")#
+# 4 is the number of daily prompts#
+# relEs is the result of function 'relevantESVN'#
+RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)#
+##
+# Extract relevant ESM general information#
+RELEVANTINFO_ES <- RELEVANT_ES[["RELEVANTINFO_ES"]]#
+##
+# Extract list of relevant variables names of raw ESM datasets.#
+RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
+# 5 esList#
+# o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o#
+# Run (function 5 of 28; see esmprep functions' hierarchy)#
+# --------------------------------------------------------#
+# Use day dataset (control group) of the 6 exemplary raw ESM (sub-)datasets.#
+esLs <- esList(list(dayControl), RELEVANTVN_ES)#
+##
+# Initial set of column names (across all raw ESM datasets)#
+colNames5 <- unique(unlist(sapply(esLs, FUN = names)))
