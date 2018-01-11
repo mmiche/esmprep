@@ -1,7 +1,7 @@
 Package: esmprep
 Type: Package
-Version: 0.1.2
-Date/Publication: 2017-09-15 10:20:44 CEST
+Version: 0.1.3
+Date/Publication: 2018-01-11 13:55:54 CET
 Title: Data Preparation During and After the Use of the Experience Sampling Methodology (ESM)
 Description: Support in preparing a raw ESM dataset for statistical analysis. Preparation includes the handling of errors (mostly due to technological reasons) and the generating of new variables that are necessary and/or helpful in meeting the conditions when statistically analyzing ESM data. The functions in 'esmprep' are meant to hierarchically lead from bottom, i.e. the raw (separated) ESM dataset(s), to top, i.e. a single ESM dataset ready for statistical analysis. This hierarchy evolved out of my personal experience in working with ESM data.
 Author: Marcel Miché <esmprep@gmail.com>
