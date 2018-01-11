@@ -42,6 +42,7 @@
 #
 #' @export
 #
+esDf <- expectedDf; intoleranceDf <- intoleranceDf; RELEVANTINFO_ES <- RELEVANTINFO_ES
 intolerable <- function(esDf, intoleranceDf, RELEVANTINFO_ES = NULL) {
 
     dfCheck <- is.data.frame(esDf)
@@ -82,7 +83,7 @@ intolerable <- function(esDf, intoleranceDf, RELEVANTINFO_ES = NULL) {
 	# The values all must be part of the range of possible prompts.
 	plausib1 <- sort(unique(intoleranceDf[,1])) == 1:RELEVANTINFO_ES[["MAXPROMPT"]]
 	if(!all(plausib1)) {
-		stop(paste0("Each of the values in the first column of the argument 'intoleranceDf'  must be part of the range of prompts per ESM day."))
+		stop(paste0("Each of the values in the first column of the argument 'intoleranceDf' must be part of the range of prompts per ESM day."))
 	}
 	
 	# Check the plausibility of the second column of 'intoleranceDf'.
