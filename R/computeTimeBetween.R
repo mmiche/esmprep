@@ -70,8 +70,11 @@ computeTimeBetween <- function(esDf, refDf, RELEVANTVN_ES=NULL, RELEVANTVN_REF=N
     timeBetween <- c()
     for(i in 1:nrow(refDf)) {
         idx_i <- which(esDf[,"ID"] == refDf[i,RELEVANTVN_REF[["REF_ID"]]])
-
-        if(length(idx_i) == 1) {
+		
+		if(length(idx_i)==0) {
+			warning(paste0(as.character(refDf[i,RELEVANTVN_REF[["REF_ID"]]]), " isn't contained in current ESM dataset. Check warning message(s) of function 'esAssign'. It must say which IDs couldn't be assigned."))
+		
+		} else if(length(idx_i) == 1) {
 
             dateTime_i1 <- "1970-01-01 00:00:01"
             timeBetween_i <- lubridate::as.period(lubridate::as.interval(lubridate::ymd_hms(dateTime_i1),
