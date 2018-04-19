@@ -68,89 +68,90 @@ suggestShift <- function(esDf, timeLagMinutes=NULL, RELEVANTINFO_ES=NULL, RELEVA
     			   RELEVANTVN_ES=RELEVANTVN_ES,
     			   RELEVANTVN_REF=NULL)
     
+    if(sum(esDf[,"ES_MULT"]) == 0) {
+    	
+    		stop("Function 'suggestShift' checked all lines. No SHIFT suggested, which is why the function stopped. Continue with function 'expectedPromptIndex'.")
     
-    if(sum(esDf[,"ES_MULT"])==0) {
-    		print("All lines were checked. No SHIFT suggested. Continue with function 'expectedPromptIndex'.")
-    		break
-    }
-    
-    # idxShift: Dichotomous variable suggesting a SHIFT with the value 1.
-    esDf[,"SHIFT"] <- rep(0, times = nrow(esDf))
-    # idxKey: If a SHIFT is suggested the respective row number is noted.
-    esDf[,"SHIFTKEY"] <- rep(NA, times = nrow(esDf))
-    # LAGMINUTES: Time lag in minutes
-    esDf[,"LAG_MINUTES"] <- rep(NA, times=nrow(esDf))
-    
-    # Register all lines with time lag in minutes by what the user specifies:
-    idx0 <- which(abs(esDf[,"LAG_MINS"]) >= timeLagMinutes & !is.na(esDf[,"LAG_MINS"]))
-    
-    count <- 1
-    idx1 <- countIdx <- NEWPROMPT <- c()
-    for(esmUnit in idx0) {
+    } else {
     		
-    		# Temporarily select the ESM unit which might be eligible for shifting, as specified by the user.
-    		idxTemp <- which(esDf[,"ID"]==esDf[esmUnit,"ID"] & esDf[,"CV_ESDAY"]==esDf[esmUnit,"CV_ESDAY"])
-    		
-    		if(esDf[esmUnit,"LAG_MINS"] < 0) {
-    			# Simulate backward shift of prompt and check whether this new prompt already exists in the ESM unit.
-    			newPrompt <- esDf[esmUnit,"PROMPT"] - 1
-    			eligible <- !(newPrompt %in% esDf[idxTemp,"PROMPT"]) & newPrompt >= 1
-    			if(eligible) {
-    				
-    				esDf[esmUnit,"SHIFT"] <- 1
-    			esDf[esmUnit,"SHIFTKEY"] <- esDf[esmUnit,"KEY"]
-    			esDf[esmUnit,"LAG_MINUTES"] <- esDf[esmUnit,"LAG_MINS"]
-    				
-    				NEWPROMPT <- c(NEWPROMPT, newPrompt)
-    				idx1 <- c(idx1, idxTemp)
-    				countIdx <- c(countIdx, rep(count, times=length(idxTemp)))
-    				count <- count + 1
-    			}
-    		# else: esDf[esmUnit,"LAG_MINUTES"] > 0
-    		} else {
-    			# Simulate forward shift of prompt and check whether this new prompt already exists in the ESM unit.
-    		newPrompt <- esDf[esmUnit,"PROMPT"] + 1
-    		eligible <- !(newPrompt %in% esDf[idxTemp,"PROMPT"]) & newPrompt <= RELEVANTINFO_ES[["MAXPROMPT"]]
-	    		if(eligible) {
-	    			
-	    			esDf[esmUnit,"SHIFT"] <- 1
+    		# idxShift: Dichotomous variable suggesting a SHIFT with the value 1.
+	    esDf[,"SHIFT"] <- rep(0, times = nrow(esDf))
+	    # idxKey: If a SHIFT is suggested the respective row number is noted.
+	    esDf[,"SHIFTKEY"] <- rep(NA, times = nrow(esDf))
+	    # LAGMINUTES: Time lag in minutes
+	    esDf[,"LAG_MINUTES"] <- rep(NA, times=nrow(esDf))
+	    
+	    # Register all lines with time lag in minutes by what the user specifies:
+	    idx0 <- which(abs(esDf[,"LAG_MINS"]) >= timeLagMinutes & !is.na(esDf[,"LAG_MINS"]))
+	    
+	    count <- 1
+	    idx1 <- countIdx <- NEWPROMPT <- c()
+	    for(esmUnit in idx0) {
+	    		
+	    		# Temporarily select the ESM unit which might be eligible for shifting, as specified by the user.
+	    		idxTemp <- which(esDf[,"ID"]==esDf[esmUnit,"ID"] & esDf[,"CV_ESDAY"]==esDf[esmUnit,"CV_ESDAY"])
+	    		
+	    		if(esDf[esmUnit,"LAG_MINS"] < 0) {
+	    			# Simulate backward shift of prompt and check whether this new prompt already exists in the ESM unit.
+	    			newPrompt <- esDf[esmUnit,"PROMPT"] - 1
+	    			eligible <- !(newPrompt %in% esDf[idxTemp,"PROMPT"]) & newPrompt >= 1
+	    			if(eligible) {
+	    				
+	    				esDf[esmUnit,"SHIFT"] <- 1
 	    			esDf[esmUnit,"SHIFTKEY"] <- esDf[esmUnit,"KEY"]
 	    			esDf[esmUnit,"LAG_MINUTES"] <- esDf[esmUnit,"LAG_MINS"]
-	    			
-	    			NEWPROMPT <- c(NEWPROMPT, newPrompt)
-	    			idx1 <- c(idx1, idxTemp)
-	    			countIdx <- c(countIdx, rep(count, times=length(idxTemp)))
-	    			count <- count + 1
+	    				
+	    				NEWPROMPT <- c(NEWPROMPT, newPrompt)
+	    				idx1 <- c(idx1, idxTemp)
+	    				countIdx <- c(countIdx, rep(count, times=length(idxTemp)))
+	    				count <- count + 1
+	    			}
+	    		# else: esDf[esmUnit,"LAG_MINUTES"] > 0
+	    		} else {
+	    			# Simulate forward shift of prompt and check whether this new prompt already exists in the ESM unit.
+	    		newPrompt <- esDf[esmUnit,"PROMPT"] + 1
+	    		eligible <- !(newPrompt %in% esDf[idxTemp,"PROMPT"]) & newPrompt <= RELEVANTINFO_ES[["MAXPROMPT"]]
+		    		if(eligible) {
+		    			
+		    			esDf[esmUnit,"SHIFT"] <- 1
+		    			esDf[esmUnit,"SHIFTKEY"] <- esDf[esmUnit,"KEY"]
+		    			esDf[esmUnit,"LAG_MINUTES"] <- esDf[esmUnit,"LAG_MINS"]
+		    			
+		    			NEWPROMPT <- c(NEWPROMPT, newPrompt)
+		    			idx1 <- c(idx1, idxTemp)
+		    			countIdx <- c(countIdx, rep(count, times=length(idxTemp)))
+		    			count <- count + 1
+		    		}
 	    		}
-    		}
+	    }
+	   
+	    # If at least one line has been found that might be SHIFTED:
+	    if(sum(esDf[,"SHIFT"])>0) {
+	        
+	        for(k in 1:max(countIdx)) {
+	            idxShiftUnit <- idx1[countIdx==k]
+	            print(esDf[idxShiftUnit,c("ID", "KEY", RELEVANTVN_ES[["ES_SVY_NAME"]], "CV_ES", "CV_ESDAY", RELEVANTVN_ES[["ES_START_DATETIME"]], "ST", "PROMPT", "PROMPTEND", "ES_MULT", "SHIFT", "SHIFTKEY", "LAG_MINUTES")])
+	            cat("--------------------------------------------------------------------------\n\n")
+	        }
+	
+	    } else {
+	        print("All lines were checked. No SHIFT suggested. Continue with function 'expectedPromptIndex'.")
+	    }
+	    
+	    suggestShiftDf = data.frame(
+	    ID=esDf$ID[esDf[,"SHIFT"]==1],
+	    svyVersion= esDf[esDf[,"SHIFT"]==1,RELEVANTVN_ES[["ES_SVY_NAME"]]],
+	    START_DATETIME=esDf[esDf[,"SHIFT"]==1,RELEVANTVN_ES[["ES_START_DATETIME"]]],
+	    PROMPT=esDf$PROMPT[esDf[,"SHIFT"]==1],
+	    NEW_PROMPT = NEWPROMPT,
+	    SHIFTKEY=esDf$SHIFTKEY[esDf[,"SHIFT"]==1],
+	    LAG_MINUTES=esDf$LAG_MINUTES[esDf[,"SHIFT"]==1])
+	    
+	    if(sum(esDf[,"SHIFT"])>0) {
+	    		# Return the dataset (either with or without 2 new columns)
+	    		list(esDf = esDf, suggestShiftDf = suggestShiftDf, printShiftDf = data.frame(indices=idx1, countIdx))
+	    } else {
+	    		return(esDf)
+	    }
     }
-   
-    # If at least one line has been found that might be SHIFTED:
-    if(sum(esDf[,"SHIFT"])>0) {
-        
-        for(k in 1:max(countIdx)) {
-            idxShiftUnit <- idx1[countIdx==k]
-            print(esDf[idxShiftUnit,c("ID", "KEY", RELEVANTVN_ES[["ES_SVY_NAME"]], "CV_ES", "CV_ESDAY", RELEVANTVN_ES[["ES_START_DATETIME"]], "ST", "PROMPT", "PROMPTEND", "ES_MULT", "SHIFT", "SHIFTKEY", "LAG_MINUTES")])
-            cat("--------------------------------------------------------------------------\n\n")
-        }
-
-    } else {
-        print("All lines were checked. No SHIFT suggested. Continue with function 'expectedPromptIndex'.")
-    }
-    
-    suggestShiftDf = data.frame(
-    ID=esDf$ID[esDf[,"SHIFT"]==1],
-    svyVersion= esDf[esDf[,"SHIFT"]==1,RELEVANTVN_ES[["ES_SVY_NAME"]]],
-    START_DATETIME=esDf[esDf[,"SHIFT"]==1,RELEVANTVN_ES[["ES_START_DATETIME"]]],
-    PROMPT=esDf$PROMPT[esDf[,"SHIFT"]==1],
-    NEW_PROMPT = NEWPROMPT,
-    SHIFTKEY=esDf$SHIFTKEY[esDf[,"SHIFT"]==1],
-    LAG_MINUTES=esDf$LAG_MINUTES[esDf[,"SHIFT"]==1])
-    
-    if(sum(esDf[,"SHIFT"])>0) {
-    		# Return the dataset (either with or without 2 new columns)
-    	list(esDf = esDf, suggestShiftDf = suggestShiftDf, printShiftDf = data.frame(indices=idx1, countIdx))
-    } else {
-    		return(esDf)
-    }   
 }
