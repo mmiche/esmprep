@@ -42,7 +42,6 @@
 #
 #' @export
 #
-esDf <- expectedDf; intoleranceDf <- intoleranceDf; RELEVANTINFO_ES <- RELEVANTINFO_ES
 intolerable <- function(esDf, intoleranceDf, RELEVANTINFO_ES = NULL) {
 
     dfCheck <- is.data.frame(esDf)
