@@ -50,7 +50,7 @@
 #' }
 #' The effective ESM completion rates per selected individual and per prompt are also printed to the console. However, these are not the final completion rates, since some of the current questionnaires later might either be removed (see function \code{\link{intolerable}}) or be shifted to a neighboring prompt index (see functions \code{\link{suggestShift}} and \code{\link{makeShift}}).
 #
-#' @importFrom lubridate interval ymd_hms as.duration ymd
+#' @importFrom lubridate interval ymd_hms as.duration ymd minutes
 #' @importFrom stats setNames var
 #
 #' @examples
@@ -90,7 +90,7 @@
 #
 #' @export
 #
-esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, RELEVANTVN_REF = NULL, singlePerson = NULL, prompted = NULL, promptTimeframe = NULL, midnightPrompt = FALSE, dstDates = NULL) {
+esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, RELEVANTVN_REF = NULL, singlePerson = NULL, prompted = NULL, promptTimeframe = 30, midnightPrompt = FALSE, dstDates = NULL) {
 
     # Possible errors when passing arguments to the function -----------------------------
     if(!is.data.frame(esDf) | !is.data.frame(refDf)) {
@@ -176,16 +176,23 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
     
     # If argument 'prompted' is not passed set it to TRUE (same as asking whether it was not passed, i.e. asking whether it is null.)
     if(is.null(prompted)) {prompted <- is.null(prompted)}
-
-    if(!is.null(promptTimeframe)) {
-        if(!is.numeric(promptTimeframe)) {
-            stop("The argument promptTimeframe must be an integer. It denotes the number of minutes within which an ES questionnaire should have been started.")
-        } else if(is.numeric(promptTimeframe) & promptTimeframe %% 1 != 0) {
-            promptTimeframe <- as.integer(promptTimeframe)
-            warning(paste("The argument promptTimeframe was not of type integer. It has been truncated to", promptTimeframe))
-        }
-    }
 	
+	if(is.null(promptTimeframe) | is.na(promptTimeframe) | !(is.integer(promptTimeframe) | is.numeric(promptTimeframe))) {
+		stop("The argument promptTimeframe must be present. It must be numeric, without decimals. It denotes the time in minutes, within which an ESM questionnaire must have been started in order to be included in the analyses. Per default it is set to 30 minutes.")
+	}
+	
+	if(promptTimeframe %% 1 != 0) {
+		promptTimeframe <- as.integer(promptTimeframe)
+        warning(paste("The argument promptTimeframe was not of type integer. It has been truncated to", promptTimeframe))
+    }
+    
+    if(promptTimeframe == 0) {
+    	stop("The argument promptTimeframe must be present. It must be numeric, without decimals. It denotes the time in minutes, within which an ESM questionnaire must have been started in order to be included in the analyses. It must not be 0 minutes. Per default it is set to 30 minutes.")
+    }
+    
+    if(promptTimeframe < 30) {
+        warning("The argument promptTimeframe has been set to less than 30 minutes. This might lead to the unintended exclusion of the last ESM questionnaire of a participant.")
+    }
 	
 	if(is.null(dstDates)) {
 		# Don't do anything.
@@ -239,7 +246,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
 
         # 2.
         span_e <- lubridate::interval(lubridate::ymd_hms(esDfOrdReg[,RELEVANTVN_ES[["ES_START_DATETIME"]]]),
-                                      lubridate::ymd_hms(paste(refDf[i,RELEVANTVN_REF[["REF_END_DATE"]]], refDf[i,RELEVANTVN_REF[["REF_END_TIME"]]])))
+                                      lubridate::ymd_hms(paste(refDf[i,RELEVANTVN_REF[["REF_END_DATE"]]], refDf[i,RELEVANTVN_REF[["REF_END_TIME"]]])) + lubridate::minutes(x=promptTimeframe))
         dur_e <- as.numeric(lubridate::as.duration(span_e))
 
         # ------------------------------------------------------------
@@ -343,9 +350,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             # TIMEFRAME (adapt time frame if necessary)
             # absStart1's units is seconds. Therefore multiply by 60 to get minutes.
             # 30 minutes = 30 * 60 seconds
-            if(!is.null(promptTimeframe)) {
-                tframe_temp <- ifelse(time_temp $ absStart1 <= promptTimeframe * 60, 1, 0)
-            }
+            tframe_temp <- ifelse(time_temp $ absStart1 <= promptTimeframe * 60, 1, 0)
 
             # Index vector for prompteduled start times (used here and at the end of the function)
             stStart1_temp <- time_temp[,"PROMPT"]
@@ -479,11 +484,7 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
             startLag_temp <- with(time_temp, ifelse(lag_ba0 == 0, -absStart1, absStart1))
             LAG_MINS <- c(LAG_MINS, round(startLag_temp/60, digits=0))
 
-            if(!is.null(promptTimeframe)) {
-                TFRAME <- c(TFRAME, tframe_temp)
-            } else {
-                TFRAME <- c(TFRAME, rep(NA, times = length(LinesValid)))
-            }
+            TFRAME <- c(TFRAME, tframe_temp)
 
             DST <- c(DST, dstVec_temp)
 

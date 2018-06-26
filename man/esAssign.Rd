@@ -6,7 +6,7 @@
 \usage{
 esAssign(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL,
   RELEVANTVN_REF = NULL, singlePerson = NULL, prompted = NULL,
-  promptTimeframe = NULL, midnightPrompt = FALSE, dstDates = NULL)
+  promptTimeframe = 30, midnightPrompt = FALSE, dstDates = NULL)
 }
 \arguments{
 \item{esDf}{a data.frame. A single ESM dataset. It must contain the 2 columns that hold the date-time object for when an ESM questionnaire was started and finished, respectively.}

@@ -12,7 +12,7 @@ setES(MAXPROMPT = NULL, IMEI_NUMBERS = NULL, SVYNAMES = NULL,
 
 \item{IMEI_NUMBERS}{a vector of character strings. Each element of the vector specifies an IMEI number of at least one of the phone that have been used in the ESM study.}
 
-\item{SVYNAMES}{a vector of character strings. Each element of the vector specifies one ESM version, which must exist as a separate column in the raw ESM dataset(s).}
+\item{SVYNAMES}{a vector of character strings. Each element of the vector specifies one ESM version, which must exist as a separate column in the raw ESM dataset(s). If in function \code{\link{relevantESVN}} the default value NULL has been kept for the argument svyName, also keep the default value NULL for this argument! Keeping the default value NULL is not recommended, though. See \strong{NOTE} in the description of the argument 'svyName' of function \code{\link{relevantESVN}}.}
 
 \item{ESVN}{a list. Each element of the list must specify one of the relevant column names of the raw ESM dataset(s); i.e. the ESM survey version, the IMEI number, the start date, the start time, the end date, and the end time. Use function \code{\link{relevantESVN}} to generate \code{ESVN}.}
 }

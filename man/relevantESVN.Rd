@@ -9,7 +9,7 @@ relevantESVN(svyName = NULL, IMEI = NULL, STARTDATE = NULL,
   START_DATETIME = NULL, END_DATETIME = NULL)
 }
 \arguments{
-\item{svyName}{a vector of character string(s). The column name in (each of) the ESM dataset(s) that specifies the particular survey version.}
+\item{svyName}{a vector of character string(s). The column name in (each of) the ESM dataset(s) that specifies the particular survey version.\cr This is the only optional argument, i.e. if there exists no such column in the raw ESM dataset(s), keep the default value of NULL for this argument. If this default value is kept, the function \code{\link{esList}} will generate such a column and will fill it with 'ESMVERSION_ESMPREP' in each line of raw ESM data at the current state of the dataset(s).\cr \strong{NOTE}: It is not recommended to let \code{\link{esList}} generate this column, though. For reasons of clarity it is recommended that the user generates such a column for each raw ESM dataset(s) beforehand. The column name of (all) the raw ESM dataset(s) must be identical, however, the content of the new columns must uniquely specify their respective ESM dataset, e.g. "morningControlGroup" for the morning ESM version of the control group.}
 
 \item{IMEI}{a character string. Column name that specifies the variable in the respective dataset holding the the IMEI number.}
 

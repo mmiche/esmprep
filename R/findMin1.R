@@ -27,7 +27,7 @@ findMin1 <- function(esTimesDf, RELEVANTVN_ES=NULL, RELEVANTINFO_ES=NULL) {
 	
     for (j in 1 : nrow(esTimesDf)) {
 		
-        start_j1 <- as.duration(ymd_hms(esTimesDf[j,RELEVANTVN_ES[["ES_START_DATETIME"]]]) - ymd_hms(unlist(esTimesDf[j, stTimes])))
+        start_j1 <- lubridate::as.duration(lubridate::ymd_hms(esTimesDf[j,RELEVANTVN_ES[["ES_START_DATETIME"]]]) - lubridate::ymd_hms(unlist(esTimesDf[j, stTimes])))
         absStart_j1 <- abs(start_j1)
         absStart_jSec1 <- as.numeric(absStart_j1)
         # Minimum time difference across all 6 scheduled times (AST: all scheduled times)
@@ -54,12 +54,12 @@ findMin1 <- function(esTimesDf, RELEVANTVN_ES=NULL, RELEVANTINFO_ES=NULL) {
 
         } else {
 
-			absEnd_i <- abs(ymd_hms(esTimesDf[j, RELEVANTVN_ES[["ES_END_DATETIME"]]]) - ymd_hms(unlist(esTimesDf[j, stTimes]) ))
+			absEnd_i <- abs(lubridate::ymd_hms(esTimesDf[j, RELEVANTVN_ES[["ES_END_DATETIME"]]]) - lubridate::ymd_hms(unlist(esTimesDf[j, stTimes]) ))
 						
-            absEnd_iSec <- as.numeric(as.duration(absEnd_i))
+            absEnd_iSec <- as.numeric(lubridate::as.duration(absEnd_i))
             minEnd <- min(absEnd_iSec)
 
-            minEnd1 <- which(minEnd == absEnd_iSec)
+            minEnd1 <- which(minEnd == absEnd_iSec)[1]
             PROMPTEND <- c(PROMPTEND, minEnd1)
             absEnd1 <- c(absEnd1, as.numeric(absEnd_iSec[minEnd1]))
         }
