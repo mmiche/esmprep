@@ -81,7 +81,16 @@ makeShift <- function(esDfShift, refDf, keyPromptDf, RELEVANTINFO_ES = NULL, REL
 	
 
     # stTimes: Names of the variables in 'referenceDf' that denote the scheduled times.
-    stTimes <- paste0("st", 1:RELEVANTINFO_ES[["MAXPROMPT"]])
+    
+    # Extract word stem from variables in reference dataset, that denote the single
+    # prompts, e.g. st or st_hms
+    promptVarName <- unique(gsub("[0-9]", "", RELEVANTVN_REF[["REF_ST"]]))
+    
+    if(length(promptVarName) > 1) {
+    		stop("Variable names in reference dataset, which denote the single prompts must ALL have the same root, e.g. 'st'. Please adjust this in your reference dataset.")
+    }
+    
+    stTimes <- paste0(promptVarName, 1:RELEVANTINFO_ES[["MAXPROMPT"]])
     SHIFTED <- rep(0, times = nrow(esDfShift[["esDf"]]))
     
     for(i in 1:nrow(keyPromptDf)) {
