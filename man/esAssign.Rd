@@ -23,7 +23,7 @@ esAssign(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL,
 
 \item{prompted}{logical. If there was no prompt per ESM day at all, enter FALSE; else ignore this argument, meaning that per default at least one prompt per ESM day is assumed.}
 
-\item{promptTimeframe}{a numeric value. If there was a time frame, within which an ESM questionnaire ought to have been started, enter this timeframe in \strong{minutes}.}
+\item{promptTimeframe}{an integer value. The default value is 30, i.e. within 30 \strong{minutes} around each prompt a participant is expected to have answered the ESM questionnaire. This argument must be set to an integer value larger than 0, even if there was no prompt at all. If NA, NULL, 0 is passed to this argument, the function returns an error. If less than 30 minutes is passed to this argument, the function returns a warning message.}
 
 \item{midnightPrompt}{logical. Default FALSE, i.e. no participant was able to start a questionnaire around the midnight hour. However, if this was possible, set this argument to TRUE, in which case it takes the function \code{esAssign} a little longer to do its job, compared to midnightPrompt = FALSE.}
 
