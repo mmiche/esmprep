@@ -40,7 +40,7 @@
 #' ENDDATE="end_date", ENDTIME="end_time")
 #' # Prerequisites in order to execute setES. End ----------------------
 #' # ------------------------------------------------------
-#' # Run function 4 of 28; see esmprep functions' hierarchy.
+#' # Run function 4 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
 #' # imeiNumbers is the vector containing all IMEI numbers used in
 #' # the ESM study; use the respective entries in the referenceDf.
@@ -69,7 +69,7 @@
 #' RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 4 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 4 of 29).
 #
 #' @export
 #
