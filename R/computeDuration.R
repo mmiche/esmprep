@@ -23,13 +23,13 @@
 #' randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 #' # Prerequisites in order to execute computeDuration. End ------------
 #' # -------------------------------------------------------
-#' # Run function 26 of 28; see esmprep functions' hierarchy.
+#' # Run function 27 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
 #' durDf <- computeDuration(randSelLs[["esRandSelIn"]], RELEVANTVN_ES)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 26 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 27 of 29).
 #
 #' @export
 #
