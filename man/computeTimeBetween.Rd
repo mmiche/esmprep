@@ -4,7 +4,8 @@
 \alias{computeTimeBetween}
 \title{computeTimeBetween}
 \usage{
-computeTimeBetween(esDf, refDf, RELEVANTVN_ES = NULL, RELEVANTVN_REF = NULL)
+computeTimeBetween(esDf, refDf, RELEVANTVN_ES = NULL,
+  RELEVANTVN_REF = NULL)
 }
 \arguments{
 \item{esDf}{a data.frame. A single ESM dataset. It must contain the 2 columns that hold the date-time object for when an ESM questionnaire was started and finished, respectively.}
@@ -35,7 +36,7 @@ intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
 randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 # Prerequisites in order to execute computeTimeBetween. End ---------
 # -------------------------------------------------------
-# Run function 27 of 28; see esmprep functions' hierarchy.
+# Run function 28 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
 tbsqDf <- computeTimeBetween(randSelLs[["esRandSelIn"]], referenceDfNew, RELEVANTVN_ES,
@@ -43,5 +44,5 @@ RELEVANTVN_REF)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 27 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 28 of 29).
 }

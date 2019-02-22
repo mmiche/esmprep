@@ -35,12 +35,12 @@ identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
 sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
 # Prerequisites in order to execute printSuggestedShift. End --------
 # -------------------------------------------------------
-# Run function 20 of 28; see esmprep functions' hierarchy.
+# Run function 21 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Display the result of function 'suggestShift' in the console.
 printSuggestedShift(sugShift, RELEVANTVN_ES)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 20 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 21 of 29).
 }

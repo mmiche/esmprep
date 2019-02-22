@@ -33,12 +33,12 @@ expect = c(1, 1, 1, 2, 3))
 intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
 # Prerequisites in order to execute randomMultSelection. End --------
 # -------------------------------------------------------
-# Run function 24 of 28; see esmprep functions' hierarchy.
+# Run function 25 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # intolLs[["cleanedDf"]] is the result of function 'intolerable'.
 randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 24 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 25 of 29).
 }

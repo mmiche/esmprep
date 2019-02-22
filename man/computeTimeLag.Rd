@@ -35,12 +35,12 @@ intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
 randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 # Prerequisites in order to execute computeTimeLag. End -------------
 # -------------------------------------------------------
-# Run function 25 of 28; see esmprep functions' hierarchy.
+# Run function 26 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
 lagDf <- computeTimeLag(randSelLs[["esRandSelIn"]], RELEVANTVN_ES)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 25 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 26 of 29).
 }

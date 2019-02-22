@@ -36,7 +36,7 @@ rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
 plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
 # Prerequisites in order to execute esPlausible. End ----------------
 # -------------------------------------------------------
-# Run function 11 of 28; see esmprep functions' hierarchy.
+# Run function 12 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Help checking the plausibility of items in the raw ESM datasets. rmInvLs[["dfValid"]]
 # is one of the results from function 'rmInvalid'.
@@ -55,5 +55,5 @@ plausibLs[["plausibMinMax"]]
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 11 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 12 of 29).
 }

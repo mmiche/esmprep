@@ -50,7 +50,7 @@ identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
 sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
 # Prerequisites in order to execute makeShift. End -------------------
 # -------------------------------------------------------
-# Run function 21 of 28; see esmprep functions' hierarchy.
+# Run function 22 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # sugShift is the result of function 'suggestShift'. referenceDfNew is the result
 # of function 'genDateTime' or of function 'splitDateTime'.
@@ -64,5 +64,5 @@ printSuggestedShift(madeShift, RELEVANTVN_ES)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 21 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 22 of 29).
 }

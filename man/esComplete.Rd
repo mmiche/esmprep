@@ -37,7 +37,7 @@ rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
 plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
 # Prerequisites in order to execute esComplete. End -----------------
 # -------------------------------------------------------
-# Run function 12 of 28; see esmprep functions' hierarchy.
+# Run function 13 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Generate second argument of function 'esComplete'. It's strongly recommended
 # to read the explantion of this 2nd argument in the esmprep vignette, function
@@ -66,5 +66,5 @@ isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 12 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 13 of 29).
 }

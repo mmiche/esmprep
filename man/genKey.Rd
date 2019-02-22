@@ -33,12 +33,12 @@ esLs <- esList(list(morningControl, dayControl, eveningControl,
 morningTest, dayTest, eveningTest), RELEVANTVN_ES)
 # Prerequisites in order to execute genKey. End ---------------------
 # ------------------------------------------------------
-# Run function 6 of 28; see esmprep functions' hierarchy.
+# Run function 6 of 29; see esmprep functions' hierarchy.
 # ------------------------------------------------------
 # esLs is the result of function 'esList'.
 keyLs <- genKey(esLs)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 6 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 6 of 29).
 }

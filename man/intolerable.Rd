@@ -33,7 +33,7 @@ The user must specify exactly which kind of ESM questionnaires are intolerable r
 # expectedDf is a raw ESM dataset, delivered with the package.
 # Prerequisites in order to execute intolerable. End ----------------
 # -------------------------------------------------------
-# Run function 23 of 28; see esmprep functions' hierarchy.
+# Run function 24 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Generate second argument of function 'intolerable'
 (intoleranceDf <- data.frame(
@@ -49,5 +49,5 @@ intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 23 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 24 of 29).
 }

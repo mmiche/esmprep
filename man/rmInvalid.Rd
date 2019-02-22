@@ -35,7 +35,7 @@ RELEVANTVN_ES <- RELEVANTVN_ESext
 # keyLsNew is a list of datasets, also delivered with the package
 # Prerequisites in order to execute rmInvalid. End ------------------
 # ------------------------------------------------------
-# Run function 8 of 28; see esmprep functions' hierarchy.
+# Run function 9 of 29; see esmprep functions' hierarchy.
 # ------------------------------------------------------
 # keyLsNew is the result of function 'genDateTime' (or of function 'splitDateTime').
 rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
@@ -44,5 +44,5 @@ names(rmInvLs)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 8 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 9 of 29).
 }

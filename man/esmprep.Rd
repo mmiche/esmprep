@@ -18,7 +18,7 @@ The 'esmprep' functions have an hierarchical order, in which they should be run.
 # -o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-
 # N O T E.
 # DEAR USER OF THE 'esmprep' PACKAGE,
-# THE FOLLOWING CODE IS AN EXAMPLE OF ALL THE PACKAGES'S FUNCTIONS, WHICH ARE
+# THE FOLLOWING CODE IS AN EXAMPLE OF ALL THE PACKAGE'S FUNCTIONS, WHICH ARE
 # LARGELY INTERDEPENDENT AND WHICH ARE SUPPOSED TO RUN IN AN HIERARCHICAL ORDER.
 # AFTER HAVING LOADED THE PACKAGE YOU CAN COPY PASTE THE ENTIRE CODE INTO YOUR
 # CONSOLE OR INTO A SCRIPT AND THEN RUN IT.
@@ -26,45 +26,73 @@ The 'esmprep' functions have an hierarchical order, in which they should be run.
 # ---------------------------------------------------------------------------------
 # Load the 'esmprep' package => library(esmprep)
 # ---------------------------------------------------------------------------------
-# FUNCTION  NAME: relevantREFVN
+# FUNCTION NAME: relevantREFVN
 # --------------
-# Don't run independently. Run function 1 of 28 in 'esmprep' functions' hierarchy.
+# This is function 1 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# ------------------------------------------------------
+# Run function 1 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # With date and time as separate arguments
 relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
 STARTDATE="start_date", STARTTIME="start_time",
 ENDDATE="end_date", ENDTIME="end_time")
-# # DON'T RUN, because the example data doesn't contain date-time objects.
-# # With date-time objects instead of separate date and time
-# relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
-# START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: setREF
+# With date-time objects instead of separate date and time
+relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
+START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: setREF
 # --------------
-# Don't run independently. Run function 2 of 28 in 'esmprep' functions' hierarchy.
+# This is function 2 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute setREF. Start  ------------------
+relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+# Prerequisites in order to execute setREF. End ---------------------
+# ------------------------------------------------------
+# Run function 2 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # 4 is the number of daily prompts.
 # relRef is the result of function 'relevantREFVN'
 # Relevant variables names of reference dataset.
-RELEVANTVN_REF <- setREF(4, relRef)
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: relevantESVN
+(RELEVANTVN_REF <- setREF(4, relRef))
+# With date-time objects instead of separate date and time
+relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
+START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
+(RELEVANTVN_REF <- setREF(4, relRef))
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: relevantESVN
 # --------------
-# Don't run independently. Run function 3 of 28 in 'esmprep' functions' hierarchy.
+# This is function 3 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# ------------------------------------------------------
+# Run function 3 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # With date and time as separate arguments
 relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
 STARTDATE="start_date", STARTTIME="start_time",
 ENDDATE="end_date", ENDTIME="end_time")
-# # DON'T RUN, because the example data doesn't contain date-time objects.
-# # With date-time objects instead of separate date and time
-# relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
-# START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: setES
+# With date-time objects instead of separate date and time
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: setES
 # --------------
-# Don't run independently. Run function 4 of 28 in 'esmprep' functions' hierarchy.
+# This is function 4 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute setES. Start --------------------
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+# Prerequisites in order to execute setES. End ----------------------
+# ------------------------------------------------------
+# Run function 4 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # imeiNumbers is the vector containing all IMEI numbers used in
 # the ESM study; use the respective entries in the referenceDf.
 imeiNumbers <- as.character(referenceDf$imei)
@@ -77,44 +105,103 @@ surveyNames <- c(
 # 4 is the number of daily prompts
 # relEs is the result of function 'relevantESVN'
 RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
-
 # Extract relevant ESM general information
 RELEVANTINFO_ES <- RELEVANT_ES[["RELEVANTINFO_ES"]]
-
 # Extract list of relevant variables names of raw ESM datasets.
 RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: esList
+
+# With date-time objects instead of separate date and time
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
+RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
+# Extract relevant ESM general information
+RELEVANTINFO_ES <- RELEVANT_ES[["RELEVANTINFO_ES"]]
+# Extract list of relevant variables names of raw ESM datasets.
+RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esList
 # --------------
-# Don't run independently. Run function 5 of 28 in 'esmprep' functions' hierarchy.
+# This is function 5 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esList. Start --------------------
+# Generate argument RELEVANTVN_ES
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+imeiNumbers <- as.character(referenceDf$imei)
+surveyNames <- c("morningTestGroup", "dayTestGroup", "eveningTestGroup",
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")
+RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
+RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
+# Prerequisites in order to execute esList. End ----------------------
+# ------------------------------------------------------
+# Run function 6 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # 6 exemplary raw ESM (sub-)datasets.
 esLs <- esList(list(morningControl, dayControl, eveningControl,
 morningTest, dayTest, eveningTest), RELEVANTVN_ES)
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: genKey
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: genKey
 # --------------
-# Don't run independently. Run function 6 of 28 in 'esmprep' functions' hierarchy.
+# This is function 6 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute genKey. Start -------------------
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+imeiNumbers <- as.character(referenceDf$imei)
+surveyNames <- c("morningTestGroup", "dayTestGroup", "eveningTestGroup",
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")
+RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
+RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
+esLs <- esList(list(morningControl, dayControl, eveningControl,
+morningTest, dayTest, eveningTest), RELEVANTVN_ES)
+# Prerequisites in order to execute genKey. End ---------------------
+# ------------------------------------------------------
+# Run function 6 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # esLs is the result of function 'esList'.
 keyLs <- genKey(esLs)
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: genDateTime
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: genDateTime
 # --------------
-# Don't run independently. Run function 7 of 28 in 'esmprep' functions' hierarchy.
+# This is function 7 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
-# Applying function to reference dataset (7a of 28)
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute genDateTime. Start --------------
+relEs <- relevantESVN(svyName="survey_name", IMEI="IMEI",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+imeiNumbers <- as.character(referenceDf$imei)
+surveyNames <- c("morningTestGroup", "dayTestGroup", "eveningTestGroup",
+"morningControlGroup", "dayControlGroup", "eveningControlGroup")
+RELEVANT_ES <- setES(4, imeiNumbers, surveyNames, relEs)
+RELEVANTINFO_ES <- RELEVANT_ES[["RELEVANTINFO_ES"]]
+RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
+esLs <- esList(list(morningControl, dayControl, eveningControl,
+morningTest, dayTest, eveningTest), RELEVANTVN_ES)
+keyLs <- genKey(esLs)
+relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
+STARTDATE="start_date", STARTTIME="start_time",
+ENDDATE="end_date", ENDTIME="end_time")
+RELEVANTVN_REF <- setREF(4, relRef)
+# Prerequisites in order to execute genDateTime. End ----------------
+# ------------------------------------------------------
+# Run function 7 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
+# Applying function to reference dataset (7a of 29)
 referenceDfList <- genDateTime(referenceDf, "REF", RELEVANTINFO_ES, RELEVANTVN_ES,
 RELEVANTVN_REF)
 
 # Extract reference dataset from output
 referenceDfNew <- referenceDfList[["refOrEsDf"]]
-names(referenceDfNew)
 
 # Extract extended list of relevant variables names of reference dataset
 RELEVANTVN_REF <- referenceDfList[["extendedVNList"]]
 
-# Applying function to raw ESM dataset(s) (7b of 28)
+# Applying function to raw ESM dataset(s) (7b of 29)
 # keyLs is the result of function 'genKey'.
 keyList <- genDateTime(keyLs, "ES", RELEVANTINFO_ES, RELEVANTVN_ES,
 RELEVANTVN_REF)
@@ -124,20 +211,59 @@ keyLsNew <- keyList[["refOrEsDf"]]
 
 # Extract extended list of relevant variables names of raw ESM datasets
 RELEVANTVN_ES <- keyList[["extendedVNList"]]
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: rmInvalid
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: refPlausible
 # --------------
-# Don't run independently. Run function 8 of 28 in 'esmprep' functions' hierarchy.
+# This is function 8 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute refPlausible. Start ------
+# Use example list delivered with the package
+RELEVANTVN_REF <- RELEVANTVN_REFext
+# Prerequisites in order to execute refPlausible. End --------
+# ------------------------------------------------------
+# Run function 8 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
+# In an ESM study all participants answer questionnaires during a time period which
+# usually is equal across all participants (e.g. seven days). This function enables the
+# user to check whether in the reference dataset the ESM period is plausible. For
+# instance, a negative ESM time period would clearly be implausible, e.g. the user
+# setting the beginning of the ESM time period after the end of it (which is
+# impossible unless a functioning time machine is involved :-) ).
+referenceDfNew1 <- refPlausible(refDf=referenceDfNew, units="days", RELEVANTVN_REF)
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: rmInvalid
+# --------------
+# This is function 9 of 29 in the hierarchy of 'esmprep' functions.
+# ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute rmInvalid. Start ----------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# keyLsNew is a list of datasets, also delivered with the package
+# Prerequisites in order to execute rmInvalid. End ------------------
+# ------------------------------------------------------
+# Run function 9 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # keyLsNew is the result of function 'genDateTime' (or of function 'splitDateTime').
 rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
 # Result of function 'rmInvalid' is a list with 4 elements:
 names(rmInvLs)
-# ---------------------------------------------------------------------------------
-# FUNCTION  NAME: printRmInvalid
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: printRmInvalid
 # --------------
-# Don't run independently. Run function 9 of 28 in 'esmprep' functions' hierarchy.
+# This is function 10 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute printRmInvalid. Start -----------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# keyLsNew is a list of datasets, also delivered with the package
+rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
+# Prerequisites in order to execute printRmInvalid. End -------------
+# ------------------------------------------------------
+# Run function 10 of 29; see esmprep functions' hierarchy.
+# ------------------------------------------------------
 # rmInvLs is the result of function 'rmInvalid'. Display its result
 # in the console both tablulated and in detail.
 key_rmLs <- printRmInvalid(rmInvLs, smr="both", RELEVANTVN_ES)
@@ -151,22 +277,43 @@ key_rmLs
 str(rmInvLs[["dfValid"]][[2]][1:2])
 rmInvLs[["dfValid"]] <- sapply(rmInvLs[["dfValid"]], function(x) {
      x[,"V1"] <- as.numeric(x[,"V1"])
-     return(x) })
+     return(x) } )
 # Check V1 after conversion
 str(rmInvLs[["dfValid"]][[2]][1:2])
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esItems
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esItems
 # --------------
-# Don't run independently. Run function 10 of 28 in 'esmprep' functions' hierarchy.
+# This is function 11 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esItems. Start ------------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# keyLsNew is a list of datasets, also delivered with the package
+rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
+# Prerequisites in order to execute esItems. End --------------------
+# -------------------------------------------------------
+# Run function 11 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Extract the item names of the raw ESM datasets. rmInvLs[["dfValid"]]
 # is one of the results from function 'rmInvalid'
 plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esPlausible
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esPlausible
 # --------------
-# Don't run independently. Run function 11 of 28 in 'esmprep' functions' hierarchy.
+# This is function 12 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esPlausible. Start --------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# keyLsNew is a list of datasets, also delivered with the package
+rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
+# Prerequisites in order to execute esPlausible. End ----------------
+# -------------------------------------------------------
+# Run function 12 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Help checking the plausibility of items in the raw ESM datasets. rmInvLs[["dfValid"]]
 # is one of the results from function 'rmInvalid'.
 # plausibItems is the result of function 'esItems'.
@@ -181,13 +328,24 @@ plausibLs[["plausibClass"]]
 plausibLs[["plausibRowNa"]]
 # plausibMinMax shows for each numeric variable the minimum and maximum.
 plausibLs[["plausibMinMax"]]
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esComplete
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esComplete
 # --------------
-# Don't run independently. Run function 12 of 28 in 'esmprep' functions' hierarchy.
+# This is function 13 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esComplete. Start ---------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# keyLsNew is a list of datasets, also delivered with the package
+rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
+plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
+# Prerequisites in order to execute esComplete. End -----------------
+# -------------------------------------------------------
+# Run function 13 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Generate second argument of function 'esComplete'. It's strongly recommended
-# to read the explantion of this 2nd argument in the 'esmprep' vignette, function
+# to read the explantion of this 2nd argument in the esmprep vignette, function
 # 'esComplete'.
 lastItemList <- list(
 # If in survey version "morningTestGroup" variable "V6" contains the value 0,
@@ -210,86 +368,166 @@ list("eveningControlGroup", "V8_1", 0, "V8_2"))
 # Apply function 'esComplete'. rmInvLs[["dfValid"]] is one of the results of function
 # rmInvalid.
 isCompleteLs <- esComplete(rmInvLs[["dfValid"]], lastItemList)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esMerge
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esMerge
 # --------------
-# Don't run independently. Run function 13 of 28 in 'esmprep' functions' hierarchy.
+# This is function 14 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esMerge. Start ------------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# isCompleteLs is a list of datasets, also delivered with the package
+# Prerequisites in order to execute esMerge. End --------------------
+# -------------------------------------------------------
+# Run function 14 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Merge all raw ESM datasets. isCompleteLs is the result
 # of function 'esComplete'.
 esMerged <- esMerge(isCompleteLs, RELEVANTVN_ES)
 # If preferred convert the 15 digit IMEI number from scientfic notation to text.
 esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: findChars
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: findChars
 # --------------
-# Don't run independently. Run function 14 of 28 in 'esmprep' functions' hierarchy.
+# This is function 15 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute findChars. Start ----------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# isCompleteLs is a list of datasets, also delivered with the package
+esMerged <- esMerge(isCompleteLs, RELEVANTVN_ES)
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])
+# Prerequisites in order to execute findChars. End ------------------
+# -------------------------------------------------------
+# Run function 15 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # esMerged is the result of function 'esMerge'
 findTextIdx <- findChars(esMerged)
 # Display structure of function output
 str(findTextIdx)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: convertChars
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: convertChars
 # --------------
-# Don't run independently. Run function 15 of 28 in 'esmprep' functions' hierarchy.
+# This is function 16 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute convertChars. Start -------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# isCompleteLs is a list of datasets, also delivered with the package
+esMerged <- esMerge(isCompleteLs, RELEVANTVN_ES)
+esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])
+findTextIdx <- findChars(esMerged)
+# Prerequisites in order to execute convertChars. End ---------------
+# -------------------------------------------------------
+# Run function 16 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # From result of function 'findChars' select the indices of the items
 # in the ESM dataset that contain text answers of the participants.
 findTextIdx1 <- findTextIdx[c(1,2,9,10)]
 # Use findTextIdx1 to generate the 3rd argument of function 'convertChars'.
 textColumns <- names(findTextIdx1)
 # Generate data.frame specifying the conversion of single characters.
-# Since R doesn't permit umlauts (non-ASCII characters) to be contained in datasets,
-# which are attached to a package, this function cannot be presented the way it was
-# intended, i.e. in the exemplary datasets there are no umlauts (non-ASCII characters), 
-# therefore nothing REALLY gets converted. However, the function aims at converting
-# troublesome characters, like umlauts, to less troublesome alternatives.
 convertCharsDf <- data.frame(c("ä", "ü"), c("ae", "ue"))
 # Apply function. esMerged is the result of function 'esMerge'.
 esMerged1 <- convertChars(esMerged, textColumns, convertCharsDf)
 # # As default upper and lower case are NOT ignored! If you want them
 # # ignored, additionally pass TRUE to the argument ignoreCase, like this:
 # convertChars(esMerged, textColumns, convertCharsDf, ignoreCase=TRUE)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esAssign
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esAssign
 # --------------
-# Don't run independently. Run function 16 of 28 in 'esmprep' functions' hierarchy.
+# This is function 17 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esAssign. Start -----------------
+# esMerged1 is the raw ESM dataset, also delivered with the package
+# referenceDfNew is the modified reference dataset, delivered with
+# the package.
+# RELEVANTINFO_ES is delivered with the package
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# Use example list delivered with the package
+RELEVANTVN_REF <- RELEVANTVN_REFext
+# Prerequisites in order to execute esAssign. End -------------------
+# -------------------------------------------------------
+# Run function 17 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Assign questionnaires contained in the raw ESM dataset to all participants listed
 # in the reference dataset. esMerged1 is the result of function 'convertChars',
 # referenceDfNew is the result of function 'genDateTime' or of function
 # 'splitDateTime'.
-esAssigned <- esAssign(esDf = esMerged1, refDf = referenceDfNew, RELEVANTINFO_ES,
+# Run only the first 2 out of 8 participants (saves time). The warning message the
+# user receives in this case (2 out of 8 participants) is correct.
+esAssigned <- esAssign(esDf = esMerged1, refDf = referenceDfNew[1:2,], RELEVANTINFO_ES,
 RELEVANTVN_ES, RELEVANTVN_REF)
-# Assign questionnaires contained in the raw ESM dataset to participant P001 listed
-# in the reference dataset.
-# # DON'T RUN, unless you want to see the output solely for participant P001.
+# # Assign questionnaires contained in the raw ESM dataset to participant P001 listed
+# # in the reference dataset.
 # esAssigned <- esAssign(esDf = esMerged1, refDf = referenceDfNew, RELEVANTINFO_ES,
 # RELEVANTVN_ES, RELEVANTVN_REF, singlePerson="P001")
 # More options can be passed to 'esAssign', see parameter description. Note that when
 # setting the argument midnightPrompt to TRUE, esAssign takes a bit longer to do its job.
 # Output: List with 4 data.frames.
 names(esAssigned)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: missingEndDateTime
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: missingEndDateTime
 # --------------
-# Don't run independently. Run function 17 of 28 in 'esmprep' functions' hierarchy.
+# This is function 18 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute missingEndDateTime. Start -------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+# Prerequisites in order to execute missingEndDateTime. End ---------
+# -------------------------------------------------------
+# Run function 18 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # esAssigned[["ES"]] is one of the results of function 'esAssign'.
 noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: relevantREFVN
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esIdentical
 # --------------
-# Don't run independently. Run function 18 of 28 in 'esmprep' functions' hierarchy.
+# This is function 19 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esIdentical. Start --------------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
+# Prerequisites in order to execute esIdentical. End ----------------
+# -------------------------------------------------------
+# Run function 19 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # noEndDf is the result of function 'noEndDateTime'.
 identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: suggestShift
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: suggestShift
 # --------------
-# Don't run independently. Run function 19 of 28 in 'esmprep' functions' hierarchy.
+# This is function 20 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute suggestShift. Start -------------
+# Use example list delivered with the package
+RELEVANTINFO_ES <- RELEVANTINFO_ES
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
+identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
+# Prerequisites in order to execute suggestShift. End ---------------
+# -------------------------------------------------------
+# Run function 20 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # identDf is the result of function 'esIdentical'.
 # 100 represents the number of minutes that at least must have passed
 # between the scheduled start of an ESM questionnaire at its actual start
@@ -300,18 +538,51 @@ sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
 sugShift$suggestShiftDf
 # Display output element 'printShiftDf':
 sugShift$printShiftDf
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: printSuggestedShift
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: printSuggestedShift
 # --------------
-# Don't run independently. Run function 20 of 28 in 'esmprep' functions' hierarchy.
+# This is function 21 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute printSuggestedShift. Start ------
+# Use example list delivered with the package
+RELEVANTINFO_ES <- RELEVANTINFO_ES
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
+identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
+sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
+# Prerequisites in order to execute printSuggestedShift. End --------
+# -------------------------------------------------------
+# Run function 21 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Display the result of function 'suggestShift' in the console.
 printSuggestedShift(sugShift, RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: makeShift
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: makeShift
 # --------------
-# Don't run independently. Run function 21 of 28 in 'esmprep' functions' hierarchy.
+# This is function 22 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute makeShift. Start ----------------
+# RELEVANTINFO_ES is delivered with the package
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# Use example list delivered with the package
+RELEVANTVN_REF <- RELEVANTVN_REFext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
+identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
+sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
+# Prerequisites in order to execute makeShift. End -------------------
+# -------------------------------------------------------
+# Run function 22 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # sugShift is the result of function 'suggestShift'. referenceDfNew is the result
 # of function 'genDateTime' or of function 'splitDateTime'.
 # keyPromptDf is generated by using part of the output of function suggestShift,
@@ -321,13 +592,33 @@ madeShift <- makeShift(sugShift, referenceDfNew, keyPromptDf, RELEVANTINFO_ES, R
 # Tip! Display the result of function 'makeShift' in the console
 # in order to check whether the shifting was successful.
 printSuggestedShift(madeShift, RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: expectedPromptIndex
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: expectedPromptIndex
 # --------------
-# Don't run independently. Run function 22 of 28 in 'esmprep' functions' hierarchy.
+# This is function 23 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute makeShift. Start ----------------
+# Use example list delivered with the package
+RELEVANTINFO_ES <- RELEVANTINFO_ES
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# Use example list delivered with the package
+RELEVANTVN_REF <- RELEVANTVN_REFext
+# esAssigned is a list of datasets, delivered with the package. It is
+# the result of the assignment of the ESM questionnaires to ALL 8
+# participants in the reference dataset.
+noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
+identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
+sugShift <- suggestShift(identDf, 100, RELEVANTINFO_ES, RELEVANTVN_ES)
+keyPromptDf <- sugShift$suggestShiftDf[,c("NEW_PROMPT", "SHIFTKEY")]
+madeShift <- makeShift(sugShift, referenceDfNew, keyPromptDf, RELEVANTINFO_ES, RELEVANTVN_REF)
+# Prerequisites in order to execute makeShift. End -------------------
+# -------------------------------------------------------
+# Run function 23 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Generate second argument of function 'expectedPromptIndex'. It's strongly
-# recommended to read the explanation of this 2nd argument in the 'esmprep'
+# recommended to read the explanation of this 2nd argument in the esmprep
 # vignette, function 'expectedPromptIndex'.
 expIdxList <- list(
 # I - the user - expect in the ESM version morningTestGroup that
@@ -346,12 +637,22 @@ list("eveningControlGroup", 4, 3))
 expectedDf <- expectedPromptIndex(madeShift$esDf, expIdxList, RELEVANTINFO_ES,
 RELEVANTVN_ES)
 # If no questionnaire is suggested for shifting (see function suggestShift)
-# simply use the result of function suggestShift as 1st argument.
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: intolerable
+# use the result of function suggestShift as 1st argument, like this:
+# expectedDf <- expectedPromptIndex(sugShift$esDf, expIdxList, RELEVANTINFO_ES,
+RELEVANTVN_ES)
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: intolerable
 # --------------
-# Don't run independently. Run function 23 of 28 in 'esmprep' functions' hierarchy.
+# This is function 24 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute intolerable. Start --------------
+# RELEVANTINFO_ES is delivered with the package
+# expectedDf is a raw ESM dataset, delivered with the package.
+# Prerequisites in order to execute intolerable. End ----------------
+# -------------------------------------------------------
+# Run function 24 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # Generate second argument of function 'intolerable'
 (intoleranceDf <- data.frame(
 # Column 'prompt': Prompts that must NEVER be comined with expected categories.
@@ -363,40 +664,106 @@ expect = c(1, 1, 1, 2, 3)))
 # Read: Prompt 1 must never be combined with expected category 3.
 # expectedDf is the result of function 'expectedPromptIndex'.
 intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: randomMultSelection
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: randomMultSelection
 # --------------
-# Don't run independently. Run function 24 of 28 in 'esmprep' functions' hierarchy.
+# This is function 25 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute randomMultSelection. Start ------
+# RELEVANTINFO_ES is delivered with the package
+intoleranceDf <- data.frame(prompt = c(2, 3, 4, 1, 1),
+expect = c(1, 1, 1, 2, 3))
+# expectedDf is a raw ESM dataset, delivered with the package.
+intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
+# Prerequisites in order to execute randomMultSelection. End --------
+# -------------------------------------------------------
+# Run function 25 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # intolLs[["cleanedDf"]] is the result of function 'intolerable'.
 randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: computeTimeLag
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: computeTimeLag
 # --------------
-# Don't run independently. Run function 25 of 28 in 'esmprep' functions' hierarchy.
+# This is function 26 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute computeTimeLag. Start -----------
+# RELEVANTINFO_ES is delivered with the package
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+intoleranceDf <- data.frame(prompt = c(2, 3, 4, 1, 1),
+expect = c(1, 1, 1, 2, 3))
+# expectedDf is a raw ESM dataset, delivered with the package.
+intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
+randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
+# Prerequisites in order to execute computeTimeLag. End -------------
+# -------------------------------------------------------
+# Run function 26 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
 lagDf <- computeTimeLag(randSelLs[["esRandSelIn"]], RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: computeDuration
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: computeDuration
 # --------------
-# Don't run independently. Run function 26 of 28 in 'esmprep' functions' hierarchy.
+# This is function 27 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
-# lagDf is the result of function 'lagDf'.
-durDf <- computeDuration(lagDf, RELEVANTVN_ES)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: computeTimeBetween
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute computeDuration. Start ----------
+# RELEVANTINFO_ES is delivered with the package
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+intoleranceDf <- data.frame(prompt = c(2, 3, 4, 1, 1),
+expect = c(1, 1, 1, 2, 3))
+# expectedDf is a raw ESM dataset, delivered with the package.
+intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
+randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
+# Prerequisites in order to execute computeDuration. End ------------
+# -------------------------------------------------------
+# Run function 27 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
+# randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
+durDf <- computeDuration(randSelLs[["esRandSelIn"]], RELEVANTVN_ES)
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: computeTimeBetween
 # --------------
-# Don't run independently. Run function 27 of 28 in 'esmprep' functions' hierarchy.
+# This is function 28 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
-# durDf is the result of function 'computeDuration'.
-tbsqDf <- computeTimeBetween(esDf = durDf, refDf = referenceDfNew, RELEVANTVN_ES,
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute computeTimeBetween. Start -------
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# Use example list delivered with the package
+RELEVANTVN_REF <- RELEVANTVN_REFext
+intoleranceDf <- data.frame(prompt = c(2, 3, 4, 1, 1),
+expect = c(1, 1, 1, 2, 3))
+# expectedDf is a raw ESM dataset, delivered with the package.
+intolLs <- intolerable(expectedDf, intoleranceDf, RELEVANTINFO_ES)
+randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
+# Prerequisites in order to execute computeTimeBetween. End ---------
+# -------------------------------------------------------
+# Run function 28 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
+# randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
+tbsqDf <- computeTimeBetween(randSelLs[["esRandSelIn"]], referenceDfNew, RELEVANTVN_ES,
 RELEVANTVN_REF)
-# ----------------------------------------------------------------------------------
-# FUNCTION  NAME: esFinal
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# FUNCTION NAME: esFinal
 # --------------
-# Don't run independently. Run function 28 of 28 in 'esmprep' functions' hierarchy.
+# This is function 29 of 29 in the hierarchy of 'esmprep' functions.
 # ------------------------
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
+# Prerequisites in order to execute esFinal. Start ------------------
+# RELEVANTINFO_ES is delivered with the package
+# Use example list delivered with the package
+RELEVANTVN_ES <- RELEVANTVN_ESext
+# tbsqDf is a raw ESM dataset, delivered with the package.
+# Prerequisites in order to execute esFinal. End --------------------
+# -------------------------------------------------------
+# Run function 29 of 29; see esmprep functions' hierarchy.
+# -------------------------------------------------------
 # tbsqDf is the result of function 'computeTimeBetween'.
-esDfFin <- esFinal(tbsqDf, RELEVANTINFO_ES, RELEVANTVN_ES)}
+esDfFin <- esFinal(tbsqDf, esOpt=esAssigned[["ESopt"]], complianceRate=50,
+RELEVANTINFO_ES, RELEVANTVN_ES)
+# o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o}
 }

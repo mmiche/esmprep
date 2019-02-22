@@ -4,8 +4,8 @@
 \alias{expectedPromptIndex}
 \title{expectedPromptIndex}
 \usage{
-expectedPromptIndex(esDf, expectedPromptIndexList, RELEVANTINFO_ES = NULL,
-  RELEVANTVN_ES = NULL)
+expectedPromptIndex(esDf, expectedPromptIndexList,
+  RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL)
 }
 \arguments{
 \item{esDf}{a data.frame. A single ESM dataset. It must contain the 2 columns that hold the date-time object for when an ESM questionnaire was started and finished, respectively.}
@@ -44,7 +44,7 @@ keyPromptDf <- sugShift$suggestShiftDf[,c("NEW_PROMPT", "SHIFTKEY")]
 madeShift <- makeShift(sugShift, referenceDfNew, keyPromptDf, RELEVANTINFO_ES, RELEVANTVN_REF)
 # Prerequisites in order to execute makeShift. End -------------------
 # -------------------------------------------------------
-# Run function 22 of 28; see esmprep functions' hierarchy.
+# Run function 23 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Generate second argument of function 'expectedPromptIndex'. It's strongly
 # recommended to read the explanation of this 2nd argument in the esmprep
@@ -66,9 +66,11 @@ list("eveningControlGroup", 4, 3))
 expectedDf <- expectedPromptIndex(madeShift$esDf, expIdxList, RELEVANTINFO_ES,
 RELEVANTVN_ES)
 # If no questionnaire is suggested for shifting (see function suggestShift)
-# simply use the result of function suggestShift as 1st argument.
+# use the result of function suggestShift as 1st argument, like this:
+# expectedDf <- expectedPromptIndex(sugShift$esDf, expIdxList, RELEVANTINFO_ES,
+# RELEVANTVN_ES)
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 22 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 23 of 29).
 }

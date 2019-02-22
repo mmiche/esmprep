@@ -25,7 +25,7 @@ RELEVANTVN_ES <- RELEVANTVN_ESext
 # isCompleteLs is a list of datasets, also delivered with the package
 # Prerequisites in order to execute esMerge. End --------------------
 # -------------------------------------------------------
-# Run function 13 of 28; see esmprep functions' hierarchy.
+# Run function 14 of 29; see esmprep functions' hierarchy.
 # -------------------------------------------------------
 # Merge all raw ESM datasets. isCompleteLs is the result
 # of function 'esComplete'.
@@ -35,5 +35,5 @@ esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["
 # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 }
 \seealso{
-Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 13 of 28).
+Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 14 of 29).
 }
