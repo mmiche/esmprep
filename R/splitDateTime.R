@@ -44,9 +44,9 @@
 #' RELEVANTVN_REF <- setREF(4, relRef)
 #' # Prerequisites in order to execute splitDateTime. End --------------
 #' # ------------------------------------------------------
-#' # Run function 7 of 28; see esmprep functions' hierarchy.
+#' # Run function 7 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
-#' # Applying function to reference dataset (7a of 28)
+#' # Applying function to reference dataset (7a of 29)
 #' referenceDfList <- splitDateTime(referenceDfNewDT, "REF", RELEVANTINFO_ES, RELEVANTVN_ES,
 #' RELEVANTVN_REF)
 #' 
@@ -57,7 +57,7 @@
 #' # Extract extended list of relevant variables names of reference dataset
 #' RELEVANTVN_REF <- referenceDfList[["extendedVNList"]]
 #' 
-#' # Applying function to raw ESM dataset(s) (7b of 28)
+#' # Applying function to raw ESM dataset(s) (7b of 29)
 #' # keyLs is the result of function 'genKey'.
 #' keyList <- splitDateTime(keyLsNewDT, "ES", RELEVANTINFO_ES, RELEVANTVN_ES,
 #' RELEVANTVN_REF)
@@ -69,7 +69,7 @@
 #' RELEVANTVN_ES <- keyList[["extendedVNList"]]
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 26 of 28).\cr \code{splitDateTime} is the reverse function of \code{\link{genDateTime}}.
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 27 of 29).\cr \code{splitDateTime} is the reverse function of \code{\link{genDateTime}}.
 #
 #' @export
 #
