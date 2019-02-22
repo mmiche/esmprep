@@ -27,7 +27,7 @@
 #' @examples
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #' # ------------------------------------------------------
-#' # Run function 1 of 28; see esmprep functions' hierarchy.
+#' # Run function 1 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
 #' # With date and time as separate arguments
 #' relRef <- relevantREFVN(ID="id", IMEI="imei", ST="st",
@@ -38,7 +38,7 @@
 #' START_DATETIME="start_dateTime", END_DATETIME="end_dateTime")
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 1 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 1 of 29).
 #
 #' @export
 #
