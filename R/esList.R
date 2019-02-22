@@ -24,14 +24,14 @@
 #' RELEVANTVN_ES <- RELEVANT_ES[["RELEVANTVN_ES"]]
 #' # Prerequisites in order to execute esList. End ----------------------
 #' # ------------------------------------------------------
-#' # Run function 5 of 28; see esmprep functions' hierarchy.
+#' # Run function 6 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
 #' # 6 exemplary raw ESM (sub-)datasets.
 #' esLs <- esList(list(morningControl, dayControl, eveningControl,
 #' morningTest, dayTest, eveningTest), RELEVANTVN_ES)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 5 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 5 of 29).
 #
 #' @export
 #
