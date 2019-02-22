@@ -20,7 +20,7 @@
 #' esMerged[,RELEVANTVN_ES[["ES_IMEI"]]] <- as.character(esMerged[,RELEVANTVN_ES[["ES_IMEI"]]])
 #' # Prerequisites in order to execute findChars. End ------------------
 #' # -------------------------------------------------------
-#' # Run function 14 of 28; see esmprep functions' hierarchy.
+#' # Run function 15 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # esMerged is the result of function 'esMerge'
 #' findTextIdx <- findChars(esMerged)
@@ -28,7 +28,7 @@
 #' str(findTextIdx)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 14 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 15 of 29).
 #
 #' @export
 #
