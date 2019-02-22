@@ -21,13 +21,13 @@
 #' noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
 #' # Prerequisites in order to execute esIdentical. End ----------------
 #' # -------------------------------------------------------
-#' # Run function 18 of 28; see esmprep functions' hierarchy.
+#' # Run function 19 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # noEndDf is the result of function 'noEndDateTime'.
 #' identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 18 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 19 of 29).
 #
 #' @export
 #
