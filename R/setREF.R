@@ -36,7 +36,7 @@
 #' ENDDATE="end_date", ENDTIME="end_time")
 #' # Prerequisites in order to execute setREF. End ---------------------
 #' # ------------------------------------------------------
-#' # Run function 2 of 28; see esmprep functions' hierarchy.
+#' # Run function 2 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
 #' # 4 is the number of daily prompts.
 #' # relRef is the result of function 'relevantREFVN'
@@ -48,7 +48,7 @@
 #' (RELEVANTVN_REF <- setREF(4, relRef))
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 2 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 2 of 29).
 #
 #' @export
 #
