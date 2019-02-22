@@ -20,13 +20,13 @@
 #' # participants in the reference dataset.
 #' # Prerequisites in order to execute missingEndDateTime. End ---------
 #' # -------------------------------------------------------
-#' # Run function 17 of 28; see esmprep functions' hierarchy.
+#' # Run function 18 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # esAssigned[["ES"]] is one of the results of function 'esAssign'.
 #' noEndDf <- missingEndDateTime(esAssigned[["ES"]], RELEVANTVN_ES)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 17 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 18 of 29).
 #
 #' @export
 #
