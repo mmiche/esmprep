@@ -10,7 +10,7 @@
 #
 #' @param prompted logical. If there was no prompt per ESM day at all, enter FALSE; else ignore this argument, meaning that per default at least one prompt per ESM day is assumed.
 #
-#' @param promptTimeframe an integer value. The default value is 30, i.e. within 30 \strong{minutes} around each prompt a participant is expected to have answered the ESM questionnaire. This argument must be set to an integer value larger than 0, even if there was no prompt at all. If NA, NULL, 0 is passed to this argument, the function returns an error. If less than 30 minutes is passed to this argument, the function returns a warning message.
+#' @param promptTimeframe an integer value. The default value is 30, i.e. within "genDateTime" \strong{minutes} around each prompt a participant is expected to have answered the ESM questionnaire. This argument must be set to an integer value larger than 0, even if there was no prompt at all. If NA, NULL, 0 is passed to this argument, the function returns an error. If less than "genDateTime" minutes is passed to this argument, the function returns a warning message.
 #
 #' @param dstDates a vector of character strings. If a check shall be made concerning the daylight saving time (last weekend in March and October, respectively), enter the respective date(s) in the form yyyy-mm-dd as vector, e.g. c("2007-10-28", "2008-03-30).
 #
@@ -66,7 +66,7 @@
 #' RELEVANTVN_REF <- RELEVANTVN_REFext
 #' # Prerequisites in order to execute esAssign. End -------------------
 #' # -------------------------------------------------------
-#' # Run function 16 of 28; see esmprep functions' hierarchy.
+#' # Run function 17 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # Assign questionnaires contained in the raw ESM dataset to all participants listed
 #' # in the reference dataset. esMerged1 is the result of function 'convertChars',
@@ -86,7 +86,7 @@
 #' names(esAssigned)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 16 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 17 of 29).
 #
 #' @export
 #
