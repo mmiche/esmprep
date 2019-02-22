@@ -21,7 +21,7 @@
 #' rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
 #' # Prerequisites in order to execute printRmInvalid. End -------------
 #' # ------------------------------------------------------
-#' # Run function 9 of 28; see esmprep functions' hierarchy.
+#' # Run function 10 of 29; see esmprep functions' hierarchy.
 #' # ------------------------------------------------------
 #' # rmInvLs is the result of function 'rmInvalid'. Display its result
 #' # in the console both tablulated and in detail.
@@ -41,7 +41,7 @@
 #' str(rmInvLs[["dfValid"]][[2]][1:2])
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 9 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 10 of 29).
 #
 #' @export
 #
