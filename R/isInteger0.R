@@ -1,4 +1,4 @@
-# is.integer0
+# isInteger0
 #
 #
 is.integer0 <- function(values) {
