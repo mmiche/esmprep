@@ -12,12 +12,13 @@
 #
 #' @details If at least one questionnaire is registered as having been filled out repeatedly at a specific prompt it might be 'reasonable' to shift such questionnaires to a neighboring prompt index. The word 'reasonable' refers to the rule of how questionnaires get assigned to a specific prompt: For each participant the minimum time difference between the actual start time of a questionnaire and all of the participant's scheduled times (prompts) determines which prompt gets assigned to the actual start time. Say between 2 neighboring prompts 4 hours pass, then a questionnaire that was started 3 minutes after the prompt gets assigned to the same prompt as a questionnaire that was started 1 hour and 59 minutes after the prompt. Had it been started say exactly 2 hours after the prompt it would have been assigned to the subsequent prompt. It might be reasonable to assign such a questionnaire to this subsequent (neighboring) prompt.
 #
-#' @return either a data.frame (the raw ESM dataset in its current state), if no prompt is suggested for shifting, or a list with 3 data.frames, if at least one prompt is suggested for shifting, i.e.:
+#' @return a list. If at least one prompt is suggested for shifting,  a list containing the following 3 data.frames is returned:
 #' \enumerate{
 #' \item the first data.frame (called 'esDf') is the raw ESM dataset in its current state (with new colums SHIFT, SHIFTKEY, and LAG_MINUTES),
 #' \item the second data.frame (called 'suggestShiftDf') includes all relevant information to act according to the decision as to which questionnaires shall be shifted. See \strong{Examples} in function \code{\link{makeShift}} to get a clear idea of how to use 'suggestShiftDf',
 #' \item the third data.frame (called 'printShiftDf') contains the relevant information to print all questionnaires registered by \code{suggestShift} to the console, before as well as after having made the shifting. This printing to the console is done by applying the function \code{\link{printSuggestedShift}}.
 #' }
+#' If no prompt is suggested for shifting, the list elements 'suggestShiftDf' and 'printShiftDf' both are character strings which confirm that no shift is suggested.
 #
 #' @examples
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
@@ -33,7 +34,7 @@
 #' identDf <- esIdentical(noEndDf, RELEVANTVN_ES)
 #' # Prerequisites in order to execute suggestShift. End ---------------
 #' # -------------------------------------------------------
-#' # Run function 19 of 28; see esmprep functions' hierarchy.
+#' # Run function 20 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # identDf is the result of function 'esIdentical'.
 #' # 100 represents the number of minutes that at least must have passed
@@ -47,7 +48,7 @@
 #' sugShift$printShiftDf
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 19 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 20 of 29).
 #
 #' @export
 #
@@ -151,7 +152,7 @@ suggestShift <- function(esDf, timeLagMinutes=NULL, RELEVANTINFO_ES=NULL, RELEVA
 	    		# Return the dataset (either with or without 2 new columns)
 	    		list(esDf = esDf, suggestShiftDf = suggestShiftDf, printShiftDf = data.frame(indices=idx1, countIdx))
 	    } else {
-	    		return(esDf)
+	    		list(esDf = esDf, suggestShiftDf = "No SHIFT suggested.", printShiftDf = "No SHIFT suggested.")
 	    }
     }
 }
