@@ -23,7 +23,7 @@
 #' findTextIdx <- findChars(esMerged)
 #' # Prerequisites in order to execute convertChars. End ---------------
 #' # -------------------------------------------------------
-#' # Run function 15 of 28; see esmprep functions' hierarchy.
+#' # Run function 16 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # From result of function 'findChars' select the indices of the items
 #' # in the ESM dataset that contain text answers of the participants.
@@ -39,7 +39,7 @@
 #' # convertChars(esMerged, textColumns, convertCharsDf, ignoreCase=TRUE)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 15 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 16 of 29).
 #
 #' @export
 #
