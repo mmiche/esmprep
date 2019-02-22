@@ -17,14 +17,14 @@
 #' rmInvLs <- rmInvalid(keyLsNew, RELEVANTVN_ES)
 #' # Prerequisites in order to execute esItems. End --------------------
 #' # -------------------------------------------------------
-#' # Run function 10 of 28; see esmprep functions' hierarchy.
+#' # Run function 11 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # Extract the item names of the raw ESM datasets. rmInvLs[["dfValid"]]
 #' # is one of the results from function 'rmInvalid'
 #' plausibItems <- esItems(dfList=rmInvLs[["dfValid"]], RELEVANTVN_ES)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 10 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 11 of 29).
 #
 #' @export
 #
