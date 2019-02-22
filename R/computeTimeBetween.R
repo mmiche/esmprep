@@ -28,14 +28,14 @@
 #' randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 #' # Prerequisites in order to execute computeTimeBetween. End ---------
 #' # -------------------------------------------------------
-#' # Run function 27 of 28; see esmprep functions' hierarchy.
+#' # Run function 28 of 29; see esmprep functions' hierarchy.
 #' # -------------------------------------------------------
 #' # randSelLs[["esRandSelIn"]] is the result of function 'randomMultSelection'.
 #' tbsqDf <- computeTimeBetween(randSelLs[["esRandSelIn"]], referenceDfNew, RELEVANTVN_ES,
 #' RELEVANTVN_REF)
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
 #
-#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 27 of 28).
+#' @seealso Exemplary code (fully executable) in the documentation of \code{\link{esmprep}} (function 28 of 29).
 #
 #' @export
 #
