@@ -121,7 +121,7 @@ esFinal <- function(esDf, esOpt=NULL, complianceRate=NULL, RELEVANTINFO_ES=NULL,
 	
 	# If no participant was lost because of any procedure between function
 	# 'esAssign' and function 'esFinal':
-	if(all(idsOpt %in% idsES)) {
+	if(all(c(idsOpt %in% idsES, idsES %in% idsOpt))) {
 		
 		finalizeDf <- data.frame(ID=rep(idsES, each = maxRows))
 	    finalizeDf[,"CV_ES"] <- rep(1:maxRows, times = length(idsES))
@@ -229,7 +229,7 @@ esFinal <- function(esDf, esOpt=NULL, complianceRate=NULL, RELEVANTINFO_ES=NULL,
 	# Else: There is at least one participant in the ESM dataset gone missing.
 	} else if(any(!(idsOpt %in% idsES))) {
 		
-		idsGone <- idsES[!(idsOpt %in% idsES)]
+		idsGone <- idsOpt[!(idsOpt %in% idsES)]
 		message(paste0(idsGone, " has been removed from the ESM dataset, which is unlikely, yet not impossible. The removal can only have happened after executing the function 'intolerable'. Therefore, check the return value of the function 'intolerable', i.e. display the list element which is named 'intoleranceDf'. There you should find ", idsGone, "."))
 		
 		idsES <- idsOpt[idsOpt %in% idsES]
