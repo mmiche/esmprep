@@ -8,9 +8,14 @@
 #
 #' @param units a character. This character must be exactly one of the following options: auto, secs, mins, hours, days, weeks. For more information see the R base function \code{\link{difftime}}.
 #
-#' @details The units of the ESM period can be selected by the user, namely one of the following: auto, secs, mins, hours, days, weeks. For more information enter ?difftime in the R console.
+#' @details The units of the ESM period can be selected by the user, namely one of the following: auto, secs, mins, hours, days, weeks. For more information enter ?difftime in the R console. The prompts per participant, as defined by the user within the reference dataset, are expected to be an increasing time series within a respective ESM day. Therefore, if there are two prompts set at the exact same time, this represents an anomaly. The same is true of any prompt that is earlier in time instead of later (as expected) than the previous prompt (time reversals are not tolerated). Finally, if the function detects any duplicates among the participant IDs, it will return an error message and displays the problematic lines of the reference dataset in the R console.
 #
-#' @return A data.frame, i.e. \code{refDf}. The returned data.frame will have one additional column with the ESM period for each participant. See \strong{Details} for more information.
+#' @return A data.frame, i.e. \code{refDf}. The returned data.frame will have two additional columns:
+#' \enumerate{
+#' \item ESM_PERIOD in the selected time period, e.g. days.
+#' \item TIME_ANOMALY, i.e. a possible anomaly concerning the expected increase in the time sequence of the prompts in the reference dataset.
+#' }
+#' See \strong{Details} for more information.
 #
 #' @examples
 #' # o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o=o
@@ -54,12 +59,59 @@ refPlausible <- function(refDf=NULL, units="days", RELEVANTVN_REF) {
     SETUPLISTCheck(RELEVANTINFO_ES=NULL,
     			   RELEVANTVN_ES=NULL,
     			   RELEVANTVN_REF=RELEVANTVN_REF)
+    	
+    	if(any(duplicated(refDf[,RELEVANTVN_REF[["REF_ID"]]]))) {
+		
+		whichDupl <- which(duplicated(refDf[,RELEVANTVN_REF[["REF_ID"]]]))
+		duplCatch <- c()
+		for(k in 1:length(whichDupl)) {
+			duplCatch <- c(duplCatch, which(refDf[,RELEVANTVN_REF[["REF_ID"]]] == refDf[whichDupl[k],RELEVANTVN_REF[["REF_ID"]]]))
+		}
+		
+		dupl <- rep(0, times=nrow(refDf))
+		dupl[duplCatch] <- 1
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n")
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n")
+		cat(paste0("Duplicates in reference dataset. See column ", RELEVANTVN_REF[["REF_ID"]], ":\n"))
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n")
+		print(refDf[duplCatch,])
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n")
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n")
+		stop("There are duplicated participant IDs in the reference dataset (see printed relevant part in the R console). This must be changed before proceeding!")
+		
+	}
 	
 	timeDiffDays <- base::difftime(refDf[,RELEVANTVN_REF[["REF_END_DATETIME"]]],
 						 refDf[,RELEVANTVN_REF[["REF_START_DATETIME"]]],
 						 units=units)
 	
-	refDf[,paste0("ESMperiod", toupper(units))] <- as.numeric(timeDiffDays)
+	# Another possible source for errors, e.g. in function 'esAssign',
+	# i.e. setting versus not setting the argument midnightPrompt to TRUE. 
+	idTimeAnomaly <- c()
+	
+	refDfInternal <- refDf
+	columnsHMS <- as.character(RELEVANTVN_REF[["REF_ST"]])
+	for(i in columnsHMS) {
+		refDfInternal[,i] <- as.numeric(lubridate::hms(refDfInternal[,i]))
+	}
+	
+	j <- 1
+	for(j in 1:nrow(refDf)) {
+		
+		# iDiffTemp <- base::diff(as.numeric(refDf[i,refDf[,RELEVANTVN_REF[["REF_ST"]]]]))
+		iDiffTemp <- base::diff(as.numeric(refDfInternal[j,RELEVANTVN_REF[["REF_ST"]]]))
+		
+		if(any(iDiffTemp <= 0)) {
+			idTimeAnomaly <- c(idTimeAnomaly, 1)
+			message(paste0("Is there an anomaly in the prospective time sequence in row ", j, " of the reference dataset? See column ", RELEVANTVN_REF[["REF_ID"]], " participant ", refDf[j,RELEVANTVN_REF[["REF_ID"]]], ".\nMaybe this is not an anomaly but instead signaling the necessity to set the argument 'midnightPrompt' to 'TRUE' in the function 'esAssign'."))
+		} else {
+			idTimeAnomaly <- c(idTimeAnomaly, 0)
+		}
+	}
+	
+	refDf[,paste0("ESM_PERIOD", toupper(units))] <- as.numeric(timeDiffDays)
+	refDf[,"TIME_ANOMALY"] <- idTimeAnomaly
+	
 	return(refDf)
 	
 }
