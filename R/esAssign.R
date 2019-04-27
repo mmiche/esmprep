@@ -40,6 +40,7 @@
 #' \item DST. Dichotomous variable. The value 1 represents a questionnaire's date to be equal or later than the daylight saving date, as specified by the user.
 #' \item QWST. Dichotomous variable. The value 1 represents a questionnaire to be fully within the scheduled time, i.e. the time differences of both the actual start time and the actual end time are minimal relative to the same scheduled time.
 #' }
+#' Additionally, if the reference dataset contains any duplicates in the column representing the participant IDs, then \code{esAssign} stops and an error message is printed in the R console.
 #
 #' @return The user receives a list containing 4 datasets:
 #' \enumerate{
@@ -105,6 +106,17 @@ esAssign <- function(esDf, refDf, RELEVANTINFO_ES = NULL, RELEVANTVN_ES = NULL, 
     			   RELEVANTVN_ES=RELEVANTVN_ES,
     			   RELEVANTVN_REF=RELEVANTVN_REF)
 	
+	refDfPlausible <- try(refPlausible(refDf, RELEVANTVN_REF=RELEVANTVN_REF))
+	if(inherits(refDfPlausible, "try-error")) {
+		# No need to do anything. Let the function throw the error which
+		# automatically stops the function 'esAssign' from continuing.
+	} else {
+		# Print the range of all ESM periods (in days) in the R console.
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n")
+		message("Range of ESM periods (in days) across all participants in the current reference dataset.")
+		print(summary(refDfPlausible[,"ESM_PERIODDAYS"]))
+		cat("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n\n")
+	}
 	
     # Set optional parameters to their default value
     # ----------------------------------------------
