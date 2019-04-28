@@ -85,27 +85,28 @@ refPlausible <- function(refDf=NULL, units="days", RELEVANTVN_REF) {
 						 refDf[,RELEVANTVN_REF[["REF_START_DATETIME"]]],
 						 units=units)
 	
-	# Another possible source for errors, e.g. in function 'esAssign',
-	# i.e. setting versus not setting the argument midnightPrompt to TRUE. 
-	idTimeAnomaly <- c()
-	
-	refDfInternal <- refDf
-	columnsHMS <- as.character(RELEVANTVN_REF[["REF_ST"]])
-	for(i in columnsHMS) {
-		refDfInternal[,i] <- as.numeric(lubridate::hms(refDfInternal[,i]))
-	}
-	
-	j <- 1
-	for(j in 1:nrow(refDf)) {
+	if(!is.null(refDf[,RELEVANTVN_REF[["REF_ST"]]])) {
+		# Another possible source for errors, e.g. in function 'esAssign',
+		# i.e. setting versus not setting the argument midnightPrompt to TRUE. 
+		idTimeAnomaly <- c()
 		
-		# iDiffTemp <- base::diff(as.numeric(refDf[i,refDf[,RELEVANTVN_REF[["REF_ST"]]]]))
-		iDiffTemp <- base::diff(as.numeric(refDfInternal[j,RELEVANTVN_REF[["REF_ST"]]]))
+		refDfInternal <- refDf
+		columnsHMS <- as.character(RELEVANTVN_REF[["REF_ST"]])
+		for(i in columnsHMS) {
+			refDfInternal[,i] <- as.numeric(lubridate::hms(refDfInternal[,i]))
+		}
 		
-		if(any(iDiffTemp <= 0)) {
-			idTimeAnomaly <- c(idTimeAnomaly, 1)
-			message(paste0("Is there an anomaly in the prospective time sequence in row ", j, " of the reference dataset? See column ", RELEVANTVN_REF[["REF_ID"]], " participant ", refDf[j,RELEVANTVN_REF[["REF_ID"]]], ".\nMaybe this is not an anomaly but instead signaling the necessity to set the argument 'midnightPrompt' to 'TRUE' in the function 'esAssign'."))
-		} else {
-			idTimeAnomaly <- c(idTimeAnomaly, 0)
+		for(j in 1:nrow(refDf)) {
+			
+			# iDiffTemp <- base::diff(as.numeric(refDf[i,refDf[,RELEVANTVN_REF[["REF_ST"]]]]))
+			iDiffTemp <- base::diff(as.numeric(refDfInternal[j,RELEVANTVN_REF[["REF_ST"]]]))
+			
+			if(any(iDiffTemp <= 0)) {
+				idTimeAnomaly <- c(idTimeAnomaly, 1)
+				message(paste0("Is there an anomaly in the prospective time sequence in row ", j, " of the reference dataset? See column ", RELEVANTVN_REF[["REF_ID"]], " participant ", refDf[j,RELEVANTVN_REF[["REF_ID"]]], ".\nMaybe this is not an anomaly but instead signaling the necessity to set the argument 'midnightPrompt' to 'TRUE' in the function 'esAssign'."))
+			} else {
+				idTimeAnomaly <- c(idTimeAnomaly, 0)
+			}
 		}
 	}
 	
