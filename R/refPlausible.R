@@ -13,7 +13,8 @@
 #' @return A data.frame, i.e. \code{refDf}. The returned data.frame will have two additional columns:
 #' \enumerate{
 #' \item ESM_PERIOD in the selected time period, e.g. days.
-#' \item TIME_ANOMALY, i.e. a possible anomaly concerning the expected increase in the time sequence of the prompts in the reference dataset.
+#' \item TIME_ANOMALY, i.e. a possible anomaly concerning the expected increase in the time sequence of the prompts in the reference dataset (returned only if there is at least one time anomaly).
+#' \item PROMPT_NEXTDAY, i.e. at which of the participant's prompts is a time anomaly suspected (returned only if there is at least one time anomaly).
 #' }
 #' See \strong{Details} for more information.
 #
@@ -81,14 +82,37 @@ refPlausible <- function(refDf=NULL, units="days", RELEVANTVN_REF) {
 		
 	}
 	
-	timeDiffDays <- base::difftime(refDf[,RELEVANTVN_REF[["REF_END_DATETIME"]]],
+	timeDiffUnit <- base::difftime(refDf[,RELEVANTVN_REF[["REF_END_DATETIME"]]],
 						 refDf[,RELEVANTVN_REF[["REF_START_DATETIME"]]],
 						 units=units)
+	refDf[,paste0("ESM_PERIOD", toupper(units))] <- as.numeric(timeDiffUnit)
 	
-	if(!is.null(refDf[,RELEVANTVN_REF[["REF_ST"]]])) {
+	if(!is.null(refDf[,RELEVANTVN_REF[["REF_ST"]]]) && length(refDf[,RELEVANTVN_REF[["REF_ST"]]]) > 1) {
+		
+		# Is the overall ESM start time per participant among the prompts?
+		startTimeInPromptsColNames <- c(RELEVANTVN_REF[["REF_START_TIME"]], RELEVANTVN_REF[["REF_ST"]])
+		startTimeInPromptsBool <- apply(refDf[,startTimeInPromptsColNames],
+							MARGIN=1, function(x) {
+								any(as.character(x[2:length(startTimeInPromptsColNames)]) %in% as.character(x[1]))
+							})
+		
+		# Is the overall ESM end time per participant among the prompts?
+		endTimeInPromptsColNames <- c(RELEVANTVN_REF[["REF_END_TIME"]], RELEVANTVN_REF[["REF_ST"]])
+		endTimeInPromptsBool <- apply(refDf[,endTimeInPromptsColNames],
+							MARGIN=1, function(x) {
+								any(as.character(x[2:length(endTimeInPromptsColNames)]) %in% as.character(x[1]))
+							})
+		
+		if(any(!(startTimeInPromptsBool & endTimeInPromptsBool))) {
+			
+			print(refDf[!(startTimeInPromptsBool & endTimeInPromptsBool),])
+			stop(paste0("At least one entry in one of the two colums ", RELEVANTVN_REF[["REF_START_TIME"]], " or ", RELEVANTVN_REF[["REF_END_TIME"]], " is NOT among the respective participant's prompts, although it must be. See R console."))
+			
+		}
+		
 		# Another possible source for errors, e.g. in function 'esAssign',
 		# i.e. setting versus not setting the argument midnightPrompt to TRUE. 
-		idTimeAnomaly <- c()
+		idTimeAnomaly <- promptSwitchDate <- c()
 		
 		refDfInternal <- refDf
 		columnsHMS <- as.character(RELEVANTVN_REF[["REF_ST"]])
@@ -98,21 +122,27 @@ refPlausible <- function(refDf=NULL, units="days", RELEVANTVN_REF) {
 		
 		for(j in 1:nrow(refDf)) {
 			
-			# iDiffTemp <- base::diff(as.numeric(refDf[i,refDf[,RELEVANTVN_REF[["REF_ST"]]]]))
-			iDiffTemp <- base::diff(as.numeric(refDfInternal[j,RELEVANTVN_REF[["REF_ST"]]]))
+			# For participant j compute time diff between scheduled prompts
+			jDiffTemp0 <- base::diff(as.numeric(refDfInternal[j,RELEVANTVN_REF[["REF_ST"]]]))
+			# Copy first value of jDiffTemp0 and set at first position; this way
+			# there are as many entries as there are prompts.
+			jDiffTemp <- jDiffTemp0[c(1,1:length(jDiffTemp0))]
 			
-			if(any(iDiffTemp <= 0)) {
+			if(any(jDiffTemp <= 0)) {
 				idTimeAnomaly <- c(idTimeAnomaly, 1)
-				message(paste0("Is there an anomaly in the prospective time sequence in row ", j, " of the reference dataset? See column ", RELEVANTVN_REF[["REF_ID"]], " participant ", refDf[j,RELEVANTVN_REF[["REF_ID"]]], ".\nMaybe this is not an anomaly but instead signaling the necessity to set the argument 'midnightPrompt' to 'TRUE' in the function 'esAssign'."))
+				promptSwitchDate <- c(promptSwitchDate, which((jDiffTemp <= 0) == TRUE))
+				message(paste0("Is there an anomaly in the prospective time sequence in row ", j, " of the reference dataset? See column ", RELEVANTVN_REF[["REF_ID"]], " participant ", refDf[j,RELEVANTVN_REF[["REF_ID"]]], ".\nMaybe this is not an anomaly but instead signaling the necessity to set the argument 'midnightPrompt' to 'TRUE' in the function 'esAssign'.\n"))
 			} else {
 				idTimeAnomaly <- c(idTimeAnomaly, 0)
+				promptSwitchDate <- c(promptSwitchDate, 0)
 			}
+		}
+		
+		if(!all(idTimeAnomaly == 0)) {
+			refDf[,"TIME_ANOMALY"] <- idTimeAnomaly
+			refDf[,"PROMPT_NEXTDAY"] <- promptSwitchDate
 		}
 	}
 	
-	refDf[,paste0("ESM_PERIOD", toupper(units))] <- as.numeric(timeDiffDays)
-	refDf[,"TIME_ANOMALY"] <- idTimeAnomaly
-	
 	return(refDf)
-	
 }
