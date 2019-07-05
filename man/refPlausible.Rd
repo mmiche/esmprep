@@ -17,7 +17,8 @@ refPlausible(refDf = NULL, units = "days", RELEVANTVN_REF)
 A data.frame, i.e. \code{refDf}. The returned data.frame will have two additional columns:
 \enumerate{
 \item ESM_PERIOD in the selected time period, e.g. days.
-\item TIME_ANOMALY, i.e. a possible anomaly concerning the expected increase in the time sequence of the prompts in the reference dataset.
+\item TIME_ANOMALY, i.e. a possible anomaly concerning the expected increase in the time sequence of the prompts in the reference dataset (returned only if there is at least one time anomaly).
+\item PROMPT_NEXTDAY, i.e. at which of the participant's prompts is a time anomaly suspected (returned only if there is at least one time anomaly).
 }
 See \strong{Details} for more information.
 }
