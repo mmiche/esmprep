@@ -9,12 +9,12 @@ compareDates <- function(esDf, refDf, assignAll = FALSE, singlePerson = NA, RELE
     # -------------------------------------------------------------------------------
     if(assignAll==TRUE) {
         maxRawES <- max(lubridate::ymd_hms(paste(esDf[,RELEVANTVN_ES[["ES_START_DATE"]]], esDf[,RELEVANTVN_ES[["ES_START_TIME"]]])))
-        maxrefDf <- max(lubridate::ymd_hms(paste(refDf[,RELEVANTVN_ES[["ES_END_DATE"]]], refDf[,RELEVANTVN_ES[["ES_END_TIME"]]])))
+        maxrefDf <- max(lubridate::ymd_hms(paste(refDf[,RELEVANTVN_REF[["REF_END_DATE"]]], refDf[,RELEVANTVN_REF[["REF_END_TIME"]]])))
     } else {
         # compareDates for selected person i
         cd_i <- which(refDf[,RELEVANTVN_REF[["REF_ID"]]] == singlePerson)
         maxRawES <- max(lubridate::ymd_hms(paste(esDf[,RELEVANTVN_ES[["ES_START_DATE"]]], esDf[,RELEVANTVN_ES[["ES_START_TIME"]]])))
-        maxrefDf <- max(lubridate::ymd_hms(paste(refDf[,RELEVANTVN_ES[["ES_END_DATE"]]], refDf[,RELEVANTVN_ES[["ES_END_TIME"]]]))[cd_i])
+        maxrefDf <- max(lubridate::ymd_hms(paste(refDf[,RELEVANTVN_REF[["REF_END_DATE"]]], refDf[,RELEVANTVN_REF[["REF_END_TIME"]]]))[cd_i])
     }
 	
 	if(as.Date(maxrefDf) == as.Date(maxRawES)) {
