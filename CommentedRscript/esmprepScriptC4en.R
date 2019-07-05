@@ -31,6 +31,7 @@
 # Load package esmprep (package lubridate will be automatically loaded)
 # --------------------------------------------------------------------
 library(esmprep)
+# help(package="esmprep")
 #
 # # Help page of the package
 # help(package=esmprep)
@@ -163,6 +164,14 @@ names(referenceDfNew)
 #
 # Extract extended list of relevant variables names of reference dataset
 RELEVANTVN_REF <- referenceDfList[["extendedVNList"]]
+
+
+testRef <- refPlausible(referenceDfNew, RELEVANTVN_REF=RELEVANTVN_REF)
+
+names(testRef)
+
+summary(testRef$ESM_PERIODDAYS)
+
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
@@ -205,7 +214,7 @@ rmInvLs[["listInvalid"]]
 # The list element 'rmInvalidDfFinished' is relevant not for the user
 # but for the function 'printRmInvalid' which is directly associated
 # with the function 'rmInvalid'.
-rmInvLs[["rmInvalidDfFinished"]]
+rmInvLs[["rmInvalidFinished"]]
 #
 length(rmInvLs[["noLinesRemovedAtAll"]])
 rmInvLs[["noLinesRemovedAtAll"]]
@@ -457,7 +466,7 @@ colNames18 <- names(identDf)
 colNames18[!(colNames18 %in% colNames17)]
 #
 # Display excerpt of current raw ESM dataset with identical rows of data:
-identDf[identDf$IDENT==1,c("ID", "KEY", notItems[-1], "ES_MULT", "ES_MULT2", "IDENT")]
+identDf[identDf$IDENT==1,c("ID", "KEY", notItems[c(2,7,8)], "ES_MULT", "ES_MULT2", "IDENT")]
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 #
 #
@@ -597,6 +606,9 @@ names(intolLs)
 #
 # How many questionnaires were removed because of intolerable combinations?
 nrow(intolLs$intoleranceDf)
+
+intolLs$intoleranceDf[,c("ID", "PROMPT")]
+
 #
 # No new column names since prior function 'intolerable'
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
@@ -611,6 +623,8 @@ randSelLs <- randomMultSelection(intolLs[["cleanedDf"]])
 #
 # Output of function 'randomMultSelection'
 names(randSelLs)
+
+randSelLs[["esRandSelOut"]][,c("ID", "PROMPT")]
 #
 # No new column names since prior function 'randomMultSelection'
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
@@ -650,6 +664,14 @@ colNames26[!(colNames26 %in% colNames25)]
 # o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o
 # Run (function 27 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
+
+# names(durDf)
+# durDf[1:50,c("ID", "CV_ES", "CV_ESDAY", "ES_START_DATETIME", "ES_END_DATETIME")]
+# idxTemp <- which(durDf$ID=="P002" & durDf$CV_ES=="17")
+# durDf[idxTemp+1,"ES_END_DATETIME"] <- NA
+
+# esDf <- durDf; refDf <- referenceDfNew; RELEVANTVN_ES <- RELEVANTVN_ES; RELEVANTVN_REF <- RELEVANTVN_REF
+
 # durDf is the result of function 'computeDuration'.
 tbsqDf <- computeTimeBetween(esDf = durDf, refDf = referenceDfNew, RELEVANTVN_ES, RELEVANTVN_REF)
 #
@@ -666,7 +688,36 @@ colNames27[!(colNames27 %in% colNames26)]
 # Run (function 28 of 28; see esmprep functions' hierarchy)
 # ---------------------------------------------------------
 # tbsqDf is the result of function 'computeTimeBetween'.
-esDfFin <- esFinal(tbsqDf, RELEVANTINFO_ES, RELEVANTVN_ES)
+esDfFin <- esFinal(tbsqDf, esOpt=esAssigned[["ESopt"]], complianceRate=50, RELEVANTINFO_ES, RELEVANTVN_ES)
+#
+names(esDfFin)
+
+esAssigned[["ESrate"]]
+esDfFin[["ESrateFinal"]]
+
+esAssigned[["ESrate"]] == esDfFin[["ESrateFinal"]]
+
+
+x <- "P002"
+idx_x0 <- esAssigned[["ES"]][,"ID"]==x
+idx_x0MULT <- esAssigned[["ES"]][idx_x0, "ES_MULT"] == 0
+esAssigned[["ES"]][idx_x0, c("ID", "CV_ES", "PROMPT", "ES_MULT", "ES_MULT2")][idx_x0MULT,]
+idx_x1 <- esDfFin[["ESfinal"]][,"ID"]==x
+esDfFin[["ESfinal"]][idx_x1, c("ID", "CV_ES", "PROMPT", "ES_MULT", "ES_MULT2", "MISSED", "FILLER")]
+
+
+#
+names(esDfFin[["ESfinal"]])
+#
+names(esDfFin[["ESrateFinal"]])
+esDfFin[["ESrateFinal"]]
+#
+names(esDfFin[["ESfinalOut"]])
+esDfFin[["ESfinalOut"]][,c("ID", "CV_ES", "KEY", "MISSED", "FILLER")]
+esDfFin[["esFinalOut"]]
+
+esAssigned[["ESopt"]][esAssigned[["ESopt"]][,"ID"]==x,]
+
 #
 # Column names after applying function 'computeTimeBetween'.
 colNames28 <- names(esDfFin)
